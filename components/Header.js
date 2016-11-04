@@ -40,7 +40,7 @@ export default class Header extends React.Component {
     })
 
     this.style__header_container = css({
-      "marginTop": "-2px",
+      "marginTop": "-6px",
       "padding": "10px",
       "paddingRight": "0",
       "position": "absolute",
