@@ -1,0 +1,19 @@
+{
+  "name": "website",
+  "version": "0.0.1",
+  "description": "hopefully soon my main website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JannikWibker/website.git"
+  },
+  "author": "Jannik Wibker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JannikWibker/website/issues"
+  },
+  "homepage": "https://github.com/JannikWibker/website#readme"
+}
