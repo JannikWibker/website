@@ -4,6 +4,7 @@
   "description": "hopefully soon my main website.",
   "main": "index.js",
   "scripts": {
+    "dev": "next",
     "test": "exit 0"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/JannikWibker/website/issues"
   },
-  "homepage": "https://github.com/JannikWibker/website#readme"
+  "homepage": "https://github.com/JannikWibker/website#readme",
+  "dependencies": {
+    "next": "^1.0.2"
+  }
 }
