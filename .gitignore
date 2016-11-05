@@ -4,6 +4,9 @@
 # Next.js
 .next
 
+# vendor frameworks
+static/vendor
+
 # Logs
 logs
 *.log
