@@ -89,9 +89,6 @@ export default class Header extends React.Component {
       $(' a', {"textDecoration": "none", color: this.theme.color})
     )
 
-    insertRule('body { font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto, Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", sans-serif }')
-    console.log(insertRule(`.link > a:hover { color: ${this.theme.invertColor}; background-color: rgba(248,28,229,0.75)}`))
-
   }
 
   render() {
