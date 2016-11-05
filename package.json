@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "test": "exit 0"
+    "test": "exit 0",
+    "css": "cp ./node_modules/skeleton-css/css/* ./static/vendor"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/JannikWibker/website#readme",
   "dependencies": {
-    "next": "^1.0.2"
+    "next": "^1.0.2",
+    "skeleton-css": "^2.0.4"
   }
 }

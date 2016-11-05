@@ -22,8 +22,8 @@ export default class Globals extends React.Component {
     return (
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="stylesheet" href="static/normalize.css" />
-          <link rel="stylesheet" href="static/skeleton.css" />
+          <link rel="stylesheet" href="static/vendor/normalize.css" />
+          <link rel="stylesheet" href="static/vendor/skeleton.css" />
         </Head>
     )
   }
