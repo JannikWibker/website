@@ -98,9 +98,14 @@ export default class Header extends React.Component {
             <div className={this.style__header_icon}>
               <Link href="/">
                 <svg width="40" height="40" onClick={() => {
-                  this.theme = dark_theme
-                  this.update_css()
-                  console.log(this)
+                  if(this.theme.name === 'dark_theme') {
+                    this.theme = light_theme
+                  } else if(this.theme.name === 'light_theme') {
+                    this.theme = dark_theme
+                  }
+                  this.css()
+                  console.log('changing theme...', this.theme.name)
+                  this.forceUpdate()
                 }}>
                   <circle cx="20" cy="20" r="20" fill={this.theme.color}/>
                 </svg>
