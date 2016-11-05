@@ -3,28 +3,27 @@ import Globals from '../components/Globals.js'
 import Header from '../components/Header.js'
 import Content from '../components/Content.js'
 import Block from '../components/Block.js'
-
+import { dark_theme, light_theme } from '../config/themes.js'
+import theme_event from '../config/theme_event.js'
 
 export default class Blog extends React.Component {
 
   constructor(){
     super()
+  }
 
-    this.dark_theme = {
-      backgroundColor: '#000',
-      color: '#fff',
-      invertColor: '#000'
-    }
-
+  componentWillMount() {
+    theme_event()
   }
 
   render() {
+    theme_event()
     return (
       <div className="root">
         <Globals />
-        <Header theme={this.dark_theme}/>
+        <Header theme={light_theme}/>
         <Content>
-          <Block>
+          <Block theme={dark_theme}>
             Blog
           </Block>
         </Content>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import css from 'next/css'
 import { merge, hover, insertRule, $ } from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
+import event from '../util/event.js'
 
 
 export default class Header extends React.Component {
@@ -18,13 +19,35 @@ export default class Header extends React.Component {
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
 
+    event.subscribe('theme', (e) => {
+
+      // function to swap theme
+      let swap = theme => {
+        if(theme.name === dark_theme.name) {
+          return light_theme
+        } else if(theme.name === light_theme.name) {
+          return dark_theme
+        }
+      }
+
+      this.theme = swap(this.theme)
+      this.css()
+      if(this._mounted) this.forceUpdate()
+    })
+
     this.update_css()
   }
-
+  // componentWillMount
   componentWillMount() {
+    this._mounted = true
     this.update_css()
   }
+  // componentWillUnmount
+  componentWillUnmount() {
+    this._mounted = false
+  }
 
+  // update_css (set the theme given via props or default to light theme)
   update_css() {
     if(this.props && this.props.theme) {
       this.theme = this.props.theme
@@ -34,7 +57,7 @@ export default class Header extends React.Component {
 
     this.css()
   }
-
+  // css (set all the css using glamor (aliased to css because next.js) with the current theme)
   css() {
     this.style__root = css({
       "fontFamily": "Menlo, Monaca, Lucida Console, Liberation Mono, monospace, serif",
@@ -46,6 +69,10 @@ export default class Header extends React.Component {
       "margin": "auto",
       "padding": "30px 8px",
       "position": "relative",
+      "backgroundColor": this.theme.backgroundColor
+    })
+
+    this.style__header_out = css({
       "backgroundColor": this.theme.backgroundColor
     })
 
@@ -93,20 +120,11 @@ export default class Header extends React.Component {
 
   render() {
     return (
-        <div className="header">
+        <div className={this.style__header_out}>
           <header className={this.style__header}>
             <div className={this.style__header_icon}>
-              <Link href="/">
-                <svg width="40" height="40" onClick={() => {
-                  if(this.theme.name === 'dark_theme') {
-                    this.theme = light_theme
-                  } else if(this.theme.name === 'light_theme') {
-                    this.theme = dark_theme
-                  }
-                  this.css()
-                  console.log('changing theme...', this.theme.name)
-                  this.forceUpdate()
-                }}>
+              <Link href="">
+                <svg width="40" height="40" onClick={event.trigger.bind(this, 'theme', this.theme)}>
                   <circle cx="20" cy="20" r="20" fill={this.theme.color}/>
                 </svg>
               </Link>

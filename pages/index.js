@@ -4,15 +4,18 @@ import Header from '../components/Header.js'
 import Content from '../components/Content.js'
 import Block from '../components/Block.js'
 import { dark_theme, light_theme } from '../config/themes.js'
-
-
+import theme_event from '../config/theme_event.js'
 
 export default class Index extends React.Component {
 
   constructor(){
     super()
 
-    console.log(dark_theme)
+    theme_event()
+  }
+
+  componentWillMount() {
+    theme_event()
   }
 
   render() {
@@ -20,7 +23,7 @@ export default class Index extends React.Component {
       <div className="root">
         <Globals />
         <Header theme={dark_theme} />
-        <Content>
+        <Content theme={dark_theme}>
           <Block theme={dark_theme} >
             Index
           </Block>
