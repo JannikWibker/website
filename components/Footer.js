@@ -101,7 +101,14 @@ export default class Footer extends React.Component {
             </Link>
           </div>
           <div className={`${this.style__footer_item} four columns link`}>
-            <Link href="mailto:jannikwibker@gmail.com">jannikwibker@gmail.com</Link>
+            <Link href="mailto:jannikwibker@gmail.com">
+              <div>
+                <img src={`/static/images/email-24dp-${this.theme.name}.png`} />
+                <span>
+                  jannikwibker@gmail.com
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
