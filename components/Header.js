@@ -106,7 +106,7 @@ export default class Header extends React.Component {
       "right": "0"
     })
 
-    this.style__header_item = merge( css({
+    this.style__header_item = merge(css({
         "padding": "10px",
         "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, sans-serif",
         "fontSize": "12px",

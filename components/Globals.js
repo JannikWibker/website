@@ -14,8 +14,8 @@ export default class Globals extends React.Component {
   }
 
   css() {
-    insertRule('body { font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto, Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", sans-serif }')
-    insertRule('.link > a:hover { color: #fff; background-color: rgba(248,28,229,0.75)}')
+    insertRule('body { font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto, Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", sans-serif;text-rendering: geometricPrecision; }')
+    insertRule('.link > a:hover, .link > a:hover > div > span { color: #fff; background-color: rgba(248,28,229,0.75)}')
   }
 
   render() {

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import css from 'next/css'
 import merge from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
@@ -25,7 +26,7 @@ export default class Block extends React.Component {
       this.css()
       if(this._mounted) this.forceUpdate()
     })
-    
+
     this.update_css()
   }
   // componentWillMount
@@ -53,7 +54,7 @@ export default class Block extends React.Component {
     this.style__block = css({
       "display": "flex",
       "alignItems": "center",
-      "minHeight": "calc(100vh - 150px)",
+      "minHeight": "calc(50vh - 55px)",
       "justifyContent": "center",
       "position": "relative",
       "color": this.theme.color,
