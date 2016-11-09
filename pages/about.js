@@ -3,6 +3,7 @@ import Globals from '../components/Globals.js'
 import Header from '../components/Header.js'
 import Content from '../components/Content.js'
 import Block from '../components/Block.js'
+import Footer from '../components/Footer.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import theme_event from '../config/theme_event.js'
 
@@ -29,6 +30,7 @@ export default class About extends React.Component {
             About
           </Block>
         </Content>
+        <Footer />
       </div>
     )
   }

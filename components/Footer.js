@@ -54,12 +54,12 @@ export default class Footer extends React.Component {
     this.style__footer_container = css({
       "width": "100%",
       "backgroundColor": this.theme.backgroundColor,
-      "paddingBottom": "20px"
+      "padding": "20px 0"
     })
 
     this.style__footer = css({
       "color": this.theme.color,
-      "backgroundColor": this.theme.backgroundColor,
+      "backgroundColor": this.theme.backgroundColor
     })
 
     this.style__footer_item = merge(css({

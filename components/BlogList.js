@@ -1,12 +1,17 @@
 import React from 'react'
 import css from 'next/css'
+import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
+import fetch from 'isomorphic-fetch'
 
-export default class Content extends React.Component {
+export default class BlogList extends React.Component {
 
   constructor() {
     super()
+
+    this.get()
+    this.posts = {}
 
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
@@ -50,20 +55,30 @@ export default class Content extends React.Component {
   }
 
   css() {
-    this.style__content = css({
+    this.style__blog_list = css({
       "color": this.theme.color,
-      "backgroundColor": this.theme.backgroundColor,
-      "minHeight": "calc(100vh - 110px - 72px)",
-      "fontSize": "14px",
-      "textAlign": "center",
-      "fontWeight": "100"
+      "backgroundColor": this.theme.backgroundColor
     })
+  }
+
+  get(post) {
+    fetch(`http://localhost:3001/blog/get${post ? ('/' + post) : ''}`)
+      .then((data) => {
+        return data.json()
+      })
+      .then((json) => {
+        if(post) {
+          this.posts[post] = json
+        } else {
+          this.posts = json
+        }
+      })
   }
 
   render() {
     return (
-      <div className={this.style__content}>
-        {this.props.children}
+      <div className={this.style__blog_list}>
+
       </div>
     )
   }
