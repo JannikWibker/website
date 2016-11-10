@@ -1,9 +1,11 @@
 import React from 'react'
+import marked from 'marked'
 import css from 'next/css'
 import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import fetch from 'isomorphic-fetch'
+
 
 export default class BlogList extends React.Component {
 

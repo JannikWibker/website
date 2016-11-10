@@ -7,7 +7,7 @@ import Footer from '../components/Footer.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import theme_event from '../config/theme_event.js'
 
-export default class About extends React.Component {
+export default class AboutPage extends React.Component {
 
   constructor(){
     super()
