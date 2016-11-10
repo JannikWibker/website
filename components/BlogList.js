@@ -11,7 +11,7 @@ export default class BlogList extends React.Component {
     super()
 
     this.get()
-    this.posts = {}
+    this.posts = []
 
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
@@ -29,6 +29,7 @@ export default class BlogList extends React.Component {
 
       this.theme = swap(this.theme)
       this.css()
+      this.get()
       if(this._mounted) this.forceUpdate()
     })
 
@@ -59,6 +60,29 @@ export default class BlogList extends React.Component {
       "color": this.theme.color,
       "backgroundColor": this.theme.backgroundColor
     })
+
+    this.style__blog_container = css({
+      "textAlign": "initial"
+    })
+
+    this.style__blog_name = css({
+      "color": this.theme.color,
+      "backgroundColor": this.theme.backgroundColor,
+      "fontSize": "1.2em"
+    })
+
+    this.style__blog_preview = css({
+      "color": this.theme.color,
+      "backgroundColor": this.theme.backgroundColor,
+      "fontSize": "1em",
+      "paddingLeft": "8px"
+    })
+
+    this.style__blog_post_container = css({
+      "color": this.theme.color,
+      "backgroundColor": this.theme.backgroundColor,
+      "paddingBottom": "24px"
+    })
   }
 
   get(post) {
@@ -72,13 +96,25 @@ export default class BlogList extends React.Component {
         } else {
           this.posts = json
         }
+        if(this._mounted) this.forceUpdate()
       })
   }
 
   render() {
+    console.log(this.posts)
     return (
-      <div className={this.style__blog_list}>
-
+      <div className={`${this.style__blog_container} container`}>
+        <div className={`${this.style__blog_list} four columns`}>
+        {Object.keys(this.posts).map((post, i) => {
+          let l_post = this.posts[post]
+          return (
+            <div key={i} className={this.style__blog_post_container}>
+              <span className={this.style__blog_name}>{l_post.name}<br /></span>
+              <span className={this.style__blog_preview}>{l_post.content}<br /></span>
+            </div>
+          )
+        })}
+        </div>
       </div>
     )
   }

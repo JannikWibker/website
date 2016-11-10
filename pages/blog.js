@@ -26,7 +26,6 @@ export default class Blog extends React.Component {
         <Header theme={light_theme}/>
         <Content>
           <Block theme={light_theme}>
-            Blog
             <BlogList />
           </Block>
         </Content>
