@@ -11,7 +11,7 @@ export default class BlogList extends React.Component {
     super()
 
     this.get()
-    this.posts = []
+    this.posts = {}
 
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
@@ -106,7 +106,10 @@ export default class BlogList extends React.Component {
   }
 
   get(post) {
-    fetch(`http://localhost:3001/blog/get${post ? ('/' + post) : ''}`)
+    if(typeof window === 'undefined') {
+      return {}
+    }
+    fetch(`http://${location.hostname}:3001/blog/get${post ? ('/' + post) : ''}`)
       .then((data) => {
         return data.json()
       })
@@ -116,12 +119,11 @@ export default class BlogList extends React.Component {
         } else {
           this.posts = json
         }
-        if(this._mounted) this.forceUpdate()
+        if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
       })
   }
 
   render() {
-    console.log(this.posts)
     return (
       <div className={`${this.style__blog_container} container`}>
         <div className={`${this.style__blog_list} ten columns`}>
