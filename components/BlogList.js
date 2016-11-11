@@ -133,7 +133,7 @@ export default class BlogList extends React.Component {
           let l_post = this.posts[post]
           return (
             <div key={i} className={this.style__blog_post_container} id={l_post.name}>
-              <a className={this.style__blog_name} href={`/blog/${l_post.name}`}>
+              <a className={this.style__blog_name} href={`/blog/${l_post.id}`}>
                  {l_post.name}<br />
               </a>
               <div className={this.style__blog_preview}>

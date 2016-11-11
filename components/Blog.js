@@ -58,6 +58,15 @@ export default class Blog extends React.Component {
 
   }
 
-  
+  get() {
+    if(typeof window === 'undefined') {
+      return {}
+    }
+    fetch(`http://${location.hostname}:3001/blog/get/${this.props.id}`)
+  }
+
+  render() {
+
+  }
 
 }
