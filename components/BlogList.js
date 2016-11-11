@@ -101,7 +101,7 @@ export default class BlogList extends React.Component {
     })
 
     this.style__blog_seperator = css({
-      "borderColor": this.theme.color,
+      "color": this.theme.accentColor,
       "textAlign": "center",
       "padding": "16px 0"
     })
