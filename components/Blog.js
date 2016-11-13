@@ -22,10 +22,43 @@ export default class Blog extends Class {
     this.theme_event()
     this.update_css()
 
+
+  }
+
+  format(input = '', type = '') {
+    if(type === '') {
+      return ''
+    } else if(type === 'markdown') {
+      return marked(input)
+    } else if(type === 'plain') {
+      return input
+    } else {
+      return ''
+    }
   }
 
   css() {
-    
+
+    this.style__blog_container = css({
+      "color": this.theme.color
+    })
+
+    this.style__blog_name = css({
+      "textAlign": "left",
+      "fontSize": "1.2em",
+      "fontWeight": "500",
+      "paddingBottom": "8px",
+      ":before": {
+        "content": '"> "',
+        "position": "relative",
+        "marginLeft": "-8px"
+      }
+    })
+
+    this.style__blog_content = css({
+      "textAlign": "left",
+      "paddingLeft": "8px",
+    })
   }
 
   get(post) {
@@ -36,7 +69,9 @@ export default class Blog extends Class {
       .then((data) => data.json())
       .then((json) => {
         this.post = json
-        console.log(this.post)
+        if(this.post.theme && this.theme.name === 'light_theme') {
+          event.trigger.bind(this, 'theme', this.theme)
+        }
         if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
       })
 
@@ -44,9 +79,11 @@ export default class Blog extends Class {
 
   render() {
     return (
-      <div>
-      {this.post.id}
-      {this.post.name}
+      <div className={`${this.style__blog_container} container`}>
+        <div className={`${this.style__blog} ten columns`}>
+          <div className={`${this.style__blog_name}`}>{this.post.name}</div>
+          <div className={this.style__blog_content} dangerouslySetInnerHTML={{__html: this.format(this.post.content, this.post.type)}} />
+        </div>
       </div>
     )
   }
