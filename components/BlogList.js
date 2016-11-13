@@ -70,7 +70,8 @@ export default class BlogList extends Class {
     this.style__blog_seperator = css({
       "color": this.theme.accentColor,
       "textAlign": "center",
-      "padding": "16px 0"
+      "paddingTop": "19px", // '*' is not vertically centered; this should adjust this
+      "paddingBottom": "13px"
     })
   }
 

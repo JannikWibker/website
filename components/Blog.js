@@ -25,7 +25,7 @@ export default class Blog extends Class {
   }
 
   css() {
-
+    
   }
 
   get(post) {
