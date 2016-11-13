@@ -43,6 +43,8 @@ export default class Blog extends Class {
       "color": this.theme.color
     })
 
+    //this.style__blog = css({})
+
     this.style__blog_name = css({
       "textAlign": "left",
       "fontSize": "1.2em",
@@ -82,7 +84,7 @@ export default class Blog extends Class {
       <div className={`${this.style__blog_container} container`}>
         <div className={`${this.style__blog} ten columns`}>
           <div className={`${this.style__blog_name}`}>{this.post.name}</div>
-          <div className={this.style__blog_content} dangerouslySetInnerHTML={{__html: this.format(this.post.content, this.post.type)}} />
+          <div className={`${this.style__blog_content} ${this.post.type}`} dangerouslySetInnerHTML={{__html: this.format(this.post.content, this.post.type)}} />
         </div>
       </div>
     )
