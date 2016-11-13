@@ -4,14 +4,15 @@ import Header from '../components/Header.js'
 import Content from '../components/Content.js'
 import Block from '../components/Block.js'
 import BlogList from '../components/BlogList.js'
+import Blog from '../components/Blog.js'
 import Footer from '../components/Footer.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import theme_event from '../config/theme_event.js'
 
 export default class BlogPage extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
   }
 
   componentWillMount() {
@@ -26,7 +27,9 @@ export default class BlogPage extends React.Component {
         <Header theme={light_theme}/>
         <Content>
           <Block theme={light_theme}>
-            <BlogList />
+            {this.props.url.query.id ?
+              <Blog id={this.props.url.query.id} /> :
+              <BlogList />}
           </Block>
         </Content>
         <Footer theme={light_theme}/>

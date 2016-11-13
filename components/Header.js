@@ -4,6 +4,7 @@ import css from 'next/css'
 import { merge, hover, insertRule, $ } from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
+import Class from './Class.js'
 
 
 export default class Header extends React.Component {

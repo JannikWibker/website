@@ -5,56 +5,23 @@ import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import fetch from 'isomorphic-fetch'
+import Class from './Class.js'
 
 
-export default class BlogList extends React.Component {
+export default class BlogList extends Class {
 
-  constructor() {
-    super()
-
+  constructor(props) {
+    super(props)
     this.get()
     this.posts = {}
 
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
+    this.theme_event = this.theme_event.bind(this)
 
-    event.subscribe('theme', (e) => {
-
-      // function to swap theme
-      let swap = theme => {
-        if(theme.name === dark_theme.name) {
-          return light_theme
-        } else if(theme.name === light_theme.name) {
-          return dark_theme
-        }
-      }
-
-      this.theme = swap(this.theme)
-      this.css()
-      this.get()
-      if(this._mounted) this.forceUpdate()
-    })
-
+    this.theme_event()
     this.update_css()
 
-  }
-  // componentWillMount
-  componentWillMount() {
-    this._mounted = true
-    this.update_css()
-  }
-  // componentWillUnmount
-  componentWillUnmount() {
-    this._mounted = false
-  }
-
-  update_css() {
-    if(this.props && this.props.theme) {
-      this.theme = this.props.theme
-    } else {
-      this.theme = light_theme
-    }
-    this.css()
   }
 
   css() {
@@ -133,7 +100,7 @@ export default class BlogList extends React.Component {
           let l_post = this.posts[post]
           return (
             <div key={i} className={this.style__blog_post_container} id={l_post.name}>
-              <a className={this.style__blog_name} href={`/blog/${l_post.id}`}>
+              <a className={this.style__blog_name} href={`/blog?id=${l_post.id}`}>
                  {l_post.name}<br />
               </a>
               <div className={this.style__blog_preview}>
