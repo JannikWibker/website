@@ -6,6 +6,7 @@ import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
+import moment from 'moment'
 
 
 export default class BlogList extends Class {
@@ -13,7 +14,7 @@ export default class BlogList extends Class {
   constructor(props) {
     super(props)
     this.get()
-    this.posts = {}
+    this.posts = []
 
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
@@ -73,22 +74,30 @@ export default class BlogList extends Class {
       "paddingTop": "19px", // '*' is not vertically centered; this should adjust this
       "paddingBottom": "13px"
     })
+
+    this.style__blog_date = css({
+      "position": "relative",
+      "color": this.theme.accentColor,
+      "fontSize": "0.8em",
+      "float": "right",
+    })
   }
 
-  get(post) {
+  get() {
     if(typeof window === 'undefined') {
       return {}
     }
-    fetch(`http://${location.hostname}:3001/blog/get${post ? ('/' + post) : ''}`)
+    fetch(`http://${location.hostname}:3001/blog/get`)
       .then((data) => {
         return data.json()
       })
       .then((json) => {
-        if(post) {
-          this.posts[post] = json
-        } else {
-          this.posts = json
-        }
+        this.posts = Object.keys(json).map(key => json[key])
+        console.log(this.posts)
+        this.posts.sort((a, b) => {
+          return new Date(b.createdAt) - new Date(a.createdAt)
+        })
+        console.log(this.posts)
         if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
       })
   }
@@ -97,12 +106,14 @@ export default class BlogList extends Class {
     return (
       <div className={`${this.style__blog_container} container`}>
         <div className={`${this.style__blog_list} ten columns`}>
-        {Object.keys(this.posts).map((post, i, a) => {
-          let l_post = this.posts[post]
+        {this.posts.map((post, i, a) => {
+          let l_post = post //this.posts[post]
           return (
             <div key={i} className={this.style__blog_post_container} id={l_post.name}>
               <a className={this.style__blog_name} href={`/blog?id=${l_post.id}`}>
-                 {l_post.name}<br />
+                 {l_post.name}
+                 <span className={this.style__blog_date}>{l_post.createdAt ? moment(l_post.createdAt).format('DD/MM/YYYY') : ''}</span>
+                 <br />
               </a>
               <div className={this.style__blog_preview}>
                 {l_post.content.substring(0, 100)}<br />

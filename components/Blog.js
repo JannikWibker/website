@@ -6,6 +6,7 @@ import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
+import moment from 'moment'
 
 export default class Blog extends Class {
 
@@ -61,6 +62,12 @@ export default class Blog extends Class {
       "textAlign": "left",
       "paddingLeft": "8px",
     })
+
+    this.style__blog_date = css({
+      "color": this.theme.accentColor,
+      "fontSize": "0.8em",
+      "textAlign": "left"
+    })
   }
 
   get(post) {
@@ -71,8 +78,13 @@ export default class Blog extends Class {
       .then((data) => data.json())
       .then((json) => {
         this.post = json
-        if(this.post.theme && this.theme.name === 'light_theme') {
-          event.trigger.bind(this, 'theme', this.theme)
+        if(this.post.theme && this.post.theme !== 'light_theme' && this.theme.name === 'light_theme') {
+          event.trigger('theme', this.theme)
+        }
+        if(this.post.createdAt) {
+          let l_date = moment(this.post.createdAt)
+          this.post.date = l_date.format('DD.MM.YYYY hh:mm')
+          this.post.ago = l_date.fromNow()
         }
         if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
       })
@@ -85,6 +97,7 @@ export default class Blog extends Class {
         <div className={`${this.style__blog} ten columns`}>
           <div className={`${this.style__blog_name}`}>{this.post.name}</div>
           <div className={`${this.style__blog_content} ${this.post.type}`} dangerouslySetInnerHTML={{__html: this.format(this.post.content, this.post.type)}} />
+          <div className={`${this.style__blog_date}`}>{this.post.date} - {this.post.ago}</div>
         </div>
       </div>
     )
