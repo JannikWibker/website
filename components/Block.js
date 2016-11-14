@@ -7,8 +7,8 @@ import event from '../util/event.js'
 import Class from './Class.js'
 
 export default class Block extends Class {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
@@ -16,6 +16,8 @@ export default class Block extends Class {
 
     this.theme_event()
     this.update_css()
+
+    //
   }
 
   // css (set all the css using glamor (aliased to css because next.js) with the current theme)
@@ -34,7 +36,9 @@ export default class Block extends Class {
   render() {
     return (
       <div className={this.style__block}>
-        {this.props.children}
+        {typeof this.props.children !== 'string'  && typeof this.props.children.props.theme === 'undefined'? 
+          React.cloneElement(this.props.children, { theme: this.theme }) :
+          this.props.children}
       </div>
     )
   }
