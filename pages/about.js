@@ -25,9 +25,9 @@ export default class AboutPage extends React.Component {
       <div className="root">
         <Globals />
         <Header />
-        <Content>
+        <Content theme={light_theme}>
           <Block>
-            About
+            about
           </Block>
         </Content>
         <Footer />
