@@ -93,11 +93,9 @@ export default class BlogList extends Class {
       })
       .then((json) => {
         this.posts = Object.keys(json).map(key => json[key])
-        console.log(this.posts)
         this.posts.sort((a, b) => {
           return new Date(b.createdAt) - new Date(a.createdAt)
         })
-        console.log(this.posts)
         if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
       })
   }
