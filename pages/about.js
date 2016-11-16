@@ -6,11 +6,13 @@ import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import theme_event from '../config/theme_event.js'
+import keyboard from '../config/keyboard.js'
 
 export default class AboutPage extends React.Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
+    keyboard.init()
 
     theme_event()
   }
