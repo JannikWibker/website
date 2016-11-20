@@ -12,9 +12,16 @@ export default class IndexPage extends React.Component {
 
   constructor(props){
     super(props)
+    console.log(this.props.url)
     keyboard.add('command+p', (e) => {
       console.log(e)
       e.preventDefault()
+    })
+    keyboard.add('left', (e) => {
+      console.log(e)
+      this.props.url.back()
+    })
+    keyboard.add('right', (e) => {
     })
     keyboard.init()
 
