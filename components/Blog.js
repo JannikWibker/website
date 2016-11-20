@@ -63,10 +63,11 @@ export default class Blog extends Class {
       "paddingLeft": "8px",
     })
 
-    this.style__blog_date = css({
+    this.style__blog_author = css({
       "color": this.theme.accentColor,
       "fontSize": "0.8em",
-      "textAlign": "left"
+      "textAlign": "left",
+      "marginLeft": "-8px"
     })
   }
 
@@ -83,7 +84,7 @@ export default class Blog extends Class {
         }
         if(this.post.createdAt) {
           let l_date = moment(this.post.createdAt)
-          this.post.date = l_date.format('DD.MM.YYYY hh:mm')
+          this.post.date = l_date.format('DD.MM.YYYY')
           this.post.ago = l_date.fromNow()
         }
         if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
@@ -97,7 +98,14 @@ export default class Blog extends Class {
         <div className={`${this.style__blog} ten columns`}>
           <div className={`${this.style__blog_name}`}>{this.post.name}</div>
           <div className={`${this.style__blog_content} ${this.post.type}`} dangerouslySetInnerHTML={{__html: this.format(this.post.content, this.post.type)}} />
-          <div className={`${this.style__blog_date}`}>{this.post.date} - {this.post.ago}</div>
+          <div className={`${this.style__blog_author}`}>
+            <i>
+              {this.post.author ? `~ ${this.post.author}` : '~ owner'}
+            </i><br />
+            <span className={css({ "paddingLeft": "4px" })}>
+              {this.post.date} - {this.post.ago}
+            </span>
+          </div>
         </div>
       </div>
     )

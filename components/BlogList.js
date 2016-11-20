@@ -81,6 +81,11 @@ export default class BlogList extends Class {
       "fontSize": "0.8em",
       "float": "right",
     })
+
+    this.style__blog_author = css({
+      "color": this.theme.accentColor,
+      "fontSize": "0.em"
+    })
   }
 
   get() {
@@ -115,6 +120,7 @@ export default class BlogList extends Class {
               </a>
               <div className={this.style__blog_preview}>
                 {l_post.content.substring(0, 100)}<br />
+                {l_post.author ? <i className={this.style__blog_author}>~ {l_post.author}</i> : ''}
               </div>
               {(i + 1 < a.length) ? <div className={this.style__blog_seperator}>***</div> : null}
             </div>
