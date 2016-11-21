@@ -22,11 +22,11 @@ export default class Block extends Class {
   // css (set all the css using glamor (aliased to css because next.js) with the current theme)
   css() {
     this.style__block = css({
+      "position": "relative",
       "display": "flex",
       "alignItems": "center",
-      "minHeight": "calc(50vh - 55px)",
       "justifyContent": "center",
-      "position": "relative",
+      "minHeight": "calc(50vh - 55px)",
       "color": this.theme.color,
       "backgroundColor": this.theme.backgroundColor
     })
