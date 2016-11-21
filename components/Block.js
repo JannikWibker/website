@@ -13,7 +13,7 @@ export default class Block extends Class {
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
     this.theme_event = this.theme_event.bind(this)
-
+    console.log(this.props.children)
     this.theme_event()
     this.update_css()
 
@@ -36,7 +36,9 @@ export default class Block extends Class {
   render() {
     return (
       <div className={this.style__block}>
-        {typeof this.props.children !== 'string'  && typeof this.props.children.props.theme === 'undefined'? 
+        {typeof this.props.children !== 'string' &&
+         typeof this.props.children.type !== 'string' &&
+         typeof this.props.children.props.theme === 'undefined'?
           React.cloneElement(this.props.children, { theme: this.theme }) :
           this.props.children}
       </div>
