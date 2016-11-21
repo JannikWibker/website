@@ -13,7 +13,6 @@ export default class Block extends Class {
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
     this.theme_event = this.theme_event.bind(this)
-    console.log(this.props.children)
     this.theme_event()
     this.update_css()
 
