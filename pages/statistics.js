@@ -10,6 +10,7 @@ import { dark_theme, light_theme } from '../config/themes.js'
 import theme_event from '../config/theme_event.js'
 import PieChart from '../components/Charts/PieChart.js'
 import BarChart from '../components/Charts/BarChart.js'
+import HorizontalBarChart from '../components/Charts/HorizontalBarChart.js'
 
 export default class StatisticsPage extends React.Component {
 
@@ -60,12 +61,66 @@ export default class StatisticsPage extends React.Component {
 
   createCharts() {
     this.charts.charts[0] = {
-      chart: <PieChart data={this.charts.data[0]} options={{responsive: true }} width={400} height={400} />,
-      headline: 'Do you program?'
+      headline: 'Do you program?',
+      chart: <PieChart data={this.charts.data[0]} options={{ responsive: true }} width={400} height={400} />
     }
     this.charts.charts[1] = {
-      chart: <BarChart data={this.charts.data[1]} options={{responsive: true }} width={400} height={400} />,
-      headline: 'How many programming languages are you fairly confident in?'
+      headline: 'How many programming languages are you fairly confident in?',
+      chart: <BarChart data={this.charts.data[1]} options={{
+        responsive: true,
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0,
+              max: 7,
+              stepSize: 1
+            }
+          }]
+        }
+      }} width={400} height={400} />
+    }
+    this.charts.charts[2] = {
+      headline: 'The average is **~2.5** languages'
+    }
+    this.charts.charts[3] = {
+      headline: 'What are the most popular languages?',
+      chart: <HorizontalBarChart data={this.charts.data[3]} options={{
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              min: 0,
+              max: 13,
+              stepSize: 1
+            }
+          }]
+        }
+      }} width={400} height={400} />
+    }
+    this.charts.charts[4] = {
+      headline: 'How good does one rate himself on a scale from 0-10 in his languages?',
+    }
+    this.charts.charts[5] = {
+      headline: 'What editors/IDEs are predominately being used?',
+      chart: <HorizontalBarChart data={this.charts.data[5]} options={{
+        responsive: true,
+        scales: {
+          xAxes: [{
+            ticks: {
+              min: 0,
+              max: 7,
+              stepSize: 1
+            }
+          }]
+        }
+      }} width={400} height={400} />
+    }
+    this.charts.charts[6] = {
+      headline: 'Which OS is being used predominately?' ,
+      chart: <PieChart data={this.charts.data[6]} options={{ responsive: true }} width={400} height={400} />
+    }
+    this.charts.charts[7] = {
+      headline: 'Definitly **Windows**.'
     }
   }
 
@@ -102,9 +157,9 @@ export default class StatisticsPage extends React.Component {
                 return (
                   <div className={css({"marginBottom": "36px"})} key={i}>
                   <span className={this.style__headline}>
-                    {item.headline}
+                    <span dangerouslySetInnerHTML={{__html: marked(item.headline)}} />
                   </span>
-                  {item.chart}
+                  {item.chart ? item.chart : ''}
                   </div>
                 )
               })}
