@@ -6,7 +6,7 @@ import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import css from 'next/css'
 import marked from 'marked'
-import { dark_theme, light_theme } from '../config/themes.js'
+import { dark_theme, light_theme, purple_theme } from '../config/themes.js'
 import theme_event from '../config/theme_event.js'
 import PieChart from '../components/Charts/PieChart.js'
 import BarChart from '../components/Charts/BarChart.js'
@@ -80,7 +80,7 @@ export default class StatisticsPage extends React.Component {
       }} width={400} height={400} />
     }
     this.charts.charts[2] = {
-      headline: 'The average is **~2.5** languages'
+      headline: 'The average is **~2.4** languages'
     }
     this.charts.charts[3] = {
       headline: 'What are the most popular languages?',
@@ -147,7 +147,7 @@ export default class StatisticsPage extends React.Component {
         <Globals />
         {/* <Header theme={light_theme} /> */}
         <Content theme={light_theme}>
-          <Block theme={light_theme} >
+          <Block theme={purple_theme} >
             <div className={this.style__root}>
               <div className={css({"width": "100%"})}>
                 <span className={this.style__introduction} dangerouslySetInnerHTML={{__html: marked(this.introduction)}} />
