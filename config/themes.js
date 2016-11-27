@@ -13,5 +13,12 @@ const light_theme = {
   invertColor: '#fff',
   accentColor: '#aaa'
 }
+const purple_theme= {
+  name: 'purple_theme',
+  backgroundColor: '#180018',
+  color: '#BAA6BF',
+  invertColor: '#180018 ',
+  accentColor: '#280B29'
+}
 
-export  { dark_theme, light_theme }
+export  { dark_theme, light_theme, purple_theme }
