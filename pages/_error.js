@@ -3,7 +3,7 @@ import style, { merge } from 'next/css'
 
 export default class Error extends React.Component {
   static getInitialProps ({ res, xhr, req }) {
-    console.log(req.url)
+    console.log('failed: ' + req.url)
     const statusCode = res ? res.statusCode : xhr.status
     return { statusCode }
   }
