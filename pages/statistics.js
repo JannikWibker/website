@@ -10,6 +10,7 @@ import { dark_theme, light_theme, purple_theme } from '../config/themes.js'
 import theme_event from '../config/theme_event.js'
 import PieChart from '../components/Charts/PieChart.js'
 import BarChart from '../components/Charts/BarChart.js'
+import LineChart from '../components/Charts/LineChart.js'
 import HorizontalBarChart from '../components/Charts/HorizontalBarChart.js'
 
 export default class StatisticsPage extends React.Component {
@@ -22,8 +23,8 @@ export default class StatisticsPage extends React.Component {
       charts: [],
       data: []
     }
-    this.introduction = `these are a few questions I have asked my classmates
-    this was made because of a school project in the subject *english*`
+    this.introduction = `The results of our survey about programming`
+    this.credits = `_Tina_, _Elina_, _Laura_, _Jannik_ and _Tim_`
 
     this.style__root = css({
       "margin": "36px 0"
@@ -99,6 +100,17 @@ export default class StatisticsPage extends React.Component {
     }
     this.charts.charts[4] = {
       headline: 'How good does one rate himself on a scale from 0-10 in his languages?',
+      chart: <LineChart data={this.charts.data[4]} options={{
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0,
+              max: 8,
+              stepSize: 1
+            }
+          }]
+        }
+      }} width={400} height={400} />
     }
     this.charts.charts[5] = {
       headline: 'What editors/IDEs are predominately being used?',
@@ -147,7 +159,7 @@ export default class StatisticsPage extends React.Component {
         <Globals />
         {/* <Header theme={light_theme} /> */}
         <Content theme={light_theme}>
-          <Block theme={purple_theme} >
+          <Block theme={light_theme} >
             <div className={this.style__root}>
               <div className={css({"width": "100%"})}>
                 <span className={this.style__introduction} dangerouslySetInnerHTML={{__html: marked(this.introduction)}} />
@@ -163,6 +175,9 @@ export default class StatisticsPage extends React.Component {
                   </div>
                 )
               })}
+              </div>
+              <div className={css({"width": "100%"})}>
+                <span className={this.style__introduction} dangerouslySetInnerHTML={{__html: marked(this.credits)}} />
               </div>
             </div>
           </Block>
