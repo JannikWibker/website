@@ -14,7 +14,9 @@ export default class Header extends Class {
 
     this.json__header = {
       left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'url', url: '/u'}, {name: 'files', url: '/f'}, {name: 'statistic', url: '/statistics'}],
-      right: [{name: 'Jannik Wibker', url: ''}]
+      right: [{name: 'Jannik Wibker', url: '/login', fn: () => {
+        console.log(this)
+      } }]
     }
 
     this.update_css = this.update_css.bind(this)
@@ -109,7 +111,11 @@ export default class Header extends Class {
                 {this.json__header.right.map((item, i) => {
                   return (
                     <span className={`${this.style__header_item} link`} key={i}>
-                      <Link href={item.url}>{item.name}</Link>
+                      {item.fn ? (
+                        <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.name}</a>
+                      ) : (
+                        <Link href={item.url}>{item.name}</Link>
+                      )}
                     </span>
                   )})}
               </div>
