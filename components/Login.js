@@ -15,15 +15,22 @@ export default class Block extends Class {
     this.update_css = this.update_css.bind(this)
     this.css = this.css.bind(this)
     this.theme_event = this.theme_event.bind(this)
+    this.check = this.check.bind(this)
     this.theme_event()
     this.update_css()
+
+    this.error = {
+      username: '',
+      email: '',
+      password: ''
+    }
   }
 
   css() {
     this.style__login_input = css({
       "backgroundColor": this.theme.backgroundColor + "!important",
       "padding": "0px 10px 5px 10px!important",
-      "marginBottom": "20px",
+      "marginBottom": "0",
       "fontSize": "12px",
       "width": "150px",
       "border": "none!important",
@@ -43,19 +50,63 @@ export default class Block extends Class {
     })
 
     this.style__login_button = css({
-      "width": "128",
+      "width": "96",
       "height": "24px",
-      "margin": "0 10px 0 94px",
+      "margin": "0 26px 0 110px",
       "cursor": "pointer",
       "color": this.theme.color,
       ":hover": {
         "color": this.theme.linkColor
       }
     })
+
+    this.style__login_error = css({
+      "color": "red",
+      "display": "inline-block",
+      "height": "12px",
+      "width": "128px",
+      "marginLeft": "62px",
+      "fontSize": "10px",
+      "paddingLeft": "10px",
+      "textAlign": "left"
+    })
   }
 
   check() {
-    
+    if(this.username.value === '') {
+      this.error.username = 'username is empty'
+    } else {
+      this.error.username = ''
+    }
+    if(this.email.value === '') {
+      this.error.email = 'email is empty'
+    } else {
+      this.error.email = ''
+    }
+    if(this.password.value === '') {
+      this.error.password = 'password is empty'
+    } else {
+      this.error.password = ''
+    }
+
+    if(this.username.value !== '' && this.email.value !== '' && this.password.value!== '' ) {
+      if(this.validate(this.password.value)) {
+        console.log(true)
+      } else {
+        console.log(false)
+      }
+    }
+
+    this.forceUpdate()
+  }
+
+
+  validate(input) {
+    if(input.length >= 8) {
+      return true
+    } else {
+      return false
+    }
   }
 
   render() {
@@ -63,10 +114,13 @@ export default class Block extends Class {
       <div className={""} >
         <span className={this.style__login_span} >username</span>
         <input type="text" placeholder="username" className={this.style__login_input} ref={(input) => {this.username = input}}></input><br />
+        <span className={this.style__login_error} >{this.error.username}</span><br />
         <span className={this.style__login_span} >email</span>
         <input type="text" placeholder="you@mailprovider.com" className={this.style__login_input} ref={(input) => {this.email = input}}></input><br />
+        <span className={this.style__login_error} >{this.error.email}</span><br />
         <span className={this.style__login_span} >password</span>
-        <input type="password" placeholder="your p4ssw0rd" className={this.style__login_input} ref={(input) => {this.password = input}}></input>
+        <input type="password" placeholder="your p4ssw0rd" className={this.style__login_input} ref={(input) => {this.password = input}}></input><br />
+        <span className={this.style__login_error} >{this.error.password}</span><br />
         <div className={this.style__login_button} onClick={this.check}>login</div>
       </div>
     )
