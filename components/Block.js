@@ -15,8 +15,6 @@ export default class Block extends Class {
     this.theme_event = this.theme_event.bind(this)
     this.theme_event()
     this.update_css()
-
-    //
   }
 
   // css (set all the css using glamor (aliased to css because next.js) with the current theme)
