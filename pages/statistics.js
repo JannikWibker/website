@@ -26,6 +26,9 @@ export default class StatisticsPage extends React.Component {
     this.introduction = `The results of our survey about programming`
     this.credits = `_Tina_, _Elina_, _Laura_, _Jannik_ and _Tim_`
 
+    this.file = '/static/statistics.ods'
+    this.theme = light_theme
+
     this.style__root = css({
       "margin": "36px 0"
     })
@@ -46,6 +49,15 @@ export default class StatisticsPage extends React.Component {
       "maxWidth": "400px",
       "minWidth": "200px",
       "width": "100%"
+    })
+
+    this.style__download = css({
+      "textDecoration": "none",
+      "color": this.theme.color,
+      ":hover": {
+        "backgroundColor": "rgba(248,28,229,0.75)",
+        "color": this.theme.invertColor
+      }
     })
   }
 
@@ -157,9 +169,9 @@ export default class StatisticsPage extends React.Component {
     return (
       <div className="root">
         <Globals />
-        {/* <Header theme={light_theme} /> */}
-        <Content theme={light_theme}>
-          <Block theme={light_theme} >
+        {/* <Header theme={this.theme} /> */}
+        <Content theme={this.theme}>
+          <Block theme={this.theme} >
             <div className={this.style__root}>
               <div className={css({"width": "100%"})}>
                 <span className={this.style__introduction} dangerouslySetInnerHTML={{__html: marked(this.introduction)}} />
@@ -179,6 +191,7 @@ export default class StatisticsPage extends React.Component {
               <div className={css({"width": "100%"})}>
                 <span className={this.style__introduction} dangerouslySetInnerHTML={{__html: marked(this.credits)}} />
               </div>
+                <a className={this.style__download} href={this.file} download>Download Raw Data</a>
             </div>
           </Block>
         </Content>
