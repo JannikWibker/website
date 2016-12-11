@@ -95,9 +95,26 @@ export default class Block extends Class {
       } else {
         console.log(false)
       }
+      this.post({
+        username: this.username.value,
+        email: this.email.value,
+        password: this.password.value
+      })
+      .then(body => body.json())
+      .then(body => { console.log(body.id) })
     }
 
     this.forceUpdate()
+  }
+
+  post(json) {
+    return fetch(`http://${location.hostname}:3001/auth/login`, {
+      method: 'POST',
+      body: JSON.stringify(json),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
   }
 
 
