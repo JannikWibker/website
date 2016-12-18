@@ -13,9 +13,7 @@ if(typeof window !== 'undefined') {
   }
 }
 
-let keybinds = {
-  "a": (e) => { console.log(e) }
-}
+let keybinds = {}
 
 let init = () => {
   if(!isActive) {

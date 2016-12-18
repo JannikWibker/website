@@ -12,6 +12,8 @@ export default class Block extends Class {
   constructor(props) {
     super(props)
 
+    this.check = this.check.bind(this)
+
     this.theme_event()
     this.update_css()
 
@@ -97,7 +99,19 @@ export default class Block extends Class {
         password: this.password.value
       })
       .then(body => body.json())
-      .then(body => { console.log(body.id) })
+      .then(body => {
+        if(typeof body.id !== 'undefined') {
+          event.trigger('account', {
+            username: this.username.value,
+            email: this.email.value,
+            password: this.password.value,
+            id: body.id
+          })
+          //this.props.back()
+        } else {
+          event.trigger('account', {})
+        }
+      })
     }
 
     this.forceUpdate()

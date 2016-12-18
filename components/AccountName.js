@@ -8,19 +8,31 @@ import Class from './Class.js'
 export default class AccountName extends Class {
   constructor(props) {
     super(props)
+
+    this.account_event()
+
+    this.account = {}
+  }
+
+  componentWillMount() {
+    this._mounted = true
+  }
+
+  componentWillUnmount() {
+    this._mounted = false
   }
 
   account_event() {
     event.subscribe('account', (e) => {
-      console.log(e)
+      this.account = e.payload
+      if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
     })
   }
 
 
-
   render() {
     return (
-      <i>123</i>
+      <span>{this.account.username ? this.account.username : 'login'}</span>
     )
   }
 }

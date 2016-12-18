@@ -15,8 +15,7 @@ export default class Header extends Class {
 
     this.json__header = {
       left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'url', url: '/u'}, {name: 'files', url: '/f'}, {name: 'statistic', url: '/statistics'}],
-      right: [{name: 'Jannik Wibker', url: '/login' ,fn: () => {
-      event.trigger('account', {})/* code */ } }]
+      right: [{name: 'Jannik Wibker', url: '/login', comp: <AccountName /> }]
     }
 
     this.theme_event()
@@ -107,13 +106,11 @@ export default class Header extends Class {
                 {this.json__header.right.map((item, i) => {
                   return (
                     <span className={`${this.style__header_item} link`} key={i}>
-                      {item.comp ? item.comp :
-                        item.fn ? (
-                          <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.name}</a>
-                        ) : (
-                          <Link href={item.url}>{item.name}</Link>
-                        )
-                      }
+                      {item.fn ? (
+                        <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.comp ? item.comp : item.name}</a>
+                      ) : (
+                        <Link href={item.url}>{item.comp ? item.comp : item.name}</Link>
+                      )}
                     </span>
                   )})}
               </div>

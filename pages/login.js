@@ -25,7 +25,7 @@ export default class IndexPage extends React.Component {
         <Header />
         <Content>
           <Block>
-            <Login />
+            <Login back={this.props.url.back}/>
           </Block>
         </Content>
         <Footer />
