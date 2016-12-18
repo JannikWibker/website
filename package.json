@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test": "exit 0",
-    "css": "cp ./node_modules/skeleton-css/css/* ./static/vendor"
+    "css": "mkdir ./static/vendor && cp ./node_modules/skeleton-css/css/* ./static/vendor"
   },
   "repository": {
     "type": "git",
