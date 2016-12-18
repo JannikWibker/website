@@ -1,5 +1,5 @@
 export default (event) => {
-  if(!event.exists('theme')) {
+  if(!event.exists('account')) {
     event.add('account', (e) => {
     })
   }
