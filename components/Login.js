@@ -12,10 +12,6 @@ export default class Block extends Class {
   constructor(props) {
     super(props)
 
-    this.update_css = this.update_css.bind(this)
-    this.css = this.css.bind(this)
-    this.theme_event = this.theme_event.bind(this)
-    this.check = this.check.bind(this)
     this.theme_event()
     this.update_css()
 

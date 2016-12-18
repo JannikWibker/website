@@ -8,9 +8,8 @@ export default class Globals extends React.Component {
 
   constructor(){
     super()
-    this.css.bind(this)
+    
     this.css()
-
   }
 
   css() {

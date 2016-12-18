@@ -5,6 +5,7 @@ import { merge, hover, insertRule, $ } from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import Class from './Class.js'
+import AccountName from './AccountName.js'
 
 
 export default class Header extends Class {
@@ -14,14 +15,9 @@ export default class Header extends Class {
 
     this.json__header = {
       left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'url', url: '/u'}, {name: 'files', url: '/f'}, {name: 'statistic', url: '/statistics'}],
-      right: [{name: 'Jannik Wibker', url: '/login', fn: () => {
-        console.log(this)
-      } }]
+      right: [{name: 'Jannik Wibker', url: '/login' ,fn: () => {
+      event.trigger('account', {})/* code */ } }]
     }
-
-    this.update_css = this.update_css.bind(this)
-    this.css = this.css.bind(this)
-    this.theme_event = this.theme_event.bind(this)
 
     this.theme_event()
     this.update_css()
@@ -111,11 +107,13 @@ export default class Header extends Class {
                 {this.json__header.right.map((item, i) => {
                   return (
                     <span className={`${this.style__header_item} link`} key={i}>
-                      {item.fn ? (
-                        <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.name}</a>
-                      ) : (
-                        <Link href={item.url}>{item.name}</Link>
-                      )}
+                      {item.comp ? item.comp :
+                        item.fn ? (
+                          <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.name}</a>
+                        ) : (
+                          <Link href={item.url}>{item.name}</Link>
+                        )
+                      }
                     </span>
                   )})}
               </div>
