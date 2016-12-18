@@ -28,16 +28,15 @@ event.unsubscribe = (name, callback_id) => {
 
 }
 
-event.trigger = (name, payload) => {
+event.trigger = (name, payload = {}) => {
   if(events[name]) {
     events[name].payload = payload
+    console.log(events[name], 'trigger', payload)
     events[name].callback.forEach((cb, i) => {
       cb(events[name])
     })
-    events[name].payload = {}
   } else {
     console.log('no event with that name', name)
-
   }
 }
 
@@ -70,7 +69,7 @@ event.rename = (old_name, new_name) => {
 }
 
 event.exists = (name) => {
-  if(events[name]) {
+  if(typeof events[name] !== 'undefined') {
     return true
   } else {
     return false
