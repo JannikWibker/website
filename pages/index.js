@@ -5,7 +5,7 @@ import Content from '../components/Content.js'
 import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import { dark_theme, light_theme } from '../config/themes.js'
-import theme_event from '../config/theme_event.js'
+import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 
 export default class IndexPage extends React.Component {
@@ -24,11 +24,11 @@ export default class IndexPage extends React.Component {
     })
     keyboard.init()
 
-    theme_event()
+    event_loader(['theme', 'account'])
   }
 
   componentWillMount() {
-    theme_event()
+    event_loader(['theme', 'account'])
   }
 
   render() {

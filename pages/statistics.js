@@ -7,7 +7,7 @@ import Footer from '../components/Footer.js'
 import css from 'next/css'
 import marked from 'marked'
 import { dark_theme, light_theme, purple_theme } from '../config/themes.js'
-import theme_event from '../config/theme_event.js'
+import event_loader from '../util/event_loader.js'
 import PieChart from '../components/Charts/PieChart.js'
 import BarChart from '../components/Charts/BarChart.js'
 import LineChart from '../components/Charts/LineChart.js'
@@ -18,7 +18,7 @@ export default class StatisticsPage extends React.Component {
   constructor(props){
     super(props)
     this.get()
-    theme_event()
+    event_loader(['theme', 'account'])
     this.charts = {
       charts: [],
       data: []
@@ -64,7 +64,7 @@ export default class StatisticsPage extends React.Component {
   // componentWillMount
   componentWillMount() {
     this._mounted = true
-    theme_event()
+    event_loader(['theme', 'account'])
   }
 
   // componentWillUnmount
