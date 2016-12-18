@@ -49,7 +49,7 @@ event.disable = (name) => {
   }
 }
 
-event.disable = (name) => {
+event.enable = (name) => {
   if(events[name]) {
     events[name].enabled = true
   } else {

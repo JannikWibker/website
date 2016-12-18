@@ -10,17 +10,17 @@ export default class AccountName extends Class {
     super(props)
   }
 
-  check() {
-    if(typeof window !== 'undefined') {
-      if(window.localStorage) {
-        
-      }
-    }
+  account_event() {
+    event.subscribe('account', (e) => {
+      console.log(e)
+    })
   }
+
+
 
   render() {
     return (
-      <Link href="">{""}</Link>
+      <i>123</i>
     )
   }
 }
