@@ -9,3 +9,11 @@ export default (events) => {
     all_events[l_e + '_event'](event)
   })
 }
+
+/*
+loader for events (/util/event.js)
+# usage:
+# loading events 'theme_event' and 'account_event'
+# (the '_event' must be omitted as it is added by event_loader)
+event_loader(['theme', 'account'])
+*/

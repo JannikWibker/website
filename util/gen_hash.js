@@ -8,3 +8,11 @@ let gen_hash = (length = 16) => {
 }
 
 export default gen_hash
+
+/*
+generates a random hash of given length
+if no length is given gen_hash defaults to 16
+uses time to randomize the output
+# usage:
+gen_hash(16)
+*/
