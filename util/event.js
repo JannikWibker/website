@@ -31,7 +31,6 @@ event.unsubscribe = (name, callback_id) => {
 event.trigger = (name, payload = {}) => {
   if(events[name]) {
     events[name].payload = payload
-    console.log(events[name], 'trigger', payload)
     events[name].callback.forEach((cb, i) => {
       cb(events[name])
     })
