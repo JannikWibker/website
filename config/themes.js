@@ -1,6 +1,7 @@
 
 const dark_theme =  {
   name: 'dark_theme',
+  altName: 'black',
   backgroundColor: '#000',
   color: '#fff',
   invertColor: '#000',
@@ -9,14 +10,16 @@ const dark_theme =  {
 }
 const light_theme = {
   name: 'light_theme',
+  altName: 'white',
   backgroundColor: '#fff',
   color: '#222',
   invertColor: '#fff',
   accentColor: '#aaa',
   linkColor: 'rgba(248,28,229,0.75)'
 }
-const purple_theme= {
+const purple_theme = {
   name: 'purple_theme',
+  altName: 'purple',
   backgroundColor: '#180018',
   color: '#BAA6BF',
   invertColor: '#180018 ',
@@ -24,4 +27,14 @@ const purple_theme= {
   linkColor: 'rgba(248,28,229,0.75)'
 }
 
-export  { dark_theme, light_theme, purple_theme }
+const blue_theme = {
+  name: 'blue_theme',
+  altName: 'blue',
+  backgroundColor: 'rgb(10, 55, 88)',
+  color: '#42A5F5',
+  invertColor: 'rgb(10, 55, 88)',
+  accentColor: 'rgb(7, 52, 85)',
+  linkColor: 'rgba(248,28,229,0.75)'
+}
+
+export  { dark_theme, light_theme, purple_theme, blue_theme }
