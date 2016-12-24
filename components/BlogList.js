@@ -1,5 +1,4 @@
 import React from 'react'
-import marked from 'marked'
 import css from 'next/css'
 import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
