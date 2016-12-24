@@ -113,7 +113,7 @@ export default class BlogList extends Class {
       <div className={`${this.style__blog_container} container`}>
         <div className={`${this.style__blog_list} ten columns`}>
         {this.posts.map((post, i, a) => {
-          let l_post = post //this.posts[post]
+          let l_post = post
           return (
             <div key={i} className={this.style__blog_post_container} id={l_post.name}>
               <a className={this.style__blog_name} href={`/blog?id=${l_post.id}`}>
@@ -122,10 +122,10 @@ export default class BlogList extends Class {
                  <br />
               </a>
               <div className={this.style__blog_preview}>
-                {remove_md(l_post.content).substring(0, 100)}<br />
+                {remove_md(l_post.content).substring(0, 100)}<br /> {/* limiting the preview to 100 characters */}
                 {l_post.author ? <i className={this.style__blog_author}>~ {l_post.author}</i> : ''}
               </div>
-              {(i + 1 < a.length) ? <div className={this.style__blog_seperator}>***</div> : null}
+              {(i + 1 < a.length) ? <div className={this.style__blog_seperator}>***</div> : null} {/* seperator after every post expect the last (thereby inbetween every post) */}
             </div>
           )
         })}
