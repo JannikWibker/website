@@ -4,6 +4,8 @@ import css from 'next/css'
 import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
+import replace from '../util/replace_all.js'
+import remove_md from '../util/remove_markdown.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
 import moment from 'moment'
@@ -115,7 +117,7 @@ export default class BlogList extends Class {
                  <br />
               </a>
               <div className={this.style__blog_preview}>
-                {l_post.content.substring(0, 100)}<br />
+                {remove_md(l_post.content).substring(0, 100)}<br />
                 {l_post.author ? <i className={this.style__blog_author}>~ {l_post.author}</i> : ''}
               </div>
               {(i + 1 < a.length) ? <div className={this.style__blog_seperator}>***</div> : null}
