@@ -34,6 +34,17 @@ export default class Blog extends Class {
       return ''
     }
   }
+  /*
+  format method formats the post
+  if the type of the post is markdown then the
+  content will be rendered to html via marked.
+  if the content contains '%theme%' it will be replaced
+  with the current theme name (theme.altName).
+  this only applies to markdown since this is not
+  really useful for plain text. The main usecase
+  is switching images based on theme. Different
+  strings to replace can technically be added later on.
+  */
 
   css() {
 
@@ -42,6 +53,15 @@ export default class Blog extends Class {
     })
 
     //this.style__blog = css({})
+    /* at the moment 'undefined' is a class
+    of one part of the Blog component since
+    this is commented out. If this would not
+    be commented out it would result in an
+    error since no styling is being done and
+    that results in an error while creating
+    the class.
+    This should probably be changed soon.
+    */
 
     this.style__blog_name = css({
       "textAlign": "left",
@@ -86,8 +106,14 @@ export default class Blog extends Class {
         }
         if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
       })
-
   }
+
+  /*
+  fetches the post if this code is run on the
+  client (because the server can't really fetch
+  this data). It then uses moment.js to do some
+  formating with the date object in the response
+  */
 
   render() {
     return (
