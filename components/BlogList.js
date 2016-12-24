@@ -101,6 +101,11 @@ export default class BlogList extends Class {
         if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
       })
   }
+  /*
+  get method:
+  if this code is run on the server then {} is returned
+  if this code runs in the browser all blog posts get fetched and 
+  */
 
   render() {
     return (
