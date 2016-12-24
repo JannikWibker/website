@@ -104,7 +104,8 @@ export default class BlogList extends Class {
   /*
   get method:
   if this code is run on the server then {} is returned
-  if this code runs in the browser all blog posts get fetched and 
+  if this code runs in the browser all blog posts get
+  fetched and sorted by date. Then forceUpdate() is called
   */
 
   render() {
