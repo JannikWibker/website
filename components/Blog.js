@@ -27,7 +27,7 @@ export default class Blog extends Class {
     if(type === '') {
       return ''
     } else if(type === 'markdown') {
-      return marked(replace(input, '%theme%', this.theme.altName))
+      return marked(replace(input, ['%theme%', '%address%'], [this.theme.altName, location.hostname]))
     } else if(type === 'plain') {
       return input
     } else {
