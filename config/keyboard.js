@@ -2,7 +2,7 @@ let keyboard, isActive = false
 if(typeof window !== 'undefined') {
   keyboard = require('keyboardjs')
 } else {
-  let noop = () => {}
+  let noop = () => {} // 'noop' stands for no operation
   keyboard = {
     bind: noop,
     reset: noop,
@@ -12,6 +12,19 @@ if(typeof window !== 'undefined') {
     mock: true,
   }
 }
+
+/*
+keyboard.js uses the window object or something else.
+it can not be used in node.js (for kind of obvious reasons).
+since it causes some errors when importing it is not imported with
+the ES6 syntax but with a require statemtent since a require
+statement does not need to be at the top of the document.
+If this code is run in a node.js enviroument (which it is when
+the server renders components) keyboard.js is being mocked since
+there is no need for keyboard shortcuts in a serverside rendered component
+which is later rerendered by the client (at which point keyboard.js
+is no longer being mocked)
+*/
 
 let keybinds = {}
 

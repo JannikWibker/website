@@ -4,3 +4,8 @@ export default (event) => {
     })
   }
 }
+
+/*
+creating the event 'theme'
+note: the event API is not imported but injected
+*/

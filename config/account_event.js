@@ -4,3 +4,8 @@ export default (event) => {
     })
   }
 }
+
+/*
+creating the event 'account'
+note: the event API is not imported but injected
+*/
