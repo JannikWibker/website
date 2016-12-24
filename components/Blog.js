@@ -7,6 +7,7 @@ import event from '../util/event.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
 import moment from 'moment'
+import replace from '../util/replace_all.js'
 
 export default class Blog extends Class {
 
@@ -26,7 +27,7 @@ export default class Blog extends Class {
     if(type === '') {
       return ''
     } else if(type === 'markdown') {
-      return marked(input)
+      return marked(replace(input, '%theme%', this.theme.altName))
     } else if(type === 'plain') {
       return input
     } else {
