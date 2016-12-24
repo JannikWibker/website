@@ -37,5 +37,6 @@ export default class IndexPage extends React.Component {
     no theme set anywhere so everything defaults to the light_theme
     displaying the Login component and passing this.props.url.back as an attribute
     (see components/Login.js)
+    */
   }
 }
