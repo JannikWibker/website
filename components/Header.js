@@ -14,7 +14,7 @@ export default class Header extends Class {
     super()
 
     this.json__header = {
-      left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'url', url: '/u'}, {name: 'files', url: '/f'}, {name: 'statistic', url: '/statistics'}],
+      left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'statistic', url: '/statistics'}],
       right: [{name: 'Jannik Wibker', url: '/login', comp: <AccountName /> }]
     }
 
