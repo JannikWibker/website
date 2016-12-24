@@ -77,5 +77,10 @@ export default class Footer extends Class {
         </div>
       </div>
     )
+    /*
+    the footer on (almost) every page
+    includes a Twitter and GitHub handle and an Email address
+    swaps the icons when changing the theme (changes the URL)
+    */
   }
 }

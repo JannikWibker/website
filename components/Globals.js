@@ -8,7 +8,7 @@ export default class Globals extends React.Component {
 
   constructor(){
     super()
-    
+
     this.css()
   }
 
@@ -26,6 +26,10 @@ export default class Globals extends React.Component {
           <link rel="stylesheet" href="static/css/gfm.css" />
         </Head>
     )
+    /*
+    setting some globals which are needed on (almost) every page
+    this includes stylesheets, device-width and some custom css (outside of a stylesheet document)
+    */
   }
 
 }

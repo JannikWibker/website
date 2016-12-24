@@ -9,7 +9,7 @@ import Class from './Class.js'
 export default class Block extends Class {
   constructor(props) {
     super(props)
-    
+
     this.theme_event()
     this.update_css()
   }
@@ -37,5 +37,12 @@ export default class Block extends Class {
           this.props.children}
       </div>
     )
+    /*
+    similar to the Content component but is
+    intended to be used inside of Content.
+    has some styling and displays its children (React: this.props.children)
+    checks if children are strings and if not applies the theme attribute
+    which is given to it or defaults to the light_theme
+    */
   }
 }

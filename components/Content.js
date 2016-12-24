@@ -31,5 +31,10 @@ export default class Content extends Class {
         {this.props.children}
       </div>
     )
+
+    /*
+    a wrapper with some styling applied; nothing special
+    used as a container for something else.
+    */
   }
 }
