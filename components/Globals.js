@@ -21,6 +21,7 @@ export default class Globals extends React.Component {
     return (
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel='shortcut icon' type='image/x-icon' href='static/favicon.ico' />
           <link rel="stylesheet" href="static/vendor/normalize.css" />
           <link rel="stylesheet" href="static/vendor/skeleton.css" />
           <link rel="stylesheet" href="static/css/gfm.css" />
