@@ -15,14 +15,17 @@ export default class BlogPage extends React.Component {
   constructor(props) {
     super(props)
     keyboard.init()
+    // initializing the keyboard shortcuts (see /config/keyboard.js)
   }
 
   componentWillMount() {
     event_loader(['theme', 'account'])
+    // loading events (see /util/event_loader.js for additional information)
   }
 
   render() {
     event_loader(['theme', 'account'])
+    // again loading events just incase
     return (
       <div className="root">
         <Globals />
@@ -37,5 +40,19 @@ export default class BlogPage extends React.Component {
         <Footer theme={light_theme}/>
       </div>
     )
+
+    /*
+    setting a theme for Header, Block and for Footer
+    (could have left this out but I did not because
+    I was testing how well the themes were working;
+    this is also the reason why in 'about' Content has
+    a theme and here Header, Block and Footer (but not Content))
+
+    if the URL has a querystring then use the Blog component to show
+    the specified blog (see /components/Blog.js)
+    if no querystring is specified use the BlogList component to show
+    a list of blogs (including title, date and a little preview;
+    see /components/BlogList.js for further information)
+    */
   }
 }

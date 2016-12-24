@@ -71,3 +71,8 @@ const styles = {
     padding: 0
   })
 }
+
+/*
+the default error page with some
+additional information included (this.props.url)
+*/

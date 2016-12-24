@@ -23,12 +23,15 @@ export default class IndexPage extends React.Component {
     keyboard.add('right', (e) => {
     })
     keyboard.init()
+    // initializing the keyboard shortcuts (see /config/keyboard.js)
 
     event_loader(['theme', 'account'])
+    // loading events (see /util/event_loader)
   }
 
   componentWillMount() {
     event_loader(['theme', 'account'])
+    // again loading events just incase
   }
 
   render() {
@@ -44,5 +47,9 @@ export default class IndexPage extends React.Component {
         <Footer theme={dark_theme} />
       </div>
     )
+    /*
+    everything has the theme attribute set to 'dark_theme'
+    only displaying 'Index' as of right now (and Header and Footer ofcourse)
+    */
   }
 }

@@ -12,10 +12,12 @@ export default class IndexPage extends React.Component {
   constructor(props){
     super(props)
     event_loader(['theme', 'account'])
+    // loading events (see /util/event_loader)
   }
 
   componentWillMount() {
     event_loader(['theme', 'account'])
+    // loading events once again
   }
 
   render() {
@@ -31,5 +33,9 @@ export default class IndexPage extends React.Component {
         <Footer />
       </div>
     )
+    /*
+    no theme set anywhere so everything defaults to the light_theme
+    displaying the Login component and passing this.props.url.back as an attribute
+    (see components/Login.js)
   }
 }

@@ -13,17 +13,20 @@ export default class AboutPage extends React.Component {
   constructor(props){
     super(props)
     keyboard.init()
+    // initializing the keyboard shortcuts (see /config/keyboard.js)
 
     event_loader(['theme', 'account'])
-
+    // loading events (see /util/event_loader.js for additional information)
   }
 
   componentWillMount() {
     event_loader(['theme', 'account'])
+    // again loading events just incase
   }
 
   render() {
     event_loader(['theme', 'account'])
+    // and again loading events just incase (this is probably completly useless and idiotic but I do not care as of right now)
     return (
       <div className="root">
         <Globals />
@@ -36,5 +39,11 @@ export default class AboutPage extends React.Component {
         <Footer />
       </div>
     )
+
+    /*
+    setting a theme for the Content component
+    display nothing (expect 'about') as of right now,
+    this will change soon(er or later)
+    */
   }
 }

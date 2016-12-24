@@ -35,3 +35,9 @@
 .markdown p {
   margin-bottom: 8px;
 }
+
+/*
+styling for rendered markdown
+# note:
+the rendered markdown must be wrapped in a container with a class of 'markdown'
+*/
