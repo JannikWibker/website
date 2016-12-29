@@ -53,9 +53,8 @@ event.trigger = (name, payload = {}) => {
   if(events[name]) {
     events[name].payload = payload
     events[name].callback.forEach((cb, i) => {
-      if(cb) cb(events[name])
+      cb(events[name])
     })
-    console.log(events[name].callback)
   } else {
     console.log('no event with that name', name)
   }
