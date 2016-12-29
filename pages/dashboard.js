@@ -25,7 +25,7 @@ export default class DashboardPage extends React.Component {
         <Header theme={light_theme}/>
         <Content>
           <Block theme={light_theme}>
-            123
+            Dashboard - Account stuff goes here
           </Block>
         </Content>
         <Footer theme={light_theme}/>
