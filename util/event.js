@@ -1,6 +1,6 @@
 import gen_hash from './gen_hash'
 
-let events = events || {}
+let events = {}
 let event = {}
 
 /*
@@ -53,8 +53,9 @@ event.trigger = (name, payload = {}) => {
   if(events[name]) {
     events[name].payload = payload
     events[name].callback.forEach((cb, i) => {
-      cb(events[name])
+      if(cb) cb(events[name])
     })
+    console.log(events[name].callback)
   } else {
     console.log('no event with that name', name)
   }
