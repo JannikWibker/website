@@ -6,7 +6,7 @@ import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import { dark_theme, light_theme, purple_theme, blue_theme } from '../config/themes.js'
 import event_loader from '../util/event_loader.js'
-export default class BlogPage extends React.Component {
+export default class DashboardPage extends React.Component {
 
   constructor(props) {
     super(props)
