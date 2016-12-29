@@ -3,6 +3,13 @@ import gen_hash from './gen_hash'
 let events = {}
 let event = {}
 
+/*
+events holds all events
+
+functions will be added to event object
+event is exported
+*/
+
 event.add = (name, callback) => {
   if(!events[name]) {
     events[name] = {
@@ -16,6 +23,11 @@ event.add = (name, callback) => {
   }
 }
 
+/*
+event.add adds an event
+an ID is generated for the event
+*/
+
 event.subscribe = (name, callback) => {
   if(events[name]) {
     events[name].callback.push(callback)
@@ -24,9 +36,18 @@ event.subscribe = (name, callback) => {
   }
 }
 
+/*
+subscribes to given event (name)
+once event is triggered the given callback function is called
+*/
+
 event.unsubscribe = (name, callback_id) => {
 
 }
+
+/*
+unsubscribe from event (not yet done)
+*/
 
 event.trigger = (name, payload = {}) => {
   if(events[name]) {
@@ -39,6 +60,13 @@ event.trigger = (name, payload = {}) => {
   }
 }
 
+/*
+trigger event (by name)
+once triggered every callback function is called
+the whole event object for given event is given to
+every callback (includes the given payload)
+*/
+
 event.disable = (name) => {
   if(events[name]) {
     events[name].enabled = false
@@ -46,6 +74,10 @@ event.disable = (name) => {
     console.log('no event with that name', name)
   }
 }
+
+/*
+disable given event (not yet done)
+*/
 
 event.enable = (name) => {
   if(events[name]) {
@@ -55,6 +87,10 @@ event.enable = (name) => {
   }
 }
 
+/*
+enable given event (not yet done)
+*/
+
 event.delete = (name) => {
   if(events[name]) {
     events[name] = undefined
@@ -63,9 +99,17 @@ event.delete = (name) => {
   }
 }
 
+/*
+delete the given event
+*/
+
 event.rename = (old_name, new_name) => {
 
 }
+
+/*
+rename event (not yet done)
+*/
 
 event.exists = (name) => {
   if(typeof events[name] !== 'undefined') {
@@ -74,5 +118,9 @@ event.exists = (name) => {
     return false
   }
 }
+
+/*
+check if event exists
+*/
 
 export default event
