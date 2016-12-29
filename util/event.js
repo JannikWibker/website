@@ -1,6 +1,6 @@
 import gen_hash from './gen_hash'
 
-let events = {}
+let events = events || {}
 let event = {}
 
 /*
@@ -65,6 +65,24 @@ trigger event (by name)
 once triggered every callback function is called
 the whole event object for given event is given to
 every callback (includes the given payload)
+*/
+
+event.get = (name) => {
+  if(events[name]) {
+    return events[name]
+  } else {
+    console.log('no event with that name', name)
+    return undefined
+  }
+}
+
+/*
+get the current state of an event (can be useful
+if a component is created multiple times and some
+of its state is being stored in an event (this allows
+this component to keep its state even when its
+reset / destroyed and newly created / whatever))
+returns undefined if no event with such name is found
 */
 
 event.disable = (name) => {

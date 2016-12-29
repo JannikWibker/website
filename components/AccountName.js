@@ -11,7 +11,8 @@ export default class AccountName extends Class {
 
     this.account_event()
 
-    this.account = {}
+    this.account = event.get('account').payload || {}
+    console.log(this)
   }
 
   componentWillMount() {
@@ -27,6 +28,14 @@ export default class AccountName extends Class {
       this.account = e.payload
       if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
     })
+
+    /*
+    subscribe to the 'account'-event
+    if the component is mounted
+    (componentWillMount sets _mounted to true;
+     componentWillUnmount sets _mounted to false)
+    forceUpdate is called to rerun the render method and do diffing
+    */
   }
 
 
@@ -36,3 +45,8 @@ export default class AccountName extends Class {
     )
   }
 }
+
+/*
+shows the username if a user is logged in
+if nobody is logged in shows 'login'
+*/

@@ -107,11 +107,11 @@ export default class Block extends Class {
             password: this.password.value,
             id: body.id
           })
-          //this.props.back()
         } else {
           event.trigger('account', {})
         }
       })
+
     }
 
     this.forceUpdate()
