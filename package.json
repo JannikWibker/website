@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.24",
+  "version": "0.1.29",
   "description": "hopefully soon my main website.",
   "main": "index.js",
   "scripts": {
