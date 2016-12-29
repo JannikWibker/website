@@ -15,7 +15,7 @@ export default class Header extends Class {
 
     this.json__header = {
       left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'statistic', url: '/statistics'}],
-      right: [{name: 'Jannik Wibker', url: '/login', comp: <AccountName /> }]
+      right: [{name: 'Jannik Wibker', url: () => event.get('account').payload.username ? '/login?x=1' : '/login', comp: <AccountName /> }]
     }
 
     this.theme_event()
@@ -47,6 +47,9 @@ export default class Header extends Class {
       "position": "relative",
       "top": "-10px",
       "paddingTop": "10px",
+      "@media(max-width: 400px)": {
+        "display": "none"
+      }
     })
 
     this.style__header_container_nav = css({
@@ -59,11 +62,17 @@ export default class Header extends Class {
       "paddingRight": "0",
       "position": "absolute",
       "top": "50%",
-      "transform": "translateY(-50%)"
+      "transform": "translateY(-50%)",
+      "@media(max-width: 400px)": {
+        "padding": "0px"
+      }
     })
 
     this.style__header_container_left = css({
-      "left": "50px"
+      "left": "50px",
+      "@media(max-width: 400px)": {
+        "left": "0px"
+      }
     })
 
     this.style__header_container_right = css({
@@ -109,7 +118,7 @@ export default class Header extends Class {
                       {item.fn ? (
                         <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.comp ? item.comp : item.name}</a>
                       ) : (
-                        <Link href={item.url}>{item.comp ? item.comp : item.name}</Link>
+                        <Link href={typeof item.url === 'function' ? item.url() : item.url}>{item.comp ? item.comp : item.name}</Link>
                       )}
                     </span>
                   )})}

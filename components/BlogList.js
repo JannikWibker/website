@@ -35,17 +35,12 @@ export default class BlogList extends Class {
     this.style__blog_name = css({
       "color": this.theme.color,
       "backgroundColor": this.theme.backgroundColor,
-      "fontSize": "1.2em",
+      "fontSize": "1.7em",
       "textDecoration": "none",
       "fontWeight": "400",
       ":hover": {
         "textDecoration": "underline",
         "color": this.theme.color
-      },
-      ":before": {
-        "content": '"> "',
-        "position": "relative",
-        "marginLeft": "-8px"
       }
     })
 
@@ -54,7 +49,6 @@ export default class BlogList extends Class {
       "backgroundColor": this.theme.backgroundColor,
       "fontFamily": "Menlo, DejaVu Sans Mono, Lucida Console, monospace, sans-serif",
       "fontSize": "0.8em",
-      "paddingLeft": "8px",
       "maxHeight": "48px",
       "overflow": "hidden",
       "width": "100%"
@@ -73,15 +67,21 @@ export default class BlogList extends Class {
     })
 
     this.style__blog_date = css({
-      "position": "relative",
+      "display": "inline-block",
       "color": this.theme.accentColor,
       "fontSize": "0.8em",
-      "float": "right",
+      "textAlign": "right",
+      "height": "114px",
+      "marginTop": "11px",
+      "@media(max-width: 400px)": {
+        "height": "12px",
+        "textAlign": "left",
+        "marginTop": "0px"
+      }
     })
 
     this.style__blog_author = css({
-      "color": this.theme.accentColor,
-      "fontSize": "0.em"
+      "color": this.theme.accentColor
     })
   }
 
@@ -111,21 +111,23 @@ export default class BlogList extends Class {
   render() {
     return (
       <div className={`${this.style__blog_container} container`}>
-        <div className={`${this.style__blog_list} ten columns`}>
+        <div className={`${this.style__blog_list}`}>
         {this.posts.map((post, i, a) => {
           let l_post = post
           return (
             <div key={i} className={this.style__blog_post_container} id={l_post.name}>
-              <a className={this.style__blog_name} href={`/blog?id=${l_post.id}`}>
-                 {l_post.name}
-                 <span className={this.style__blog_date}>{l_post.createdAt ? moment(l_post.createdAt).format('DD/MM/YYYY') : ''}</span>
-                 <br />
+              <span className={`${this.style__blog_date} two columns`}>{l_post.createdAt ? moment(l_post.createdAt).format('DD/MM/YYYY') : ''}</span>
+
+              <div className={'ten columns ' + css({"float": "right"})}>
+              <a className={`${this.style__blog_name}`} href={`/blog?id=${l_post.id}`}>
+                {l_post.name}
               </a>
               <div className={this.style__blog_preview}>
                 {remove_md(l_post.content).substring(0, 100)}<br /> {/* limiting the preview to 100 characters */}
                 {l_post.author ? <i className={this.style__blog_author}>~ {l_post.author}</i> : ''}
               </div>
               {(i + 1 < a.length) ? <div className={this.style__blog_seperator}>***</div> : null} {/* seperator after every post expect the last (thereby inbetween every post) */}
+              </div>
             </div>
           )
         })}
