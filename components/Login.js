@@ -14,6 +14,8 @@ export default class Block extends Class {
 
     this.check = this.check.bind(this)
 
+    this.storage = typeof window === 'undefined' ? { account: undefined} : window.localStorage
+
     this.theme_event()
     this.update_css()
 
@@ -101,14 +103,18 @@ export default class Block extends Class {
       .then(body => body.json())
       .then(body => {
         if(typeof body.id !== 'undefined') {
-          event.trigger('account', {
+          let acc_obj = {
             username: this.username.value,
             email: this.email.value,
             password: this.password.value,
             id: body.id
-          })
+          }
+          event.trigger('account', acc_obj)
+          console.log(acc_obj)
+          this.storage.account = JSON.stringify(acc_obj)
         } else {
           event.trigger('account', {})
+          this.storage.account = undefined
         }
       })
 

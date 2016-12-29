@@ -9,10 +9,12 @@ export default class AccountName extends Class {
   constructor(props) {
     super(props)
 
-    this.account_event()
+    this.storage = typeof window === 'undefined' ? { account: undefined} : window.localStorage
 
     this.account = event.get('account').payload || {}
-    console.log(this)
+
+    this.account_event()
+
   }
 
   componentWillMount() {
@@ -22,6 +24,25 @@ export default class AccountName extends Class {
   componentWillUnmount() {
     this._mounted = false
   }
+
+  componentDidMount() {
+    if(typeof this.storage.account !== 'undefined') {
+      event.trigger('account', JSON.parse(this.storage.account))
+    }
+  }
+
+  /*
+  This is called after the component mounted (eg after it rendered)
+  this will trigger the account event with the account information
+  as its payload. The component is then updated and the AccountName is
+  set so the username (instead of 'login'). This needs to be done
+  AFTER the initial render because react checks the checksum of the
+  existing component (which was rendered on the server) against the
+  new checksum. To avoid a warning the component needs to be rendered
+  once exactly the same as it was on the server, after that it is not
+  important anymore. This way ensures that the initial render on the
+  client happens and after that the account info is supplied.
+  */
 
   account_event() {
     event.subscribe('account', (e) => {
