@@ -15,7 +15,7 @@ export default class Header extends Class {
 
     this.json__header = {
       left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'statistic', url: '/statistics'}],
-      right: [{name: 'Jannik Wibker', url: () => event.get('account').payload.username ? '/login?x=1' : '/login', comp: <AccountName /> }]
+      right: [{name: 'Jannik Wibker', url: () => event.get('account').payload.username ? '/dashboard' : '/login', comp: <AccountName /> }]
     }
 
     this.theme_event()
