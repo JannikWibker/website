@@ -2,7 +2,6 @@ import React from 'react'
 import MTRC from 'markdown-to-react-components'
 import { renderCustomComponents } from 'react-in-markdown';
 import css from 'next/css'
-import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import fetch from 'isomorphic-fetch'

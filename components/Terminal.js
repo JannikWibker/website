@@ -1,7 +1,5 @@
 import React from 'react'
 import css from 'next/css'
-import merge from 'next/css'
-import { dark_theme, light_theme } from '../config/themes.js'
 import HTML from './HTML.js'
 import event from '../util/event.js'
 import Class from './Class.js'

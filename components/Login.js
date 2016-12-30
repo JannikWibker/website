@@ -1,7 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
 import css from 'next/css'
-import merge from 'next/css'
 import fetch from 'isomorphic-fetch'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'

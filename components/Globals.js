@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import css from 'next/css'
-import { merge, hover, insertRule, $ } from 'next/css'
+import { insertRule } from 'next/css'
 
 
 export default class Globals extends React.Component {
