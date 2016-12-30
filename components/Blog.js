@@ -1,13 +1,15 @@
 import React from 'react'
-import marked from 'marked'
+import MTRC from 'markdown-to-react-components'
+import { renderCustomComponents } from 'react-in-markdown';
 import css from 'next/css'
 import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
+import Terminal from './Terminal.js'
 import moment from 'moment'
-import replace from '../util/replace_all.js'
+import replace_all from '../util/replace_all.js'
 
 export default class Blog extends Class {
 
@@ -20,6 +22,14 @@ export default class Blog extends Class {
     this.theme_event()
     this.update_css()
 
+    MTRC.configure({
+      a: props => renderCustomComponents(props, {
+        terminal: (props) => (
+            <Terminal  {...props} safe={true} />
+          )
+      })
+    })
+
 
   }
 
@@ -27,7 +37,7 @@ export default class Blog extends Class {
     if(type === '') {
       return ''
     } else if(type === 'markdown') {
-      return marked(replace(input, ['%theme%', '%address%'], [this.theme.altName, location.hostname]))
+      return MTRC(replace_all(input, ['%theme%', '%address%'], [this.theme.altName, location.hostname])).tree
     } else if(type === 'plain') {
       return input
     } else {
@@ -37,13 +47,14 @@ export default class Blog extends Class {
   /*
   format method formats the post
   if the type of the post is markdown then the
-  content will be rendered to html via marked.
-  if the content contains '%theme%' it will be replaced
-  with the current theme name (theme.altName).
-  this only applies to markdown since this is not
-  really useful for plain text. The main usecase
-  is switching images based on theme. Different
-  strings to replace can technically be added later on.
+  content will be rendered to html via MTRC (uses
+  marked under the hood). if the content contains
+  '%theme%' it will be replaced with the current
+  theme name (theme.altName). This only applies to
+  markdown since this is not really useful for plain
+  text. The main usecase is switching images based
+  on theme. Different strings to replace can
+  technically be added later on.
   */
 
   css() {
@@ -120,7 +131,7 @@ export default class Blog extends Class {
       <div className={`${this.style__blog_container} container`}>
         <div className={`${this.style__blog} ten columns`}>
           <div className={`${this.style__blog_name}`}>{this.post.name}</div>
-          <div className={`${this.style__blog_content} ${this.post.type}`} dangerouslySetInnerHTML={{__html: this.format(this.post.content, this.post.type)}} />
+          <div className={`${this.style__blog_content} ${this.post.type}`}>{this.format(this.post.content, this.post.type)}</div>
           <div className={`${this.style__blog_author}`}>
             <i>
               {this.post.author ? `~ ${this.post.author}` : '~ owner'}
