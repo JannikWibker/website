@@ -11,8 +11,6 @@ export default class Terminal extends Class {
   constructor(props) {
     super(props)
 
-    console.log(this.props)
-
     this.theme_event()
     this.update_css()
 
@@ -29,6 +27,7 @@ export default class Terminal extends Class {
 
     this.css__border = css({
       "boxSizing": "inherit",
+      "display": "block",
       "position": "relative",
       "border": `1px solid ${this.theme.accentColor}`,
       "borderRadius": "5px",
@@ -38,6 +37,7 @@ export default class Terminal extends Class {
 
     this.css__header = css({
       "boxSizing": "inherit",
+      "display": "block",
       "position": "absolute",
       "width": this.props.width || 450,
       "height": "36px",
@@ -96,19 +96,19 @@ export default class Terminal extends Class {
   render() {
     return (
       <span className={this.css__container}>
-        <div className={this.css__border}>
-          <div className={this.css__header}>
+        <span className={this.css__border}>
+          <span className={this.css__header}>
             <span className={this.css__button__close}></span>
             <span className={this.css__button__minimize}></span>
             <span className={this.css__button__maximize}></span>
             {this.props.safe ?
               <span className={this.css__title}>{this.props.title}</span> :
               <span className={this.css__title} dangerouslySetInnerHTML={{__html: marked(this.props.title)}}/> }
-          </div>
+          </span>
           <span className={this.css__main}>
             {this.props.children}
           </span>
-        </div>
+        </span>
       </span>
     )
   }
