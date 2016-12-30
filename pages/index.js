@@ -5,15 +5,12 @@ import Content from '../components/Content.js'
 import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import Terminal from '../components/Terminal.js'
+import HTML from '../components/HTML.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 import { Keyframes, Frame } from 'react-keyframes'
 import marked from 'marked'
-
-let HTML = (props) => {
-  return <div dangerouslySetInnerHTML={{__html: props.children}}></div>
-}
 
 export default class IndexPage extends React.Component {
 
