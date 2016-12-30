@@ -22,6 +22,7 @@
   "homepage": "https://github.com/JannikWibker/website#readme",
   "dependencies": {
     "chart.js": "^2.4.0",
+    "glamor": "^2.20.19",
     "isomorphic-fetch": "^2.2.1",
     "keyboardjs": "^2.3.3",
     "level-js": "^2.2.4",
