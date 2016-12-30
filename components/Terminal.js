@@ -32,21 +32,22 @@ export default class Terminal extends Class {
       "position": "relative",
       "border": `1px solid ${this.theme.accentColor}`,
       "borderRadius": "5px",
-      "width": "100%",
-      "height": "100%",
+      "width": this.props.width || 450,
+      "height": this.props.height || 260,
     })
 
     this.css__header = css({
       "boxSizing": "inherit",
       "position": "absolute",
-      "width": "100%",
+      "width": this.props.width || 450,
       "height": "36px",
       "textAlign": "center"
     })
 
     this.css__main = css({
       "boxSizing": "inherit",
-      "width": "calc(100% - 32px)",
+      "display": "block",
+      "width": `calc(${this.props.width || 450} - 32px)`,
       "height": (this.props.height || 260) - 36 + 'px',
       "margin": "36px 16px 0 16px",
       "textAlign": "left",
@@ -94,7 +95,7 @@ export default class Terminal extends Class {
 
   render() {
     return (
-      <div className={this.css__container}>
+      <span className={this.css__container}>
         <div className={this.css__border}>
           <div className={this.css__header}>
             <span className={this.css__button__close}></span>
@@ -102,14 +103,13 @@ export default class Terminal extends Class {
             <span className={this.css__button__maximize}></span>
             {this.props.safe ?
               <span className={this.css__title}>{this.props.title}</span> :
-              <span className={this.css__title} dangerouslySetInnerHTML={{__html: marked(this.props.title)}}/>}
-
+              <span className={this.css__title} dangerouslySetInnerHTML={{__html: marked(this.props.title)}}/> }
           </div>
-          <div className={this.css__main}>
+          <span className={this.css__main}>
             {this.props.children}
-          </div>
+          </span>
         </div>
-      </div>
+      </span>
     )
   }
 }
