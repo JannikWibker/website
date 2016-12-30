@@ -45,7 +45,7 @@ export default class IndexPage extends React.Component {
         <Header theme={dark_theme} />
         <Content theme={dark_theme}>
           <Block theme={dark_theme} >
-            <Terminal width="450" height="260" title="zsh">
+            <Terminal width="450" height="260" title="zsh" safe={false}>
             <Keyframes loop={true}>
               <Frame duration={500}>{''}</Frame>
               <Frame duration={500}><HTML>{marked('This')}</HTML></Frame>
