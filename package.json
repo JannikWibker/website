@@ -31,6 +31,7 @@
     "next": "^1.0.2",
     "react-chartjs": "^0.8.0",
     "react-chartjs-2": "^1.5.1",
+    "react-keyframes": "^0.2.2",
     "skeleton-css": "^2.0.4"
   }
 }

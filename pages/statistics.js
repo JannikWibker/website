@@ -24,7 +24,7 @@ export default class StatisticsPage extends React.Component {
       data: []
     }
     this.introduction = `The results of our survey about programming`
-    this.credits = `_Tina_, _Elina_, _Laura_, _Jannik_ and _Tim_`
+    this.credits = `_Tina_, _Elina_, _Laura_, _Jannik_, _Felix_ and _Tim_`
 
     this.file = '/static/statistics.ods'
     this.theme = light_theme
