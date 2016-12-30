@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "0.1.29",
+  "version": "0.1.30",
   "description": "hopefully soon my main website.",
   "main": "index.js",
   "scripts": {
@@ -26,11 +26,14 @@
     "keyboardjs": "^2.3.3",
     "level-js": "^2.2.4",
     "levelup": "^1.3.3",
+    "markdown-to-react-components": "^0.2.2",
     "marked": "^0.3.6",
     "moment": "^2.16.0",
     "next": "^1.0.2",
     "react-chartjs": "^0.8.0",
     "react-chartjs-2": "^1.5.1",
+    "react-components-in-markdown": "^0.1.5",
+    "react-in-markdown": "0.0.2",
     "react-keyframes": "^0.2.2",
     "skeleton-css": "^2.0.4"
   }
