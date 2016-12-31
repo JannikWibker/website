@@ -73,28 +73,27 @@ export default class Blog extends Class {
     This should probably be changed soon.
     */
 
+    this.style__blog_date_author = css({
+      "color": this.theme.accentColor,
+      "fontSize": "0.9em",
+      "textAlign": "left",
+      "paddingBottom": "8px"
+    })
+
+    /*
+    Date and Author share use the same css
+    class because their CSS is the same
+    */
+
     this.style__blog_name = css({
       "textAlign": "left",
-      "fontSize": "1.2em",
+      "fontSize": "1.4em",
       "fontWeight": "500",
-      "paddingBottom": "8px",
-      ":before": {
-        "content": '"> "',
-        "position": "relative",
-        "marginLeft": "-8px"
-      }
     })
 
     this.style__blog_content = css({
       "textAlign": "left",
-      "paddingLeft": "8px",
-    })
-
-    this.style__blog_author = css({
-      "color": this.theme.accentColor,
-      "fontSize": "0.8em",
-      "textAlign": "left",
-      "marginLeft": "-8px"
+      "paddingTop": "16px"
     })
   }
 
@@ -105,6 +104,7 @@ export default class Blog extends Class {
     fetch(`http://${location.hostname}:3001/blog/get/${post}`)
       .then((data) => data.json())
       .then((json) => {
+        json._content = this.format(json.content, json.type)
         this.post = json
         if(this.post.theme && this.post.theme !== 'light_theme' && this.theme.name === 'light_theme') {
           event.trigger('theme', this.theme)
@@ -128,17 +128,13 @@ export default class Blog extends Class {
   render() {
     return (
       <div className={`${this.style__blog_container} container`}>
-        <div className={`${this.style__blog} ten columns`}>
-          <div className={`${this.style__blog_name}`}>{this.post.name}</div>
-          <div className={`${this.style__blog_content} ${this.post.type}`}>{this.format(this.post.content, this.post.type)}</div>
-          <div className={`${this.style__blog_author}`}>
-            <i>
-              {this.post.author ? `~ ${this.post.author}` : '~ owner'}
-            </i><br />
-            <span className={css({ "paddingLeft": "4px" })}>
-              {this.post.date} - {this.post.ago}
-            </span>
+        <div className={`${this.style__blog} ten columns offset-by-two`}>
+          <div className={`${this.style__blog_date_author}`}>{this.post.date} ({this.post.ago})</div>
+          <div className={`${this.style__blog_name} link_big`}>{this.post.name}</div>
+          <div className={`${this.style__blog_date_author}`}>
+            {this.post.author ? `~ ${this.post.author}` : '~ owner'}
           </div>
+          <div className={`${this.style__blog_content} ${this.post.type}`}>{this.post._content}</div>
         </div>
       </div>
     )
