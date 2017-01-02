@@ -1,6 +1,7 @@
 import React from 'react'
 import css from 'next/css'
 import fetch from 'isomorphic-fetch'
+import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import Class from './Class.js'
@@ -67,6 +68,12 @@ export default class Block extends Class {
       "fontSize": "10px",
       "paddingLeft": "10px",
       "textAlign": "left"
+    })
+
+    this.style__login_register = css({
+      "fontSize": "0.9em",
+      "marginLeft": "62px",
+      "color": this.theme.linkColor + '!important'
     })
   }
 
@@ -153,6 +160,8 @@ export default class Block extends Class {
         <input type="password" placeholder="your p4ssw0rd" className={this.style__login_input} ref={(input) => {this.password = input}}></input><br />
         <span className={this.style__login_error} >{this.error.password}</span><br />
         <div className={this.style__login_button} onClick={this.check}>login</div>
+        <a className={this.style__login_register} href='/register'>don't have an account? Register</a>
+
       </div>
     )
   }
