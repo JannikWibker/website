@@ -26,7 +26,6 @@ export default class Login extends Class {
   }
 
   css() {
-
     this.style__login_button = css({
       "width": "96",
       "height": "24px",

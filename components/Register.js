@@ -11,6 +11,8 @@ export default class Register extends Class {
   constructor(props) {
     super(props)
 
+    this.check = this.check.bind(this)
+
     this.storage = typeof window === 'undefined' ? { account: undefined} : window.localStorage
 
     this.theme_event()
@@ -24,6 +26,19 @@ export default class Register extends Class {
   }
 
   css() {
+    this.style__register_button = css({
+      "width": "96",
+      "height": "24px",
+      "margin": "0 26px 0 110px",
+      "cursor": "pointer",
+      "color": this.theme.color,
+      ":hover": {
+        "color": this.theme.linkColor
+      }
+    })
+  }
+
+  check() {
 
   }
 
@@ -43,6 +58,7 @@ export default class Register extends Class {
       <InputField type='text' placeholder='username' title='username' error={this.error.username} theme={this.theme} cb={(input) => {this.username = input}}/>
       <InputField type='email' placeholder='email' title='email' error={this.error.email} theme={this.theme} cb={(input) => {this.email = input}}/>
       <InputField type='password' placeholder='your p4ssw0rd' title='password' error={this.error.password} theme={this.theme} cb={(input) => {this.password = input}}/>
+      <div className={this.style__register_button} onClick={this.check}>register</div>
       </div>
     )
   }
