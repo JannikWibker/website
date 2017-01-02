@@ -1,13 +1,12 @@
 import React from 'react'
 import css from 'next/css'
 import fetch from 'isomorphic-fetch'
-import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import Class from './Class.js'
 import InputField from './InputField.js'
 
-export default class Block extends Class {
+export default class Login extends Class {
 
   constructor(props) {
     super(props)
