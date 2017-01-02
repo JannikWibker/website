@@ -104,7 +104,6 @@ export default class Blog extends Class {
     fetch(`http://${location.hostname}:3001/blog/get/${post}`)
       .then((data) => data.json())
       .then((json) => {
-        json._content = this.format(json.content, json.type)
         this.post = json
         if(this.post.theme && this.post.theme !== 'light_theme' && this.theme.name === 'light_theme') {
           event.trigger('theme', this.theme)
@@ -134,7 +133,7 @@ export default class Blog extends Class {
           <div className={`${this.style__blog_date_author}`}>
             {this.post.author ? `~ ${this.post.author}` : '~ owner'}
           </div>
-          <div className={`${this.style__blog_content} ${this.post.type}`}>{this.post._content}</div>
+          <div className={`${this.style__blog_content} ${this.post.type}`}>{this.format(this.post.content, this.post.type)}</div>
         </div>
       </div>
     )
