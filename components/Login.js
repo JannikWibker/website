@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
 import Class from './Class.js'
+import InputField from './InputField.js'
 
 export default class Block extends Class {
 
@@ -26,27 +27,6 @@ export default class Block extends Class {
   }
 
   css() {
-    this.style__login_input = css({
-      "backgroundColor": this.theme.backgroundColor + "!important",
-      "padding": "0px 10px 5px 10px!important",
-      "marginBottom": "0",
-      "fontSize": "12px",
-      "width": "150px",
-      "border": "none!important",
-      "borderRadius": "0px!important",
-      "borderBottom": "2px solid " + this.theme.accentColor + "!important",
-      ":focus": {
-        "borderBottom": "2px solid " + this.theme.color + "!important"
-      }
-    })
-
-    this.style__login_span = css({
-      "display": "inline-block",
-      "width": "84px",
-      "marginTop": "4px",
-      "fontSize": "13px",
-      "textAlign": "left",
-    })
 
     this.style__login_button = css({
       "width": "96",
@@ -59,17 +39,6 @@ export default class Block extends Class {
       }
     })
 
-    this.style__login_error = css({
-      "color": "red",
-      "display": "inline-block",
-      "height": "12px",
-      "width": "128px",
-      "marginLeft": "62px",
-      "fontSize": "10px",
-      "paddingLeft": "10px",
-      "textAlign": "left"
-    })
-
     this.style__login_register = css({
       "fontSize": "0.9em",
       "marginLeft": "62px",
@@ -78,6 +47,7 @@ export default class Block extends Class {
   }
 
   check() {
+    console.log(this.username)
     if(this.username.value === '') {
       this.error.username = 'username is empty'
     } else {
@@ -149,19 +119,12 @@ export default class Block extends Class {
 
   render() {
     return (
-      <div className={""} >
-        <span className={this.style__login_span} >username</span>
-        <input type="text" placeholder="username" className={this.style__login_input} ref={(input) => {this.username = input}}></input><br />
-        <span className={this.style__login_error} >{this.error.username}</span><br />
-        <span className={this.style__login_span} >email</span>
-        <input type="text" placeholder="you@mailprovider.com" className={this.style__login_input} ref={(input) => {this.email = input}}></input><br />
-        <span className={this.style__login_error} >{this.error.email}</span><br />
-        <span className={this.style__login_span} >password</span>
-        <input type="password" placeholder="your p4ssw0rd" className={this.style__login_input} ref={(input) => {this.password = input}}></input><br />
-        <span className={this.style__login_error} >{this.error.password}</span><br />
+      <div>
+        <InputField type='text' placeholder='username' title='username' error={this.error.username} theme={this.theme} cb={(input) => {this.username = input}}/>
+        <InputField type='email' placeholder='email' title='email' error={this.error.email} theme={this.theme} cb={(input) => {this.email = input}}/>
+        <InputField type='password' placeholder='your p4ssw0rd' title='password' error={this.error.password} theme={this.theme} cb={(input) => {this.password = input}}/>
         <div className={this.style__login_button} onClick={this.check}>login</div>
         <a className={this.style__login_register} href='/register'>don't have an account? Register</a>
-
       </div>
     )
   }
