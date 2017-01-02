@@ -4,6 +4,7 @@ import Header from '../components/Header.js'
 import Content from '../components/Content.js'
 import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
+import Register from '../components/Register.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event_loader from '../util/event_loader.js'
 
@@ -29,7 +30,7 @@ export default class RegisterPage extends React.Component {
         <Header />
         <Content theme={light_theme}>
           <Block>
-            213
+            <Register />
           </Block>
         </Content>
         <Footer />
