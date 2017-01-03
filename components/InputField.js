@@ -34,6 +34,44 @@ export default (props) => {
       "paddingLeft": "10px",
       "textAlign": "left"
     })
+
+    /*
+    <style jsx>{`
+      span.title {
+        display: inline-block;
+        width: 84px;
+        margin-top: 4px;
+        font-size: 13px;
+        text-align: left;
+      }
+
+      input.input {
+        background-color: ${props.theme.backgroundColor}!important;
+        padding: 0px 10px 5px 10px!important;
+        margin-bottom: 0;
+        fontSize: 12px;
+        width: 150px;
+        border: none!important;
+        border-radius: 0px!important;
+        border-bottom: 2px solid ${props.theme.accentColor}!important;
+      }
+
+      input.input:focus {
+        border-bottom: 2px solid  + props.theme.color + !important;
+      }
+
+      span.error {
+        color: red;
+        display: inline-block;
+        height: 12px;
+        width: 128px;
+        margin-left: 62px;
+        font-size: 10px;
+        padding-left: 10px;
+        text-align: left;
+      }
+    `}</style>
+    */
   }
 
   return (

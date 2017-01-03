@@ -92,73 +92,73 @@ export default class Terminal extends Class {
     /*
     <style jsx>{`
       span.container {
-        boxSizing: "border-box";
+        box-sizing: "border-box";
         width: ${this.props.width || 450};
         height: ${this.props.height || 260};
-        backgroundColor: ${this.theme.backgroundColor};
+        background-color: ${this.theme.backgroundColor};
         color: ${this.theme.color};
       }
 
       span.border {
-        boxSizing: inherit;
+        box-sizing: inherit;
         display: block;
         position: relative;
         border: 1px solid ${this.theme.accentColor};
-        borderRadius: 5px;
+        border-radius: 5px;
         width: ${this.props.width || 450};
         height: ${this.props.height || 260};
         height: ${this.props.height || 260};
       }
 
       span.header {
-        boxSizing: inherit;
+        box-sizing: inherit;
         display: block;
         position: absolute;
         width: ${this.props.width || 450};
         height: 36px;
-        textAlign: center;
+        text-align: center;
       }
 
       span.btn {
         position: absolute;
         width: 12px;
         height: "12px;
-        borderRadius: 50%;
+        border-radius: 50%;
         top: 50%;
         transform: translateY(-50%);
       }
 
       span.btn_close {
         left: 13px;
-        backgroundColor: #ff5f56;
+        background-color: #ff5f56;
       }
 
       span.btn_min {
         left: 33px;
-        backgroundColor": #ffbd2e;
+        background-color": #ffbd2e;
       }
 
       span.btn_max {
         left: 53px;
-        backgroundColor: #27c93f;
+        background-color: #27c93f;
       }
 
       span.title {
         position: absolute;
         top: 12px;
-        textAlign: center;
+        text-align: center;
         color: ${this.theme.color};
-        fontSize: 12px;
+        font-size: 12px;
       }
 
       span.main {
-        boxSizing: inherit;
+        box-sizing: inherit;
         display: block;
         width: calc(${this.props.width || 450} - 32px);
         height: ${(this.props.height || 260) - 36}px;
         margin: 36px 16px 0 16px;
-        textAlign: left;
-        fontSize: 12px;
+        text-align: left;
+        font-size: 12px;
         display: block;
       }
     `}
