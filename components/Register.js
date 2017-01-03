@@ -36,14 +36,38 @@ export default class Register extends Class {
         "color": this.theme.linkColor
       }
     })
+
+    /*
+    <style jsx>{`
+      .register_button {
+        width: 96px;
+        height: 24px;
+        margin: 0 26 0 110px;
+        cursor: "pointer";
+        color: ${this.theme.color}
+      }
+      .register_button:hover {
+        color: ${this.theme.linkColor}
+      }
+    `}</style>
+    */
   }
 
   check() {
 
   }
 
+  /*
+  username: req.body.username,
+  fullname: req.body.fullname,
+  age: req.body.age,
+  email: req.body.email,
+  password: req.body.password,
+  rank: rank,
+  */
+
   post(json) {
-    return fetch(`http://${location.hostname}`, { // MAKE BACKEND FOR REGISTERING
+    return fetch(`http://${location.hostname}:3001/auth/register`, {
       method: 'POST',
       body: JSON.stringify(json),
       headers: {
@@ -52,12 +76,23 @@ export default class Register extends Class {
     })
   }
 
+  validate(input) { // MAKE PROPER VALIDATION (CLIENT AND SERVER)
+    if(input.length >= 8 && /\d/.test(input)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   render() {
     return (
       <div>
       <InputField type='text' placeholder='username' title='username' error={this.error.username} theme={this.theme} cb={(input) => {this.username = input}}/>
+      <InputField type='text' placeholder='full name' title='full name' error={this.error.full_name} theme={this.theme} cb={(input) => {this.full_name = input}}/>
+      <InputField type='number' placeholder='age' title='age' error={this.error.age} theme={this.theme} cb={(input) => {this.age = input}}/>
       <InputField type='email' placeholder='email' title='email' error={this.error.email} theme={this.theme} cb={(input) => {this.email = input}}/>
       <InputField type='password' placeholder='your p4ssw0rd' title='password' error={this.error.password} theme={this.theme} cb={(input) => {this.password = input}}/>
+      <InputField type='password' placeholder='repeat p4ssw0rd' title='password' error={this.error.password_repeat} theme={this.theme} cb={(input) => {this.password_repeat = input}}/>
       <div className={this.style__register_button} onClick={this.check}>register</div>
       </div>
     )
