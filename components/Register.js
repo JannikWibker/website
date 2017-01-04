@@ -20,8 +20,11 @@ export default class Register extends Class {
 
     this.error = {
       username: '',
+      fullname: '',
+      age: '',
       email: '',
-      password: ''
+      password: '',
+      password_repeat: ''
     }
   }
 
@@ -55,6 +58,52 @@ export default class Register extends Class {
 
   check() {
 
+    let e = n => this[n].value === '' ? n + ' is empty' : ''
+
+    this.error.username = e('username')
+    this.error.fullname = e('fullname')
+    this.error.age = e('age')
+    this.error.email = e('email')
+    this.error.password = e('password')
+    this.error.password_repeat = e('password_repeat')
+
+    let a = n => n !== ''
+    if(a(this.username.value) && a(this.fullname.value) && a(this.age.value) && a(this.email.value) && a(this.password.value) && a(this.password_repeat.value)) {
+      if(this.password.value === this.password_repeat.value) {
+        if(this.validate(this.password.value)) {
+          console.log(true)
+        } else {
+          console.log(false)
+        }
+
+        this.post({
+          username: this.username.value,
+          fullname: this.fullname.value,
+          age: this.age.value,
+          email: this.email.value,
+          password: this.password.value
+        })
+        .then(body => body.json())
+        .then(body => {
+          if(typeof body.id !== 'undefined') {
+            let acc_obj = {
+              username: this.username.value,
+              email: this.email.value,
+              password: this.password.value,
+              id: body.id
+            }
+            event.trigger('account', acc_obj)
+            console.log(acc_obj)
+            this.storage.account = JSON.stringify(acc_obj)
+          } else {
+            this.error.username = 'username is already taken'
+          }
+        })
+        .then(this.forceUpdate.bind(this))
+      }
+    }
+
+    this.forceUpdate()
   }
 
   /*
@@ -85,10 +134,11 @@ export default class Register extends Class {
   }
 
   render() {
+    console.log(this)
     return (
       <div>
       <InputField type='text' placeholder='username' title='username' error={this.error.username} theme={this.theme} cb={(input) => {this.username = input}}/>
-      <InputField type='text' placeholder='full name' title='full name' error={this.error.full_name} theme={this.theme} cb={(input) => {this.full_name = input}}/>
+      <InputField type='text' placeholder='full name' title='full name' error={this.error.fullname} theme={this.theme} cb={(input) => {this.fullname = input}}/>
       <InputField type='number' placeholder='age' title='age' error={this.error.age} theme={this.theme} cb={(input) => {this.age = input}}/>
       <InputField type='email' placeholder='email' title='email' error={this.error.email} theme={this.theme} cb={(input) => {this.email = input}}/>
       <InputField type='password' placeholder='your p4ssw0rd' title='password' error={this.error.password} theme={this.theme} cb={(input) => {this.password = input}}/>

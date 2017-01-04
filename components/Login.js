@@ -45,22 +45,12 @@ export default class Login extends Class {
   }
 
   check() {
-    console.log(this.username)
-    if(this.username.value === '') {
-      this.error.username = 'username is empty'
-    } else {
-      this.error.username = ''
-    }
-    if(this.email.value === '') {
-      this.error.email = 'email is empty'
-    } else {
-      this.error.email = ''
-    }
-    if(this.password.value === '') {
-      this.error.password = 'password is empty'
-    } else {
-      this.error.password = ''
-    }
+
+    let e = n => this[n].value === '' ? n + ' is empty' : ''
+    
+    this.error.username = e('username')
+    this.error.email = e('email')
+    this.error.password = e('password')
 
     if(this.username.value !== '' && this.email.value !== '' && this.password.value!== '' ) {
       if(this.validate(this.password.value)) {
