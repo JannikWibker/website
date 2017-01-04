@@ -89,6 +89,75 @@ export default class Header extends Class {
       $(' a', {"textDecoration": "none", color: this.theme.color})
     )
 
+    /*
+    <style jsx>{`
+      div.header_out, div.header_container_nav {
+        background-color: ${this.theme.backgroundColor};
+      }
+
+      header.header {
+        max-width: 900px;
+        margin: auto;
+        padding: 30px 8px;
+        position: relative;
+        background-color: ${this.theme.backgroundColor};
+      }
+
+      div.header_icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        top: -10px;
+        padding-top: 10px;
+      }
+
+      div.header_container {
+        margin-top: -6px;
+        padding: 10px;
+        padding-right: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      div.header_container_left {
+        left: 50px;
+      }
+
+      div.header_container_right {
+        right: 0;
+      }
+
+      span.header_item {
+        padding: 10px;
+        font-size: 12px;
+        fontWeight: 400;
+        text-transform: uppercase;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, sans-serif
+      }
+
+      span.header_item > a {
+        text-decoration: none;
+        color: ${this.theme.color}
+      }
+
+      @media(max-width: 400px) {
+        div.header_icon {
+          display: none;
+        }
+
+        div.header_container {
+          padding: 0px;
+        }
+
+        div.header_container_left {
+          left: 0px;
+        }
+      }
+    `}</style>
+    */
+
   }
 
   render() {
