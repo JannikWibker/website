@@ -6,8 +6,8 @@ import { insertRule } from 'next/css'
 
 export default class Globals extends React.Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
 
     this.css()
   }
@@ -40,6 +40,7 @@ export default class Globals extends React.Component {
           <link rel="stylesheet" href="static/vendor/normalize.css" />
           <link rel="stylesheet" href="static/vendor/skeleton.css" />
           <link rel="stylesheet" href="static/css/gfm.css" />
+          <title>{this.props.url.substring(1, this.props.url.length) || 'home'}</title>
         </Head>
     )
     /*
