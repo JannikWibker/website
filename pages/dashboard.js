@@ -17,14 +17,14 @@ export default class DashboardPage extends React.Component {
     event_loader(['theme', 'account'])
     // loading events (see /util/event_loader.js for additional information)
   }
-  
+
   render() {
     event_loader(['theme', 'account'])
 
     // again loading events just incase
     return (
       <div className="root">
-        <Globals />
+        <Globals url={this.props.url.pathname} />
         <Header theme={light_theme}/>
         <Content theme={light_theme}>
           <Block theme={light_theme}>

@@ -28,7 +28,7 @@ export default class BlogPage extends React.Component {
     // again loading events just incase
     return (
       <div className="root">
-        <Globals />
+        <Globals url={this.props.url.pathname} />
         <Header theme={light_theme}/>
         <Content>
           <Block theme={light_theme}>

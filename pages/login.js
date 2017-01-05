@@ -23,7 +23,7 @@ export default class IndexPage extends React.Component {
   render() {
     return (
       <div className="root">
-        <Globals />
+        <Globals url={this.props.url.pathname} />
         <Header />
         <Content>
           <Block>

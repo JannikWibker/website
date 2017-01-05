@@ -168,7 +168,7 @@ export default class StatisticsPage extends React.Component {
   render() {
     return (
       <div className="root">
-        <Globals />
+        <Globals url={this.props.url.pathname} />
         {/* <Header theme={this.theme} /> */}
         <Content theme={this.theme}>
           <Block theme={this.theme} >

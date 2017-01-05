@@ -29,7 +29,7 @@ export default class AboutPage extends React.Component {
     // and again loading events just incase (this is probably completly useless and idiotic but I do not care as of right now)
     return (
       <div className="root">
-        <Globals />
+        <Globals url={this.props.url.pathname} />
         <Header />
         <Content theme={light_theme}>
           <Block>
