@@ -87,7 +87,7 @@ export default class Login extends Class {
   }
 
   validate(input) { // MAKE PROPER VALIDATION (CLIENT AND SERVER)
-    if(input.length >= 8) {
+    if(input.length >= 8 && /\d/.test(input)) {
       return true
     } else {
       return false
