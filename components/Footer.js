@@ -47,7 +47,7 @@ export default class Footer extends Class {
           <div className={`${this.style__footer_item} four columns link`}>
             <Link href="https://twitter.com/JannikWibker">
               <div>
-                <img src={`/static/images/Twitter-64px-${this.theme.name}.png`} />
+                <img alt="Twitter" src={`/static/images/Twitter-64px-${this.theme.name}.png`} />
                 <span>
                   @JannikWibker
                 </span>
@@ -57,7 +57,7 @@ export default class Footer extends Class {
           <div className={`${this.style__footer_item} four columns link`}>
             <Link href="https://github.com/JannikWibker">
             <div>
-              <img src={`/static/images/GitHub-Mark-64px-${this.theme.name}.png`} />
+              <img alt="GitHub" src={`/static/images/GitHub-Mark-64px-${this.theme.name}.png`} />
               <span>
                 JannikWibker
               </span>
@@ -67,7 +67,7 @@ export default class Footer extends Class {
           <div className={`${this.style__footer_item} four columns link`}>
             <Link href="mailto:jannikwibker@gmail.com">
               <div>
-                <img src={`/static/images/email-24dp-${this.theme.name}.png`} />
+                <img alt="E-Mail" src={`/static/images/email-24dp-${this.theme.name}.png`} />
                 <span>
                   jannikwibker@gmail.com
                 </span>

@@ -4,10 +4,10 @@ import { renderCustomComponents } from 'react-in-markdown';
 import css from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
 import event from '../util/event.js'
+import date from '../util/date.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
 import Terminal from './Terminal.js'
-import moment from 'moment'
 import replace_all from '../util/replace_all.js'
 
 export default class Blog extends Class {
@@ -136,9 +136,8 @@ export default class Blog extends Class {
           event.trigger('theme', this.theme)
         }
         if(this.post.createdAt) {
-          let l_date = moment(this.post.createdAt)
-          this.post.date = l_date.format('DD.MM.YYYY')
-          this.post.ago = l_date.fromNow()
+          this.post.date = replace_all(new Date(this.post.createdAt).toLocaleDateString(), ['/'], ['.'])
+          this.post.ago = date(this.post.createdAt)
         }
         if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
       })
