@@ -37,7 +37,7 @@ export default class Terminal extends Class {
       "boxSizing": "inherit",
       "display": "block",
       "position": "absolute",
-      "width": this.props.width || 450,
+      "width": this.props.width || '450px',
       "height": "36px",
       "textAlign": "center"
     })
@@ -45,7 +45,7 @@ export default class Terminal extends Class {
     this.css__main = css({
       "boxSizing": "inherit",
       "display": "block",
-      "width": `calc(${this.props.width || 450} - 32px)`,
+      "width": `calc(${this.props.width || '450px'} - 32px)`,
       "height": (this.props.height || 260) - 36 + 'px',
       "margin": "36px 16px 0 16px",
       "textAlign": "left",
@@ -176,7 +176,7 @@ export default class Terminal extends Class {
             <span className={this.css__button__maximize}></span>
             {this.props.safe ?
               <span className={this.css__title}>{this.props.title}</span> :
-              <span className={this.css__title} dangerouslySetInnerHTML={{__html: marked(this.props.title)}}/> }
+              <span className={this.css__title} dangerouslySetInnerHTML={{__html: marked.inlineLexer(this.props.title, [])}}/> }
           </span>
           <span className={this.css__main}>
             {this.props.children}
