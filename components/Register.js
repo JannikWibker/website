@@ -1,7 +1,7 @@
 import React from 'react'
 import css from 'next/css'
-import fetch from 'isomorphic-fetch'
 import { dark_theme, light_theme } from '../config/themes.js'
+import post from '../util/post.js'
 import event from '../util/event.js'
 import Class from './Class.js'
 import InputField from './InputField.js'
@@ -76,7 +76,7 @@ export default class Register extends Class {
           console.log(false)
         }
 
-        this.post({
+        post(`http://${location.hostname}:3001/auth/register`, {
           username: this.username.value,
           fullname: this.fullname.value,
           age: this.age.value,
@@ -106,24 +106,6 @@ export default class Register extends Class {
     this.forceUpdate()
   }
 
-  /*
-  username: req.body.username,
-  fullname: req.body.fullname,
-  age: req.body.age,
-  email: req.body.email,
-  password: req.body.password,
-  rank: rank,
-  */
-
-  post(json) {
-    return fetch(`http://${location.hostname}:3001/auth/register`, {
-      method: 'POST',
-      body: JSON.stringify(json),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  }
 
   validate(input) { // MAKE PROPER VALIDATION (CLIENT AND SERVER)
     if(input.length >= 8 && /\d/.test(input)) {

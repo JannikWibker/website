@@ -1,7 +1,7 @@
 import React from 'react'
 import css from 'next/css'
-import fetch from 'isomorphic-fetch'
 import { dark_theme, light_theme } from '../config/themes.js'
+import post from '../util/post.js'
 import event from '../util/event.js'
 import Class from './Class.js'
 import InputField from './InputField.js'
@@ -47,7 +47,7 @@ export default class Login extends Class {
   check() {
 
     let e = n => this[n].value === '' ? n + ' is empty' : ''
-    
+
     this.error.username = e('username')
     this.error.email = e('email')
     this.error.password = e('password')
@@ -58,7 +58,7 @@ export default class Login extends Class {
       } else {
         console.log(false)
       }
-      this.post({
+      post(`http://${location.hostname}:3001/auth/login`, {
         username: this.username.value,
         email: this.email.value,
         password: this.password.value
@@ -85,17 +85,6 @@ export default class Login extends Class {
 
     this.forceUpdate()
   }
-
-  post(json) {
-    return fetch(`http://${location.hostname}:3001/auth/login`, {
-      method: 'POST',
-      body: JSON.stringify(json),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-  }
-
 
   validate(input) { // MAKE PROPER VALIDATION (CLIENT AND SERVER)
     if(input.length >= 8) {
