@@ -95,6 +95,33 @@ export default class Blog extends Class {
       "textAlign": "left",
       "paddingTop": "16px"
     })
+
+    /*
+    <style jsx>{`
+    .content {
+      text-align: left;
+      padding-top: 16px;
+    }
+
+    .name {
+      text-align: left;
+      font-size: 1.4em;
+      font-weight: 500;
+    }
+
+    .author, date {
+      padding-bottom: 8px;
+      text-align: left;
+      font-size: 0.9em;
+      color: ${this.theme.accentColor};
+    }
+
+    .container {
+      color: ${this.theme.color}
+    }
+
+    `}</style>
+    */
   }
 
   get(post) {

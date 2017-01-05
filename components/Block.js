@@ -23,6 +23,20 @@ export default class Block extends Class {
       "color": this.theme.color,
       "backgroundColor": this.theme.backgroundColor
     })
+
+    /*
+    <style jsx>{`
+      div.block {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(50vh - 55px);
+        color: ${this.theme.coor};
+        background-color: ${this.theme.backgroundColor}
+      }
+    `}</style>
+    */
   }
 
   render() {

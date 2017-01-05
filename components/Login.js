@@ -44,6 +44,29 @@ export default class Login extends Class {
     })
   }
 
+  /*
+  <style jsx>{`
+    div.login_btn {
+      width: 96px;
+      height: 24px;
+      margin: 0 26px 0 110px;
+      cursor: pointer;
+      color: ${this.theme.color};
+    }
+
+    div.login_btn:hover {
+      color: ${this.theme.linkColor};
+    }
+
+    a.register_btn {
+      font-size: 0.9em;
+      margin-left: 62px;
+      color: ${this.theme.linkColor}!important;
+    }
+
+  `}</style>
+  */
+
   check() {
 
     let e = n => this[n].value === '' ? n + ' is empty' : ''

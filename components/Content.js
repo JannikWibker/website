@@ -23,6 +23,19 @@ export default class Content extends Class {
       "textAlign": "center",
       "fontWeight": "100"
     })
+
+    /*
+    <style jsx>{`
+    div.content {
+      text-align: center;
+      min-height: calc(100vh - 110px - 72px);
+      background-color: ${this.theme.backgroundColor};
+      color: ${this.theme.color};
+      font-size: 14px;
+      font-weight: 100;
+    }
+    `}</style>
+    */
   }
 
   render() {
