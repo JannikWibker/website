@@ -40,6 +40,12 @@ export default class Register extends Class {
       }
     })
 
+    this.style__register_login = css({
+      "fontSize": "0.9em",
+      "marginLeft": "62px",
+      "color": this.theme.linkColor + '!important'
+    })
+
     /*
     <style jsx>{`
       .register_button {
@@ -51,6 +57,12 @@ export default class Register extends Class {
       }
       .register_button:hover {
         color: ${this.theme.linkColor}
+      }
+
+      a.login_btn {
+        font-size: 0.9em;
+        margin-left: 62px;
+        color: ${this.theme.linkColor}!important;
       }
     `}</style>
     */
@@ -126,6 +138,7 @@ export default class Register extends Class {
       <InputField type='password' placeholder='your p4ssw0rd' title='password' error={this.error.password} theme={this.theme} cb={(input) => {this.password = input}}/>
       <InputField type='password' placeholder='repeat p4ssw0rd' title='password' error={this.error.password_repeat} theme={this.theme} cb={(input) => {this.password_repeat = input}}/>
       <div className={this.style__register_button} onClick={this.check}>register</div>
+      <a className={this.style__register_login} href='/login'>already have an account? Login</a>
       </div>
     )
   }
