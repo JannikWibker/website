@@ -1,17 +1,18 @@
 import React from 'react'
+import css from 'next/css'
+import marked from 'marked'
 import Globals from '../components/Globals.js'
 import Header from '../components/Header.js'
 import Content from '../components/Content.js'
 import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
-import css from 'next/css'
-import marked from 'marked'
-import { dark_theme, light_theme, purple_theme } from '../config/themes.js'
-import event_loader from '../util/event_loader.js'
 import PieChart from '../components/Charts/PieChart.js'
 import BarChart from '../components/Charts/BarChart.js'
 import LineChart from '../components/Charts/LineChart.js'
 import HorizontalBarChart from '../components/Charts/HorizontalBarChart.js'
+import { dark_theme, light_theme, purple_theme } from '../config/themes.js'
+import event_loader from '../util/event_loader.js'
+
 
 export default class StatisticsPage extends React.Component {
 
