@@ -6,6 +6,7 @@ import event from '../util/event.js'
 import remove_md from '../util/remove_markdown.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
+import replace_all from '../util/replace_all.js'
 
 
 export default class BlogList extends Class {
