@@ -6,7 +6,6 @@ import event from '../util/event.js'
 import remove_md from '../util/remove_markdown.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
-import moment from 'moment'
 
 
 export default class BlogList extends Class {
@@ -115,7 +114,7 @@ export default class BlogList extends Class {
           let l_post = post
           return (
             <div key={i} className={this.style__blog_post_container} id={l_post.name}>
-              <span className={`${this.style__blog_date} two columns`}>{l_post.createdAt ? moment(l_post.createdAt).format('DD/MM/YYYY') : ''}</span>
+              <span className={`${this.style__blog_date} two columns`}>{l_post.createdAt ? replace_all(new Date(l_post.createdAt).toLocaleDateString(), ['/'], ['.']) : ''}</span>
 
               <div className={'ten columns ' + css({"float": "right"})}>
               <a className={`${this.style__blog_name}`} href={`/blog?id=${l_post.id}`}>
