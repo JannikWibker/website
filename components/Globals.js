@@ -29,7 +29,7 @@ export default class Globals extends React.Component {
       background-color: rgba(248,28,229,0.75);
       color: white
     }
-    `)
+    `.replace(/\s/g, ''))
   }
 
   render() {
