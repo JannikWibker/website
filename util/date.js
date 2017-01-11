@@ -71,3 +71,25 @@ The 2 values that are calculated are being calculated as follows:
   returns the singular or plural form of the unit respectivly
 
 */
+
+/*
+minified version:
+*/
+
+/*
+let x = ((t,n=0,y=+new Date())=>
+  [[0,'second'],[60,'minute'],
+   [3600,'hour'],[86400,'day'],
+   [604800,'week'],[2629746,'month'],
+   [31556925,'year'],[3155692500,'century','centuries'],
+   [31556925000,'millennium','millennia']]
+.map((x,i,_,m=Math.pow(10,n),s=(y-(t?t.constructor===Date?t.getTime():+new Date(t||y):y))/1000)=>
+  (s<0?-s:s>x[0])?
+    [(((s<0?-s:s/x[0]*m+0.5)|0)/m)
+    ,(((s<0?-s:s/x[0]*m+0.5)|0)/m)===1?x[1]:x[2]||x[1]+'s'
+    ,s===s<0?-s:s?'ago':'from now']
+  .join(' '):((s<0?-s:s===0)?'just now':''))
+  .filter(x=>x).reverse()[0])
+
+let y = (t,n=0,y=+new Date())=>[[0,'second'],[60,'minute'],[3600,'hour'],[86400,'day'],[604800,'week'],[2629746,'month'],[31556925,'year'],[3155692500,'century','centuries'],[31556925000,'millennium','millennia']].map((x,i,_,m=Math.pow(10,n),s=(y-(t?t.constructor===Date?t.getTime():+new Date(t||y):y))/1000)=>(s<0?-s:s>x[0])?[(((s<0?-s:s/x[0]*m+0.5)|0)/m),(((s<0?-s:s/x[0]*m+0.5)|0)/m)===1?x[1]:x[2]||x[1]+'s',s===s<0?-s:s?'ago':'from now'].join(' '):((s<0?-s:s===0)?'just now':'')).filter(x=>x).reverse()[0]
+*/
