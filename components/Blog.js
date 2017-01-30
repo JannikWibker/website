@@ -25,7 +25,10 @@ export default class Blog extends Class {
       a: props => renderCustomComponents(props, {
         terminal: (props) => (
             <Terminal  {...props} safe={true} />
-          )
+          ),
+        script: (props) => (
+          <Script {...props} />
+        )
       })
     })
 
