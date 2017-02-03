@@ -12,24 +12,15 @@ export default class Script extends Class {
     this.reload = this.reload.bind(this)
     this.load = this.load.bind(this)
     this.stop = this.stop.bind(this)
+    this.create = this.create.bind(this)
 
     this.iframe = undefined
     this._mounted = false
 
-    this.insertScript = `
-    <span id="c"></span>
-    <script type="text/javascript">
-      'use strict';
-      alert('123');
-      var x = (...a) => {
-        let d=document.querySelector("#c");
-        a.forEach(b=>d.append(b))
-      };
-      x("123");
-      console.log('123')
-    </script>
-    `
-    this.html = this.insertScript + this.props.html
+
+    this.insertScript = `'use strict';window.parent=undefined;parent=undefined;console.log=(...a)=>{let d=document.querySelector("#c");a.forEach(b=>d.append(typeof b==='object'&&!Array.isArray(b)&&(b===window||!!b.nodeType)?b:JSON.stringify(b)))}`
+    this.html = this.props.html
+    this.scripts = this.props.scripts || []
   }
 
   componentWillMount() {
@@ -40,15 +31,57 @@ export default class Script extends Class {
     this._mounted = false
   }
 
+  create(exit=false, doc=false) {
+    if(this.iframe) {
+      let frame = this.iframe.firstChild
+      if(!doc) {
+        frame = document.createElement('iframe')
+
+      }
+      let c = document.createElement('span')
+      c.id = 'c'
+
+      let script =  document.createElement('script')
+      script.text = this.insertScript
+
+      let user_scripts = document.createElement('div')
+
+      frame.innerHTML = 'Your browser does not seem to support iframes'
+
+      if(!exit) {
+        this.scripts.forEach(script => {
+          let script_el = document.createElement('script')
+          script_el.text = script
+          user_scripts.appendChild(script_el)
+        })
+      }
+
+
+      if(exit) {
+
+        this.iframe.append(frame)
+        this.iframe.firstChild.contentDocument.body.appendChild(c)
+        this.iframe.firstChild.contentDocument.body.appendChild(script)
+        this.iframe.firstChild.setAttribute('frameborder', '0')
+        this.iframe.firstChild.setAttribute('sandbox', 'allow-scripts')
+        return this.iframe.firstChild
+      }
+
+      this.iframe.append(frame)
+      this.iframe.firstChild.contentDocument.body.innerHTML = this.html
+      this.iframe.firstChild.contentDocument.body.appendChild(c)
+      this.iframe.firstChild.contentDocument.body.appendChild(script)
+      this.iframe.firstChild.contentDocument.body.appendChild(user_scripts)
+      this.iframe.firstChild.setAttribute('frameborder', '0')
+      this.iframe.firstChild.setAttribute('sandbox', 'allow-scripts')
+      return this.iframe.firstChild
+    }
+  }
+
   reload() {
     if(this.iframe) {
       this.iframe.firstChild.remove()
-      let frame = document.createElement('iframe')
-      frame.setAttribute('frameborder', '0')
-      frame.setAttribute('sandbox', 'allow-scripts allow-same-origin')
-      frame.innerHTML = 'Your browser does not seem to support iframes'
-      this.iframe.appendChild(frame)
-      this.iframe.firstChild.contentWindow.document.body.innerHTML = this.html
+      this.create()
     } else {
       console.log('something went wrong')
     }
@@ -56,7 +89,7 @@ export default class Script extends Class {
 
   load() {
     if(this.iframe) {
-      this.iframe.firstChild.contentWindow.document.body.innerHTML = this.html
+      this.create(false, this.iframe)
     } else {
       console.log('something went wrong')
     }
@@ -65,11 +98,7 @@ export default class Script extends Class {
   stop() {
     if(this.iframe) {
       this.iframe.firstChild.remove()
-      let frame = document.createElement('iframe')
-      frame.setAttribute('frameborder', '0')
-      frame.setAttribute('sandbox', 'allow-scripts allow-same-origin')
-      frame.innerHTML = 'Your browser does not seem to support iframes'
-      this.iframe.appendChild(frame)
+      this.create(true)
     } else {
       console.log('something went wrong')
     }

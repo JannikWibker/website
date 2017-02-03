@@ -11,6 +11,7 @@ import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 import { Keyframes, Frame } from 'react-keyframes'
 import marked from 'marked'
+import Script from '../components/Script.js'
 
 export default class IndexPage extends React.Component {
 
@@ -54,6 +55,7 @@ export default class IndexPage extends React.Component {
             </Keyframes>
             </Terminal>
           </Block>
+          <Script html={'abc'} scripts={['console.dir(window.top.document.querySelector("#__next"))']}/>
         </Content>
         <Footer theme={dark_theme} />
       </div>
