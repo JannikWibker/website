@@ -55,7 +55,7 @@ export default class IndexPage extends React.Component {
             </Keyframes>
             </Terminal>
           </Block>
-          <Script html={'abc'} scripts={['console.dir(window.top.document.querySelector("#__next"))']}/>
+          <Script html={'abc'} scripts={['url:./static/js/browser.min.js', 'window.addEventListener("_load", ()=>{console.log(Lambda(`1+1`))})']}/>
         </Content>
         <Footer theme={dark_theme} />
       </div>
