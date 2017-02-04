@@ -30,14 +30,12 @@ export default class Script extends Class {
     }
 
     event.subscribe('theme', (e) => {
-      console.log(this.theme.name)
       if(this._swap) {
         this._swap(this.__swap(e.payload))
       }
     })
 
-
-    this.insertScript = `'use strict';window.parent=undefined;parent=undefined;console.log=(...a)=>{let d=document.querySelector("#c");a.forEach(b=>{d.append(typeof b==='object'&&!Array.isArray(b)&&(b===window||!!b.nodeType)?b:JSON.stringify(b));d.appendChild(document.createElement('hr'))})};console.clear=()=>{document.querySelector("#c").innerHTML=''};window._evt=new Event('_load');window.swap_theme=theme=>{let s=document.body.style;s.backgroundColor = theme.backgroundColor;s.color = theme.color;}`
+    this.insertScript = `'use strict';window.parent=undefined;parent=undefined;console.log=(...a)=>{let d=document.querySelector("#c");a.forEach(b=>{d.appendChild(document.createTextNode(typeof b==='object'&&!Array.isArray(b)&&(b===window||!!b.nodeType)?b:JSON.stringify(b)));d.appendChild(document.createElement('hr'))})};console.clear=()=>{document.querySelector("#c").innerHTML=''};window._evt=new Event('_load');window.swap_theme=theme=>{let s=document.body.style;s.backgroundColor = theme.backgroundColor;s.color = theme.color;}`
     this.html = this.props.html
     this.scripts = this.props.scripts || []
   }
@@ -89,7 +87,7 @@ export default class Script extends Class {
 
       if(exit) {
 
-        this.iframe.append(frame)
+        this.iframe.appendChild(frame)
         this.iframe.firstChild.contentDocument.body.appendChild(c)
         this.iframe.firstChild.contentDocument.body.appendChild(script)
         this.iframe.firstChild.style.border = 0
@@ -101,7 +99,7 @@ export default class Script extends Class {
         return this.iframe.firstChild
       }
 
-      this.iframe.append(frame)
+      this.iframe.appendChild(frame)
       this.iframe.firstChild.contentDocument.body.innerHTML = '<style>body,hr{margin:0;border-color:rgba(255,255,255,0.6);}</style>' + this.html
       this.iframe.firstChild.contentDocument.body.appendChild(c)
       this.iframe.firstChild.contentDocument.body.appendChild(script)
@@ -143,6 +141,10 @@ export default class Script extends Class {
 
   }
   css() {
+    this.css__div_to_span = css({
+      "display": "block"
+    })
+
     this.css__actionbar = css({
       "display": "inline-block"
     })
@@ -160,13 +162,13 @@ export default class Script extends Class {
 
   render() {
     return (
-      <div>
-        <div className="iframe_container" ref={(input) => {this.iframe = input}}>
+      <span className={this.css__div_to_span}>
+        <span className={"iframe_container " + this.css__div_to_span} ref={(input) => {this.iframe = input}}>
           <iframe style={{border: 0}} sandbox="allow-scripts allow-same-origin">
             Your browser does not seem to support iframes
           </iframe>
-        </div>
-        <div className={this.css__actionbar}>
+        </span>
+        <span className={this.css__actionbar + ' ' + this.css__div_to_span}>
           <span className={this.css__button} onClick={this.load}>
             <img className={this.css__icon} alt="start" src={`/static/images/start-24px-${this.theme.name}.png`}></img>
             start
@@ -179,8 +181,8 @@ export default class Script extends Class {
             <img className={this.css__icon} alt="reload" src={`/static/images/reload-24px-${this.theme.name}.png`}></img>
             reload
           </span>
-        </div>
-      </div>
+        </span>
+      </span>
     )
   }
 }
