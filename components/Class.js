@@ -10,7 +10,6 @@ export default class Class extends React.Component {
 
   theme_event() {
     event.subscribe('theme', (e) => {
-
       // function to swap theme
       let swap = theme => {
         if(theme.name === dark_theme.name) {
