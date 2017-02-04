@@ -55,7 +55,33 @@ export default class IndexPage extends React.Component {
             </Keyframes>
             </Terminal>
           </Block>
-          <Script html={'abc'} scripts={['url:./static/js/browser.min.js', 'window.addEventListener("_load", ()=>{console.log(Lambda(`1+1`))})']}/>
+          <Script html={`
+            <textarea id="input">1+1</textarea>
+            <div id="btn">
+              <button id="run">run</button><br>
+              <button id="clear">clear</button>
+            </div>
+            <style>
+              #input{
+                height:100%;
+                width: 156px;
+              }
+              #btn{
+                float: right;
+              }
+              #run,#clear{
+                width: 42px;
+              }</style>`} scripts={[
+            'url:./static/js/browser.min.js',
+            `window.addEventListener('_load', () => {
+              document.getElementById('run').addEventListener('click', () => {
+                console.log(Lambda(document.getElementById('input').value))
+              })
+              document.getElementById('clear').addEventListener('click', () => {
+                console.clear()
+              })
+            })`
+                  ]}/>
         </Content>
         <Footer theme={dark_theme} />
       </div>
