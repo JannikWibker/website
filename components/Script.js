@@ -18,8 +18,7 @@ export default class Script extends Class {
     this._mounted = false
 
 
-    this.insertScript = `'use strict';window.parent=undefined;parent=undefined;console.log=(...a)=>{let d=document.querySelector("#c");a.forEach(b=>d.append(typeof b==='object'&&!Array.isArray(b)&&(b===window||!!b.nodeType)?b:JSON.stringify(b)))}
-    let _evt=new Event('_load')`
+    this.insertScript = `'use strict';window.parent=undefined;parent=undefined;console.log=(...a)=>{let d=document.querySelector("#c");a.forEach(b=>d.append(typeof b==='object'&&!Array.isArray(b)&&(b===window||!!b.nodeType)?b:JSON.stringify(b)))};let _evt=new Event('_load')`
     this.html = this.props.html
     this.scripts = this.props.scripts || []
   }
