@@ -2,6 +2,8 @@ import React from 'react'
 import css from 'next/css'
 import HTML from './HTML.js'
 import Class from './Class.js'
+import event from '../util/event.js'
+import { dark_theme, light_theme } from '../config/themes.js'
 export default class Script extends Class {
   constructor(props) {
     super(props)
@@ -17,8 +19,25 @@ export default class Script extends Class {
     this.iframe = undefined
     this._mounted = false
 
+    this._swap = undefined
 
-    this.insertScript = `'use strict';window.parent=undefined;parent=undefined;console.log=(...a)=>{let d=document.querySelector("#c");a.forEach(b=>d.append(typeof b==='object'&&!Array.isArray(b)&&(b===window||!!b.nodeType)?b:JSON.stringify(b)))};let _evt=new Event('_load')`
+    this.__swap = theme => {
+      if(theme.name === dark_theme.name) {
+        return light_theme
+      } else if(theme.name === light_theme.name) {
+        return dark_theme
+      }
+    }
+
+    event.subscribe('theme', (e) => {
+      console.log(this.theme.name)
+      if(this._swap) {
+        this._swap(this.__swap(e.payload))
+      }
+    })
+
+
+    this.insertScript = `'use strict';window.parent=undefined;parent=undefined;console.log=(...a)=>{let d=document.querySelector("#c");a.forEach(b=>{d.append(typeof b==='object'&&!Array.isArray(b)&&(b===window||!!b.nodeType)?b:JSON.stringify(b));d.appendChild(document.createElement('hr'))})};console.clear=()=>{document.querySelector("#c").innerHTML=''};window._evt=new Event('_load');window.swap_theme=theme=>{let s=document.body.style;s.backgroundColor = theme.backgroundColor;s.color = theme.color;}`
     this.html = this.props.html
     this.scripts = this.props.scripts || []
   }
@@ -38,7 +57,13 @@ export default class Script extends Class {
         frame = document.createElement('iframe')
 
       }
-      let c = document.createElement('span')
+      let c = document.createElement('div')
+      c.style.width = '96px'
+      c.style.height = '100%'
+      c.style.overflowY = 'scroll'
+      c.style.wordWrap = 'break-word'
+      c.style.float = 'right'
+      c.style.padding = '0 2px'
       c.id = 'c'
 
       let script =  document.createElement('script')
@@ -67,18 +92,26 @@ export default class Script extends Class {
         this.iframe.append(frame)
         this.iframe.firstChild.contentDocument.body.appendChild(c)
         this.iframe.firstChild.contentDocument.body.appendChild(script)
-        this.iframe.firstChild.setAttribute('frameborder', '0')
+        this.iframe.firstChild.style.border = 0
         this.iframe.firstChild.setAttribute('sandbox', 'allow-scripts')
+
+        this.iframe.firstChild.contentWindow.swap_theme(this.__swap(this.theme))
+        this._swap = this.iframe.firstChild.contentWindow.swap_theme
+
         return this.iframe.firstChild
       }
 
       this.iframe.append(frame)
-      this.iframe.firstChild.contentDocument.body.innerHTML = this.html
+      this.iframe.firstChild.contentDocument.body.innerHTML = '<style>body,hr{margin:0;border-color:rgba(255,255,255,0.6);}</style>' + this.html
       this.iframe.firstChild.contentDocument.body.appendChild(c)
       this.iframe.firstChild.contentDocument.body.appendChild(script)
       this.iframe.firstChild.contentDocument.body.appendChild(user_scripts)
-      this.iframe.firstChild.setAttribute('frameborder', '0')
+      this.iframe.firstChild.style.border = 0
       this.iframe.firstChild.setAttribute('sandbox', 'allow-scripts')
+
+      this.iframe.firstChild.contentWindow.swap_theme(this.__swap(this.theme))
+      this._swap = this.iframe.firstChild.contentWindow.swap_theme
+
       return this.iframe.firstChild
     }
   }
@@ -129,7 +162,7 @@ export default class Script extends Class {
     return (
       <div>
         <div className="iframe_container" ref={(input) => {this.iframe = input}}>
-          <iframe frameBorder="0" sandbox="allow-scripts allow-same-origin">
+          <iframe style={{border: 0}} sandbox="allow-scripts allow-same-origin">
             Your browser does not seem to support iframes
           </iframe>
         </div>
