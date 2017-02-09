@@ -8,6 +8,8 @@ import date from '../util/date.js'
 import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
 import Terminal from './Terminal.js'
+import Script from './Script.js'
+import Lambda from './Some_Language.js'
 import replace_all from '../util/replace_all.js'
 
 export default class Blog extends Class {
@@ -24,11 +26,14 @@ export default class Blog extends Class {
     MTRC.configure({
       a: props => renderCustomComponents(props, {
         terminal: (props) => (
-            <Terminal  {...props} safe={true} />
-          ),
+          <Terminal {...props} safe={true} />
+        ),
         script: (props) => (
           <Script {...props} />
-        )
+        ),
+        lambda: (props) => (
+          <Lambda {...props} />
+        ),
       })
     })
 
