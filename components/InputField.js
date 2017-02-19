@@ -75,12 +75,14 @@ export default (props) => {
   }
 
   return (
-    <div>
-      <span className={style.span}>
+    <div style={props.small ? {display: 'inline'} : {}}>
+      {props.title ? <span className={style.span}>
         {props.title}
-      </span>
-      <input type={props.type} placeholder={props.placeholder} className={style.input} ref={props.cb}/><br />
-      <span className={style.error}>{props.error}</span><br />
+      </span> : null}
+      <input type={props.type} placeholder={props.placeholder} className={style.input} ref={props.cb}/>
+      {props.small ? null : <br />}
+      {props.small ? null : <span className={style.error}>{props.error}</span>}
+      {props.small ? null : <br />}
     </div>
   )
 }
