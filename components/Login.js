@@ -13,7 +13,7 @@ export default class Login extends Class {
 
     this.check = this.check.bind(this)
 
-    this.storage = typeof window === 'undefined' ? { account: undefined} : window.localStorage
+    this.storage = typeof window === 'undefined' ? { account: undefined } : window.localStorage
 
     this.theme_event()
     this.update_css()
