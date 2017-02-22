@@ -74,8 +74,13 @@ export default (props) => {
     */
   }
 
+  let l_style = props.style || {}
+  if(props.small && !props.style.display) {
+    l_style.display = 'inline'
+  }
+
   return (
-    <div style={props.small ? {display: 'inline'} : {}}>
+    <div style={l_style}>
       {props.title ? <span className={style.span}>
         {props.title}
       </span> : null}
