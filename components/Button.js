@@ -2,7 +2,6 @@ import react from 'React'
 import css from 'next/css'
 
 export default (props) => {
-  console.log(props)
   let style = {
     span:  css({
       "textDecoration": "none",
