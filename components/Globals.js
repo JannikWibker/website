@@ -20,7 +20,7 @@ export default class Globals extends React.Component {
     }
     .link > a:hover, .link > a:hover > div > span {
       color: #fff;
-      background-color: rgba(248,28,229,0.75)
+      background-color: rgba(248,28,229,0.75);
     }
     .link_big > a:hover, .link_big:hover {
       text-decoration: underline;

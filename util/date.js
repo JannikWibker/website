@@ -1,4 +1,4 @@
-export default (time, n=0) =>  [
+export default (time, n=0) => [
     [0, 'second', 'seconds'],
     [60, 'minute', 'minutes'],
     [3600, 'hour', 'hours'],
