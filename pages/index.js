@@ -12,6 +12,7 @@ import keyboard from '../config/keyboard.js'
 import { Keyframes, Frame } from 'react-keyframes'
 import marked from 'marked'
 import Script from '../components/Script.js'
+import AddBlog from '../components/AddBlog.js'
 
 export default class IndexPage extends React.Component {
 
@@ -82,6 +83,7 @@ export default class IndexPage extends React.Component {
               })
             })`
                   ]}/>
+                  <AddBlog theme={dark_theme} />
         </Content>
         <Footer theme={dark_theme} />
       </div>
