@@ -1,2 +1,2 @@
 # website
-hopefully soon my main website (idk if github pages will work, maybe compile step which can compile a static page and some json for "rest" api)
+hopefully soon my main website (the website link not work about 99% of the time because the server is only on while developing)
