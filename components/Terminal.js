@@ -20,7 +20,8 @@ export default class Terminal extends Class {
       "width": this.props.width || 450,
       "height": this.props.height || 260,
       "backgroundColor": this.theme.backgroundColor,
-      "color": this.theme.color
+      "color": this.theme.color,
+      "maxWidth": "90vw",
     })
 
     this.css__border = css({
@@ -31,6 +32,7 @@ export default class Terminal extends Class {
       "borderRadius": "5px",
       "width": this.props.width || 450,
       "height": this.props.height || 260,
+      "maxWidth": "90vw",
     })
 
     this.css__header = css({
@@ -38,6 +40,7 @@ export default class Terminal extends Class {
       "display": "block",
       "position": "absolute",
       "width": this.props.width || '450px',
+      "maxWidth": "90vw",
       "height": "36px",
       "textAlign": "center"
     })
