@@ -83,7 +83,7 @@ export default class IndexPage extends React.Component {
               })
             })`
                   ]}/>
-                  <AddBlog theme={dark_theme} />
+
         </Content>
         <Footer theme={dark_theme} />
       </div>

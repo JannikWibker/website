@@ -39,8 +39,9 @@ export default class AddBlog extends Class {
 
     this.style__textarea = css({
       "marginTop": "16px",
-      "width": "80%",
+      "width": this.props.flex ? "80vw" : "80%",
       "height": "400px",
+      "maxHeight": "50vh",
       "color": this.theme.color + "!important",
       "backgroundColor": this.theme.backgroundColor + "!important",
       "borderRadius": "0!important"
