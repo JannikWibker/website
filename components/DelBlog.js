@@ -2,6 +2,7 @@ import React from 'react'
 import css from 'next/css'
 import post from '../util/post.js'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import Class from './Class.js'
 import Button from './Button.js'
 import event from '../util/event.js'
@@ -11,6 +12,8 @@ export default class DelBlog extends Class {
     super(props)
 
     this.posts = []
+
+    this.language = languages[getLanguage()].DelBlog
 
     this.get()
   }

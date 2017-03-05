@@ -2,6 +2,7 @@ import React from 'react'
 import css from 'next/css'
 import post from '../util/post.js'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import Class from './Class.js'
 import InputField from './InputField.js'
 import Button from './Button.js'
@@ -14,6 +15,8 @@ export default class AddBlog extends Class {
     this.title = null
     this.format = null
     this.textarea = null
+
+    this.language = languages[getLanguage()].AddBlog
 
     this.theme_event()
     this.update_css()
@@ -75,11 +78,11 @@ export default class AddBlog extends Class {
   render() {
     return (
       <div style={this.props.style}>
-        <InputField type='text' placeholder='title' small={true} theme={this.theme} cb={(input) => {this.title = input}} style={{margin: '0 8px 0 8px!important'}}/>
+        <InputField type='text' placeholder={this.language.title} small={true} theme={this.theme} cb={(input) => {this.title = input}} style={{margin: '0 8px 0 8px!important'}}/>
         <span className={this.style__select_wrapper}>
         <select defaultValue="markdown" className={this.style__select} ref={(input) => {this.format = input}}>
-          <option value="markdown">markdown</option>
-          <option value="plain">plaintext</option>
+          <option value="markdown">{this.language.markdown}</option>
+          <option value="plain">{this.language.plain}</option>
         </select>
         <br />
         <textarea className={this.style__textarea} ref={(input) => {this.textarea = input}}/>

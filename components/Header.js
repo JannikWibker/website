@@ -3,6 +3,7 @@ import Link from 'next/link'
 import css from 'next/css'
 import { merge, $ } from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
 import Class from './Class.js'
 import AccountName from './AccountName.js'
@@ -17,6 +18,8 @@ export default class Header extends Class {
       left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'statistic', url: '/statistics'}],
       right: [{name: 'Jannik Wibker', url: () => event.get('account').payload.username ? '/dashboard' : '/login', comp: <AccountName /> }]
     }
+
+    this.language = languages[getLanguage()].Header
 
     this.theme_event()
     this.update_css()

@@ -1,6 +1,7 @@
 import React from 'react'
 import css from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import post from '../util/post.js'
 import event from '../util/event.js'
 import Class from './Class.js'
@@ -14,6 +15,8 @@ export default class Login extends Class {
     this.check = this.check.bind(this)
 
     this.storage = typeof window === 'undefined' ? { account: undefined } : window.localStorage
+
+    this.language = languages[getLanguage()].Login
 
     this.theme_event()
     this.update_css()
@@ -69,7 +72,7 @@ export default class Login extends Class {
 
   check() {
 
-    let e = n => this[n].value === '' ? n + ' is empty' : ''
+    let e = n => this[n].value === '' ? n + this.language.is_empty : ''
 
     this.error.username = e('username')
     this.error.email = e('email')
@@ -120,11 +123,11 @@ export default class Login extends Class {
   render() {
     return (
       <div>
-        <InputField type='text' placeholder='username' title='username' error={this.error.username} theme={this.theme} cb={(input) => {this.username = input}}/>
-        <InputField type='email' placeholder='email' title='email' error={this.error.email} theme={this.theme} cb={(input) => {this.email = input}}/>
-        <InputField type='password' placeholder='your p4ssw0rd' title='password' error={this.error.password} theme={this.theme} cb={(input) => {this.password = input}}/>
+        <InputField type='text' placeholder={this.language.username} title={this.language.username} error={this.error.username} theme={this.theme} cb={(input) => {this.username = input}}/>
+        <InputField type='email' placeholder={this.language.email} title={this.language.email} error={this.error.email} theme={this.theme} cb={(input) => {this.email = input}}/>
+        <InputField type='password' placeholder={this.language.password_initial} title={this.language.password} error={this.error.password} theme={this.theme} cb={(input) => {this.password = input}}/>
         <div className={this.style__login_button} onClick={this.check}>login</div>
-        <a className={this.style__login_register} href='/register'>don't have an account? Register</a>
+        <a className={this.style__login_register} href='/register'>{this.language.no_account_question}</a>
       </div>
     )
   }

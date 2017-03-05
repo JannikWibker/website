@@ -2,12 +2,15 @@ import React from 'react'
 import css from 'next/css'
 import HTML from './HTML.js'
 import event from '../util/event.js'
+import { languages, getLanguage } from '../config/language.js'
 import Class from './Class.js'
 import marked from 'marked'
 
 export default class Terminal extends Class {
   constructor(props) {
     super(props)
+
+    this.language = languages[getLanguage()].Terminal
 
     this.theme_event()
     this.update_css()

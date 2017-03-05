@@ -2,6 +2,7 @@ import React from 'react'
 import css from 'next/css'
 import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
 import remove_md from '../util/remove_markdown.js'
 import fetch from 'isomorphic-fetch'
@@ -15,6 +16,8 @@ export default class BlogList extends Class {
     super(props)
     this.get()
     this.posts = []
+
+    this.language = languages[getLanguage()].BlogList
 
     this.theme_event()
     this.update_css()

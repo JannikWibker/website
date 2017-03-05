@@ -3,6 +3,7 @@ import MTRC from 'markdown-to-react-components'
 import { renderCustomComponents } from 'react-in-markdown';
 import css from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
 import date from '../util/date.js'
 import fetch from 'isomorphic-fetch'
@@ -19,6 +20,8 @@ export default class Blog extends Class {
 
     this.get(this.props.id)
     this.post = {}
+
+    this.language = languages[getLanguage()].Blog
 
     this.theme_event()
     this.update_css()
@@ -165,7 +168,7 @@ export default class Blog extends Class {
           <div className={`${this.style__blog_date_author}`}>{this.post.date} ({this.post.ago})</div>
           <div className={`${this.style__blog_name} link_big`}>{this.post.name}</div>
           <div className={`${this.style__blog_date_author}`}>
-            {this.post.author ? `~ ${this.post.author}` : '~ owner'}
+            {`~ ${this.post.author ? this.post.author : this.language.owner}` }
           </div>
           <div className={`${this.style__blog_content} ${this.post.type}`}>{this.format(this.post.content, this.post.type)}</div>
         </div>

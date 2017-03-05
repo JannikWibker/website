@@ -3,12 +3,15 @@ import Link from 'next/link'
 import css from 'next/css'
 import { merge, $ } from 'next/css'
 import { dark_theme, light_theme } from '../config/themes'
+import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
 import Class from './Class.js'
 
 export default class Footer extends Class {
   constructor() {
     super()
+
+    this.language = languages[getLanguage()].Footer
 
     this.theme_event()
     this.update_css()
