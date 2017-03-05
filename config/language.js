@@ -184,7 +184,7 @@ const languages = {
 }
 
 let getLanguage = () => {
-  return 'ger'
+  return 'eng'
 }
 
 export { languages, getLanguage}

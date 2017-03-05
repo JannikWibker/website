@@ -6,7 +6,7 @@ export default (props) => {
   let style = {
     span: css({
       "display": "inline-block",
-      "width": "84px",
+      "width": "100px",
       "marginTop": "4px",
       "fontSize": "13px",
       "textAlign": "left"

@@ -32,7 +32,7 @@ export default class Login extends Class {
     this.style__login_button = css({
       "width": "96",
       "height": "24px",
-      "margin": "0 26px 0 110px",
+      "margin": "0 26px 0 126px",
       "cursor": "pointer",
       "color": this.theme.color,
       ":hover": {
@@ -42,7 +42,7 @@ export default class Login extends Class {
 
     this.style__login_register = css({
       "fontSize": "0.9em",
-      "marginLeft": "62px",
+      "marginRight": "-100px",
       "color": this.theme.linkColor + '!important'
     })
   }
