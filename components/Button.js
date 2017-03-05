@@ -1,21 +1,35 @@
-import react from 'React'
+import React from 'react'
 import css from 'next/css'
+import { dark_theme, light_theme } from '../config/themes.js'
+import event from '../util/event.js'
+import Class from './Class.js'
 
-export default (props) => {
-  let style = {
-    span:  css({
+
+export default class Button extends Class {
+
+  constructor(){
+    super()
+
+    this.theme_event()
+    this.update_css()
+  }
+
+  css() {
+    this.style__span = css({
       "textDecoration": "none",
-      "color": props.theme.color,
-      "backgroundColor": props.theme.backgroundColor,
+      "color": this.theme.color,
+      "backgroundColor": this.theme.backgroundColor,
       "cursor": "pointer",
       ":hover": {
-        "backgroundColor": props.theme.linkColor,
+        "backgroundColor": this.theme.linkColor,
         "color": "#fff"
       }
     })
   }
 
-  return (
-    <span onClick={props.click} className={style.span}>{props.children}</span>
-  )
+  render() {
+    return (
+      <span onClick={this.props.click} className={this.style__span}>{this.props.children}</span>
+    )
+  }
 }
