@@ -5,6 +5,7 @@ import Content from '../components/Content.js'
 import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import AddBlog from '../components/AddBlog.js'
+import DelBlog from '../components/DelBlog.js'
 import Button from '../components/Button.js'
 import AccountName from '../components/AccountName.js'
 import Login from '../components/Login.js'
@@ -20,6 +21,7 @@ export default class DashboardPage extends React.Component {
     this.storage = typeof window === 'undefined' ? { account: undefined} : window.localStorage
 
     this.showAddBlog = false
+    this.showDelBlog = false
 
     event_loader(['theme', 'account'])
 
@@ -30,9 +32,6 @@ export default class DashboardPage extends React.Component {
       later the value is changed but this is only happening on the client side which. The change
       instantly triggers a rerender of the page
     */
-  }
-
-  componentWillMount() {
   }
 
   componentDidMount() {
@@ -75,10 +74,19 @@ export default class DashboardPage extends React.Component {
                 Dashboard - Account stuff goes here<br />
                 <AccountName />
                 <br />
-                <br />
-                <span style={{fontSize: "1.2em"}}>{"add a blog post? "}</span>
-                <Button theme={light_theme} click={(()=>{this.showAddBlog = !this.showAddBlog;this.forceUpdate();}).bind(this)}>{this.showAddBlog ? '[hide]' : '[show]'}</Button>
-                {this.showAddBlog ? <AddBlog theme={this.theme} flex={true} /> : ''}
+                <hr />
+                <span>
+                  <span style={{fontSize: "1.2em"}}>{"add a blog post? "}</span>
+                  <Button theme={light_theme} click={(()=>{this.showAddBlog = !this.showAddBlog;this.forceUpdate();}).bind(this)}>{this.showAddBlog ? '[hide]' : '[show]'}</Button>
+                  {this.showAddBlog ? <AddBlog flex={true} /> : ''}
+                  <hr />
+                </span>
+                <span>
+                  <span style={{fontSize: "1.2em"}}>{"delete a blog post?"}</span>
+                  <Button theme={light_theme} click={(()=>{this.showDelBlog = !this.showDelBlog;this.forceUpdate();}).bind(this)}>{this.showDelBlog ? '[hide]' : '[show]'}</Button>
+                  {this.showDelBlog ? <DelBlog flex={true} /> : ''}
+                  <hr />
+                </span>
               </div>
             ) : (
               <div>
