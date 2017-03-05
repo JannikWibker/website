@@ -7,6 +7,7 @@ import Footer from '../components/Footer.js'
 import Terminal from '../components/Terminal.js'
 import HTML from '../components/HTML.js'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 import { Keyframes, Frame } from 'react-keyframes'
@@ -31,6 +32,8 @@ export default class IndexPage extends React.Component {
     keyboard.init()
     // initializing the keyboard shortcuts (see /config/keyboard.js)
 
+    this.language = languages[getLanguage()].IndexPage
+
     event_loader(['theme', 'account'])
     // loading events (see /util/event_loader)
   }
@@ -50,9 +53,9 @@ export default class IndexPage extends React.Component {
             <Terminal width="450" height="260" title="zsh" safe={false}>
             <Keyframes loop={true}>
               <Frame duration={500}>{''}</Frame>
-              <Frame duration={500}><HTML>{marked('This')}</HTML></Frame>
-              <Frame duration={500}><HTML>{marked('This is')}</HTML></Frame>
-              <Frame duration={500}><HTML>{marked('This is _**animated**_.')}</HTML></Frame>
+              <Frame duration={500}><HTML>{marked(this.language.Terminal_frames[0])}</HTML></Frame>
+              <Frame duration={500}><HTML>{marked(this.language.Terminal_frames[1])}</HTML></Frame>
+              <Frame duration={500}><HTML>{marked(this.language.Terminal_frames[2])}</HTML></Frame>
             </Keyframes>
             </Terminal>
           </Block>

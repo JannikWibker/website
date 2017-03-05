@@ -10,6 +10,7 @@ import Button from '../components/Button.js'
 import AccountName from '../components/AccountName.js'
 import Login from '../components/Login.js'
 import { dark_theme, light_theme, purple_theme, blue_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import event_loader from '../util/event_loader.js'
 import event from '../util/event.js'
 
@@ -22,6 +23,8 @@ export default class DashboardPage extends React.Component {
 
     this.showAddBlog = false
     this.showDelBlog = false
+
+    this.language = languages[getLanguage()].DashboardPage
 
     event_loader(['theme', 'account'])
 
@@ -71,28 +74,28 @@ export default class DashboardPage extends React.Component {
           <Block theme={light_theme}>
             {this.l_acc ? (
               <div>
-                Dashboard - Account stuff goes here<br />
+                {this.language.headline}<br />
                 <AccountName />
                 <br />
                 <hr />
                 <span>
-                  <span style={{fontSize: "1.2em"}}>{"add a blog post? "}</span>
-                  <Button theme={light_theme} click={(()=>{this.showAddBlog = !this.showAddBlog;this.forceUpdate();}).bind(this)}>{this.showAddBlog ? '[hide]' : '[show]'}</Button>
+                  <span style={{fontSize: "1.2em"}}>{this.language.add_blog_question}</span>
+                  <Button theme={light_theme} click={(()=>{this.showAddBlog = !this.showAddBlog;this.forceUpdate();}).bind(this)}>{this.showAddBlog ? this.language.hide : this.language.show}</Button>
                   <AddBlog style={this.showAddBlog ? {} : {display: 'none'}} flex={true} />
                   <hr />
                 </span>
                 <span>
-                  <span style={{fontSize: "1.2em"}}>{"delete a blog post?"}</span>
-                  <Button theme={light_theme} click={(()=>{this.showDelBlog = !this.showDelBlog;this.forceUpdate();}).bind(this)}>{this.showDelBlog ? '[hide]' : '[show]'}</Button>
+                  <span style={{fontSize: "1.2em"}}>{this.language.del_blog_question}</span>
+                  <Button theme={light_theme} click={(()=>{this.showDelBlog = !this.showDelBlog;this.forceUpdate();}).bind(this)}>{this.showDelBlog ? this.language.hide : this.language.show}</Button>
                   <DelBlog style={this.showDelBlog ? {} : {display: 'none'}} flex={true} />
                   <hr />
                 </span>
               </div>
             ) : (
               <div>
-                The Dashboard requires you to be logged in,
+                {this.language.login_required_1}
                 <br />
-                you can login below or create a new account if necessary
+                {this.language.login_required_2}
                 <Login />
               </div>
             )}

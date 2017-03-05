@@ -6,12 +6,16 @@ import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import Register from '../components/Register.js'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import event_loader from '../util/event_loader.js'
 
 export default class RegisterPage extends React.Component {
 
   constructor(props){
     super(props)
+
+    this.language = languages[getLanguage()].RegisterPage
+
     event_loader(['theme', 'account'])
     // loading events (see /util/event_loader.js for additional information)
   }

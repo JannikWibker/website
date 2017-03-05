@@ -6,11 +6,15 @@ import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import Login from '../components/Login.js'
 import { dark_theme, light_theme } from '../config/themes.js'
+import { languages, getLanguage } from '../config/language.js'
 import event_loader from '../util/event_loader.js'
-export default class IndexPage extends React.Component {
+export default class LoginPage extends React.Component {
 
   constructor(props){
     super(props)
+
+    this.language = languages[getLanguage()].LoginPage
+
     event_loader(['theme', 'account'])
     // loading events (see /util/event_loader)
   }

@@ -57,6 +57,35 @@ const eng = {
   Terminal: {
 
   },
+  AboutPage: {
+
+  },
+  BlogPage: {
+
+  },
+  DashboardPage: {
+    headline: 'Dashboard - Account stuff goes here',
+    add_blog_question: 'add a blog post? ',
+    del_blog_question: 'delete a blog post?',
+    show: '[show]',
+    hide: '[hide]',
+    login_required_1: 'The Dashboard requires you to be logged in,',
+    login_required_2: 'you can login below or create a new account if necessary'
+  },
+  IndexPage: {
+    Terminal_frames: [
+      'This', 'This is', 'This is _**animated**_.'
+    ]
+  },
+  LoginPage: {
+
+  },
+  RegisterPage: {
+
+  },
+  StatisticsPage: {
+
+  },
 }
 
 const ger = {
@@ -101,7 +130,7 @@ const ger = {
     email: 'Email',
     password: 'Passwort',
     password_initial: 'your p4ssw0rd',
-    no_account_question: 'Haben sie noch keinen Account? Registrieren'
+    no_account_question: 'kein Account? Registrieren'
   },
   Register: {
     is_empty: ' fehlt',
@@ -113,9 +142,38 @@ const ger = {
     password: 'Passwort',
     password_initial: 'your p4ssw0rd',
     password_repeat: 'repeat p4ssw0rd',
-    already_account_question: 'Besitzen sie bereits einen Account? Anmelden'
+    already_account_question: 'bereits einen Account? Anmelden'
   },
   Terminal: {
+
+  },
+  AboutPage: {
+
+  },
+  BlogPage: {
+
+  },
+  DashboardPage: {
+    headline: 'Dashboard - Account Sachen kommen hier hin',
+    add_blog_question: 'einen Blog hinzufügen? ',
+    del_blog_question: 'einen Blog löschen?',
+    show: '[zeigen]',
+    hide: '[verstecken]',
+    login_required_1: 'Man muss angemeldet sein um das Dashboard nutzen zu können,',
+    login_required_2: 'Sie können sich unten anmelden oder falls nötig einen Account erstellen'
+  },
+  IndexPage: {
+    Terminal_frames: [
+      'Dies', 'Dies ist', 'Dies ist  _**animiert**_.'
+    ]
+  },
+  LoginPage: {
+
+  },
+  RegisterPage: {
+
+  },
+  StatisticsPage: {
 
   },
 }
@@ -126,7 +184,7 @@ const languages = {
 }
 
 let getLanguage = () => {
-  return 'eng'
+  return 'ger'
 }
 
 export { languages, getLanguage}
