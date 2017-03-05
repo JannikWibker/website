@@ -11,8 +11,6 @@ export default class AddBlog extends Class {
   constructor(props) {
     super(props)
 
-    // this.storage = typeof window === 'undefined' ? { account: undefined} : window.localStorage
-
     this.title = null
     this.format = null
     this.textarea = null
@@ -76,7 +74,7 @@ export default class AddBlog extends Class {
 
   render() {
     return (
-      <div>
+      <div style={this.props.style}>
         <InputField type='text' placeholder='title' small={true} theme={this.theme} cb={(input) => {this.title = input}} style={{margin: '0 8px 0 8px!important'}}/>
         <span className={this.style__select_wrapper}>
         <select defaultValue="markdown" className={this.style__select} ref={(input) => {this.format = input}}>

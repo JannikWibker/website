@@ -78,13 +78,13 @@ export default class DashboardPage extends React.Component {
                 <span>
                   <span style={{fontSize: "1.2em"}}>{"add a blog post? "}</span>
                   <Button theme={light_theme} click={(()=>{this.showAddBlog = !this.showAddBlog;this.forceUpdate();}).bind(this)}>{this.showAddBlog ? '[hide]' : '[show]'}</Button>
-                  {this.showAddBlog ? <AddBlog flex={true} /> : ''}
+                  <AddBlog style={this.showAddBlog ? {} : {display: 'none'}} flex={true} />
                   <hr />
                 </span>
                 <span>
                   <span style={{fontSize: "1.2em"}}>{"delete a blog post?"}</span>
                   <Button theme={light_theme} click={(()=>{this.showDelBlog = !this.showDelBlog;this.forceUpdate();}).bind(this)}>{this.showDelBlog ? '[hide]' : '[show]'}</Button>
-                  {this.showDelBlog ? <DelBlog flex={true} /> : ''}
+                  <DelBlog style={this.showDelBlog ? {} : {display: 'none'}} flex={true} />
                   <hr />
                 </span>
               </div>

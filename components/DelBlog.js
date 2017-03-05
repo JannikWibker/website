@@ -38,7 +38,7 @@ export default class DelBlog extends Class {
 
   render() {
     return (
-      <div>
+      <div style={this.props.style}>
         <ul style={{textAlign: 'left'}}>
         {this.posts.map((x, i) => (
           <li key={i}>
