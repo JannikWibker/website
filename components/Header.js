@@ -14,12 +14,12 @@ export default class Header extends Class {
   constructor(){
     super()
 
-    this.json__header = {
-      left: [{name: 'home', url: '/'}, {name: 'about', url: '/about'}, {name: 'blog', url: '/blog'}, {name: 'statistic', url: '/statistics'}],
-      right: [{name: 'Jannik Wibker', url: () => event.get('account').payload.username ? '/dashboard' : '/login', comp: <AccountName /> }]
-    }
-
     this.language = languages[getLanguage()].Header
+
+    this.json__header = {
+      left: [{name: this.language.home, url: '/'}, {name: this.language.about, url: '/about'}, {name: this.language.blog, url: '/blog'}, {name: this.language.statistics, url: '/statistics'}],
+      right: [{name: 'account name goes here', url: () => event.get('account').payload.username ? '/dashboard' : '/login', comp: <AccountName /> }]
+    }
 
     this.theme_event()
     this.update_css()
@@ -169,7 +169,7 @@ export default class Header extends Class {
           <header className={this.style__header}>
             <div className={this.style__header_icon}>
               <Link href="">
-                <svg width="40" height="40" onClick={event.trigger.bind(this, 'theme', this.theme)}>
+                <svg width="40" height="40" role="button" onClick={event.trigger.bind(this, 'theme', this.theme)}>
                   <circle cx="20" cy="20" r="20" fill={this.theme.color}/>
                 </svg>
               </Link>
@@ -178,7 +178,7 @@ export default class Header extends Class {
               <div className={`${this.style__header_container} ${this.style__header_container_left}`}>
                 {this.json__header.left.map((item, i) => {
                   return (
-                    <span className={`${this.style__header_item} link`} key={i}>
+                    <span role="button"className={`${this.style__header_item} link`} key={i}>
                       <Link href={item.url}>{item.name}</Link>
                     </span>
                   )})}
@@ -186,7 +186,7 @@ export default class Header extends Class {
               <div className={`${this.style__header_container} ${this.style__header_container_right}`}>
                 {this.json__header.right.map((item, i) => {
                   return (
-                    <span className={`${this.style__header_item} link`} key={i}>
+                    <span role="button" className={`${this.style__header_item} link`} key={i}>
                       {item.fn ? (
                         <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.comp ? item.comp : item.name}</a>
                       ) : (

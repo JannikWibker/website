@@ -29,7 +29,10 @@ const eng = {
 
   },
   Header: {
-
+    home: 'home',
+    about: 'about',
+    blog: 'blog',
+    statistics: 'statistics'
   },
   InputField: {
 
@@ -119,7 +122,10 @@ const ger = {
 
   },
   Header: {
-
+    home: 'Startseite',
+    about: 'Über',
+    blog: 'Blog',
+    statistics: 'Statistik'
   },
   InputField: {
 
@@ -184,7 +190,7 @@ const languages = {
 }
 
 let getLanguage = () => {
-  return 'eng'
+  return 'ger'
 }
 
-export { languages, getLanguage}
+export { languages, getLanguage }
