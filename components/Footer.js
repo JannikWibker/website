@@ -18,36 +18,27 @@ export default class Footer extends Class {
   }
 
   css() {
-    this.style__footer_container = css({
-      "width": "100%",
-      "backgroundColor": this.theme.backgroundColor,
-      "padding": "20px 0"
-    })
 
-    this.style__footer = css({
-      "color": this.theme.color,
+    this.style__bg = css({
       "backgroundColor": this.theme.backgroundColor
     })
 
-    this.style__footer_item = merge(css({
-      "color": this.theme.color,
-      "textAlign": "center",
-      "width": "100%",
-      "fontFamily": "Menlo, DejaVu Sans Mono, Lucida Console, monospace, sans-serif",
-      "fontWeight": "100",
-      "fontSize": "12px",
-      "lineHeight": "32px"
-    }),
-    $(' a', {"textDecoration": "none", color: this.theme.color}),
-    $(' img', {"width": "16px", "height": "16px", "margin": "-4px 4px"}))
+    this.style__color = css({
+      "color": this.theme.color
+    })
+
+    this.style__footer_item = $(' a', {
+      "textDecoration": "none",
+      "color": this.theme.color
+    })
 
   }
 
   render() {
     return (
-      <div className={`${this.style__footer_container}`}>
-        <div className={`${this.style__footer} container`}>
-          <div className={`${this.style__footer_item} four columns link`}>
+      <div className={`${this.style__bg} footer_container`}>
+        <div className={`${this.style__bg} ${this.style__color} container`}>
+          <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
             <Link href="https://twitter.com/JannikWibker">
               <div>
                 <img alt="Twitter" src={`/static/images/Twitter-64px-${this.theme.name}.png`} />
@@ -57,7 +48,7 @@ export default class Footer extends Class {
               </div>
             </Link>
           </div>
-          <div className={`${this.style__footer_item} four columns link`}>
+          <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
             <Link href="https://github.com/JannikWibker">
             <div>
               <img alt="GitHub" src={`/static/images/GitHub-Mark-64px-${this.theme.name}.png`} />
@@ -67,7 +58,7 @@ export default class Footer extends Class {
             </div>
             </Link>
           </div>
-          <div className={`${this.style__footer_item} four columns link`}>
+          <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
             <Link href="mailto:jannikwibker@gmail.com">
               <div>
                 <img alt="E-Mail" src={`/static/images/email-24dp-${this.theme.name}.png`} />

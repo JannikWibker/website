@@ -40,7 +40,7 @@ export default class Globals extends React.Component {
           <link rel="stylesheet" href="static/vendor/normalize.css" />
           <link rel="stylesheet" href="static/vendor/skeleton.css" />
           <link rel="stylesheet" href="static/css/gfm.css" />
-          <link rel="stylesheet" href="static/css/header.css" />
+          <link rel="stylesheet" href="static/css/pr1styles.css" />
           <title>{this.props.url.substring(1, this.props.url.length) || 'home'}</title>
         </Head>
     )
