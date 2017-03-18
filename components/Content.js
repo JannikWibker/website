@@ -21,10 +21,6 @@ export default class Content extends Class {
     this.style__content = css({
       "color": this.theme.color,
       "backgroundColor": this.theme.backgroundColor,
-      "minHeight": "calc(100vh - 110px - 72px)",
-      "fontSize": "14px",
-      "textAlign": "center",
-      "fontWeight": "100"
     })
 
     /*
@@ -43,7 +39,7 @@ export default class Content extends Class {
 
   render() {
     return (
-      <div className={this.style__content}>
+      <div className={this.style__content + ' content'}>
         {this.props.children}
       </div>
     )

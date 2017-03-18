@@ -18,33 +18,14 @@ export default class Block extends Class {
   // css (set all the css using glamor (aliased to css because next.js) with the current theme)
   css() {
     this.style__block = css({
-      "position": "relative",
-      "display": "flex",
-      "alignItems": "center",
-      "justifyContent": "center",
-      "minHeight": "calc(50vh - 55px)",
       "color": this.theme.color,
       "backgroundColor": this.theme.backgroundColor
     })
-
-    /*
-    <style jsx>{`
-      div.block {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: calc(50vh - 55px);
-        color: ${this.theme.coor};
-        background-color: ${this.theme.backgroundColor}
-      }
-    `}</style>
-    */
   }
 
   render() {
     return (
-      <div className={this.style__block}>
+      <div className={this.style__block + ' block'}>
         {typeof this.props.children !== 'string' &&
          typeof this.props.children.type !== 'string' &&
          typeof this.props.children.props.theme === 'undefined'?
