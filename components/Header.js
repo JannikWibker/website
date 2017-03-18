@@ -24,169 +24,43 @@ export default class Header extends Class {
     this.theme_event()
     this.update_css()
   }
-  // css (set all the css using glamor (aliased to css because next.js) with the current theme)
+  // set css using glamor (most of the css is in the header.css file, but the colors cannot be set inside the css file because they are variable and change a lot)
   css() {
-    this.style__root = css({
-      "fontFamily": "Menlo, Monaca, Lucida Console, Liberation Mono, monospace, serif",
-      "textRendering": "geometricPricision"
-    })
-
-    this.style__header = css({
-      "maxWidth": "900px",
-      "margin": "auto",
-      "padding": "30px 8px",
-      "position": "relative",
+    this.style__bg = css({
       "backgroundColor": this.theme.backgroundColor
     })
 
-    this.style__header_out = css({
-      "backgroundColor": this.theme.backgroundColor
+    this.style__header_item = $(' a', {
+      "textDecoration": "none",
+      "color": this.theme.color
     })
-
-    this.style__header_icon = css({
-      "display": "block",
-      "width": "40px",
-      "height": "40px",
-      "position": "relative",
-      "top": "-10px",
-      "paddingTop": "10px",
-      "@media(max-width: 400px)": {
-        "display": "none"
-      }
-    })
-
-    this.style__header_container_nav = css({
-      "backgroundColor": this.theme.backgroundColor
-    })
-
-    this.style__header_container = css({
-      "marginTop": "-6px",
-      "padding": "10px",
-      "paddingRight": "0",
-      "position": "absolute",
-      "top": "50%",
-      "transform": "translateY(-50%)",
-      "@media(max-width: 400px)": {
-        "padding": "0px"
-      }
-    })
-
-    this.style__header_container_left = css({
-      "left": "50px",
-      "@media(max-width: 400px)": {
-        "left": "0px"
-      }
-    })
-
-    this.style__header_container_right = css({
-      "right": "0"
-    })
-
-    this.style__header_item = merge(css({
-        "padding": "10px",
-        "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, sans-serif",
-        "fontSize": "12px",
-        "textTransform": "uppercase",
-        "fontWeight": "400"
-      }),
-      $(' a', {"textDecoration": "none", color: this.theme.color})
-    )
-
-    /*
-    <style jsx>{`
-      div.header_out, div.header_container_nav {
-        background-color: ${this.theme.backgroundColor};
-      }
-
-      header.header {
-        max-width: 900px;
-        margin: auto;
-        padding: 30px 8px;
-        position: relative;
-        background-color: ${this.theme.backgroundColor};
-      }
-
-      div.header_icon {
-        display: block;
-        width: 40px;
-        height: 40px;
-        position: relative;
-        top: -10px;
-        padding-top: 10px;
-      }
-
-      div.header_container {
-        margin-top: -6px;
-        padding: 10px;
-        padding-right: 0;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      div.header_container_left {
-        left: 50px;
-      }
-
-      div.header_container_right {
-        right: 0;
-      }
-
-      span.header_item {
-        padding: 10px;
-        font-size: 12px;
-        fontWeight: 400;
-        text-transform: uppercase;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, sans-serif
-      }
-
-      span.header_item > a {
-        text-decoration: none;
-        color: ${this.theme.color}
-      }
-
-      @media(max-width: 400px) {
-        div.header_icon {
-          display: none;
-        }
-
-        div.header_container {
-          padding: 0px;
-        }
-
-        div.header_container_left {
-          left: 0px;
-        }
-      }
-    `}</style>
-    */
 
   }
 
   render() {
     return (
-        <div className={this.style__header_out}>
-          <header className={this.style__header}>
-            <div className={this.style__header_icon}>
+        <div className={this.style__bg + ' header_out'}>
+          <header className={this.style__bg + ' header'}>
+            <div className={'header_icon'}>
               <Link href="">
                 <svg width="40" height="40" role="button" onClick={event.trigger.bind(this, 'theme', this.theme)}>
                   <circle cx="20" cy="20" r="20" fill={this.theme.color}/>
                 </svg>
               </Link>
             </div>
-            <div className={this.style__header_container_nav}>
-              <div className={`${this.style__header_container} ${this.style__header_container_left}`}>
+            <div className={this.style__bg + ' header_container_nav'}>
+              <div className={`header_container header_container_left`}>
                 {this.json__header.left.map((item, i) => {
                   return (
-                    <span role="button"className={`${this.style__header_item} link`} key={i}>
+                    <span role="button"className={`${this.style__header_item} header_item link`} key={i}>
                       <Link href={item.url}>{item.name}</Link>
                     </span>
                   )})}
               </div>
-              <div className={`${this.style__header_container} ${this.style__header_container_right}`}>
+              <div className={`${this.style__header_container_right} header_container header_container_right`}>
                 {this.json__header.right.map((item, i) => {
                   return (
-                    <span role="button" className={`${this.style__header_item} link`} key={i}>
+                    <span role="button" className={`${this.style__header_item} header_item link`} key={i}>
                       {item.fn ? (
                         <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.comp ? item.comp : item.name}</a>
                       ) : (
