@@ -37,10 +37,10 @@ export default class Globals extends React.Component {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel='shortcut icon' type='image/x-icon' href='static/favicon.ico' />
+          <link rel="stylesheet" href="static/css/pr1styles.css" />
           <link rel="stylesheet" href="static/vendor/normalize.css" />
           <link rel="stylesheet" href="static/vendor/skeleton.css" />
           <link rel="stylesheet" href="static/css/gfm.css" />
-          <link rel="stylesheet" href="static/css/pr1styles.css" />
           <title>{this.props.url.substring(1, this.props.url.length) || 'home'}</title>
         </Head>
     )
