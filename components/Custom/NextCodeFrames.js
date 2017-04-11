@@ -15,55 +15,55 @@ export default class NextCodeFrames extends Class {
     return (
       <Keyframes loop={true}>
         <Frame duration={500}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={500}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> { }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ { }
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={300}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
 
         }`.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={500}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) { }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) { }
         }`.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={300}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) {
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) {
 
         ^^}
         }
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={500}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) {
-        ^^^^return { <span style="color: #dc322f">server</span>: <span style="color: #2aa198">req</span> ? <span style="color: #b58900">'server'</span> : <span style="color: #b58900">'client'</span> }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) {
+        ^^^^return { ≤3server≥: ≤1req≥ ? ≤2'server'≥ : ≤2'client'≥ }
         ^^}
         }
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={300}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) {
-        ^^^^return { <span style="color: #dc322f">server</span>: <span style="color: #2aa198">req</span> ? <span style="color: #b58900">'server'</span> : <span style="color: #b58900">'client'</span> }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) {
+        ^^^^return { ≤3server≥: ≤1req≥ ? ≤2'server'≥ : ≤2'client'≥ }
         ^^}
 
 
@@ -71,54 +71,54 @@ export default class NextCodeFrames extends Class {
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={500}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) {
-        ^^^^return { <span style="color: #dc322f">server</span>: <span style="color: #2aa198">req</span> ? <span style="color: #b58900">'server'</span> : <span style="color: #b58900">'client'</span> }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) {
+        ^^^^return { ≤3server≥: ≤1req≥ ? ≤2'server'≥ : ≤2'client'≥ }
         ^^}
 
-        ^^<span style="color: #d33682">render</span>() { }
+        ^^≤4render≥() { }
         }
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={300}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) {
-        ^^^^return { <span style="color: #dc322f">server</span>: <span style="color: #2aa198">req</span> ? <span style="color: #b58900">'server'</span> : <span style="color: #b58900">'client'</span> }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) {
+        ^^^^return { ≤3server≥: ≤1req≥ ? ≤2'server'≥ : ≤2'client'≥ }
         ^^}
 
-        ^^<span style="color: #d33682">render</span>() {
+        ^^≤4render≥() {
 
         ^^}
         }
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={500}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) {
-        ^^^^return { <span style="color: #dc322f">server</span>: <span style="color: #2aa198">req</span> ? <span style="color: #b58900">'server'</span> : <span style="color: #b58900">'client'</span> }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) {
+        ^^^^return { ≤3server≥: ≤1req≥ ? ≤2'server'≥ : ≤2'client'≥ }
         ^^}
 
-        ^^<span style="color: #d33682">render</span>() {
+        ^^≤4render≥() {
         ^^^^return ( )
         ^^}
         }
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={300}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) {
-        ^^^^return { <span style="color: #dc322f">server</span>: <span style="color: #2aa198">req</span> ? <span style="color: #b58900">'server'</span> : <span style="color: #b58900">'client'</span> }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) {
+        ^^^^return { ≤3server≥: ≤1req≥ ? ≤2'server'≥ : ≤2'client'≥ }
         ^^}
 
-        ^^<span style="color: #d33682">render</span>() {
+        ^^≤4render≥() {
         ^^^^return (
 
         ^^^^)
@@ -127,16 +127,16 @@ export default class NextCodeFrames extends Class {
         `.replace('\n', '')}</HTML></span></Frame>
 
         <Frame duration={500}><span><HTML StringToHTML={true}>{`
-        import <span style="color: #2aa198">React</span> from <span style="color: #b58900">'react'</span>
+        import ≤1React≥ from ≤2'react'≥
 
-        export default class <span style="color: #2aa198">Index</span> extends <span style="color: #2aa198">React</span>.<span style="color: #dc322f">Component</span> {
-        ^^static <span style="color: #d33682">getInitialProps</span>({<span style="color: #2aa198">req</span>}) {
-        ^^^^return { <span style="color: #dc322f">server</span>: <span style="color: #2aa198">req</span> ? <span style="color: #b58900">'server'</span> : <span style="color: #b58900">'client'</span> }
+        export default class ≤1Index≥ extends ≤1React≥.≤3Component≥ {
+        ^^static ≤4getInitialProps≥({≤1req≥}) {
+        ^^^^return { ≤3server≥: ≤1req≥ ? ≤2'server'≥ : ≤2'client'≥ }
         ^^}
 
-        ^^<span style="color: #d33682">render</span>() {
+        ^^≤4render≥() {
         ^^^^return (
-        ^^^^^^&lt;<span style="color: #cb4b16">div</span>&gt;{<span style="color: #2aa198">this</span>.<span style="color: #dc322f">props</span>.<span style="color: #dc322f">server</span>}&lt;/<span style="color: #cb4b16">div</span>&gt;
+        ^^^^^^&lt;≤5div≥&gt;{≤1this≥.≤3props≥.≤3server≥}&lt;/≤5div≥&gt;
         ^^^^)
         ^^}
         }
