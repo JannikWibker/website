@@ -1,5 +1,5 @@
 import React from 'react'
-import Script from './Script.js'
+import Script from '../Script.js'
 export default props => (
   <Script html={`
   <textarea id="input"></textarea>
