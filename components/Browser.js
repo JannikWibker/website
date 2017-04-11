@@ -8,6 +8,8 @@ export default class Browser extends Class {
   constructor(props) {
     super(props)
 
+    this.title = this.props.title ? this.props.title : typeof(location) !== 'undefined' && location !== undefined ? location.origin : 'localhost'
+
     this.theme_event()
     this.update_css()
   }
@@ -20,6 +22,7 @@ export default class Browser extends Class {
       "backgroundColor": this.theme.backgroundColor,
       "color": this.theme.color,
       "maxWidth": "90vw",
+      "margin": "10px"
     })
 
     this.css__border = css({
@@ -97,13 +100,13 @@ export default class Browser extends Class {
 
   render() {
     return (
-      <span className={this.css__container}>
+      <span className={`${this.css__container} ${this.props.className || ''}`}>
         <span className={this.css__border}>
           <span className={this.css__header}>
             <span className={this.css__button__close}></span>
             <span className={this.css__button__minimize}></span>
             <span className={this.css__button__maximize}></span>
-            <span className={this.css__title}>{this.props.title || typeof(location) !== 'undefined' ? location.origin : 'localhost'}</span>
+            <span className={this.css__title}>{this.title}</span>
           </span>
           <span className={this.css__main}>
             {this.props.children}

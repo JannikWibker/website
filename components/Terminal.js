@@ -25,6 +25,7 @@ export default class Terminal extends Class {
       "backgroundColor": this.theme.backgroundColor,
       "color": this.theme.color,
       "maxWidth": "90vw",
+      "margin": "10px"
     })
 
     this.css__border = css({
@@ -175,7 +176,7 @@ export default class Terminal extends Class {
 
   render() {
     return (
-      <span className={this.css__container}>
+      <span className={`${this.css__container} ${this.props.className || ''}`}>
         <span className={this.css__border}>
           <span className={this.css__header}>
             <span className={this.css__button__close}></span>
