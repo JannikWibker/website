@@ -1,5 +1,7 @@
 import React from 'react'
-export default props => <div dangerouslySetInnerHTML={{__html: props.children}} />
+export default props => props.StringToHTML
+  ? <div dangerouslySetInnerHTML={{__html: props.children.replace(/\n/g, '<br />').replace(/\^/g, '&nbsp;') }} />
+  : <div dangerouslySetInnerHTML={{__html: props.children }} />
 /*
 component which turns children to InnerHTML
 (this mainly used because 'dangerouslySetInnerHTML'
