@@ -6,10 +6,11 @@ import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
+import { Keyframes, Frame } from 'react-keyframes'
 import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 
-import Browser from '../components/Browser.js'
+import NextDemo from '../components/Custom/NextDemo.js'
 
 export default class AboutPage extends React.Component {
 
@@ -38,9 +39,7 @@ export default class AboutPage extends React.Component {
         <Header />
         <Content theme={light_theme}>
           <Block>
-            <Browser width="450" height="300" title="localhost:3000" theme={light_theme}>
-              123
-            </Browser>
+            <NextDemo terminal_theme={dark_theme} browser_theme={light_theme} />
           </Block>
         </Content>
         <Footer />
