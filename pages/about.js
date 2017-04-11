@@ -9,6 +9,8 @@ import { languages, getLanguage } from '../config/language.js'
 import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 
+import Browser from '../components/Browser.js'
+
 export default class AboutPage extends React.Component {
 
   constructor(props){
@@ -36,7 +38,9 @@ export default class AboutPage extends React.Component {
         <Header />
         <Content theme={light_theme}>
           <Block>
-            about
+            <Browser width="450" height="300" title="localhost:3000" theme={light_theme}>
+              123
+            </Browser>
           </Block>
         </Content>
         <Footer />

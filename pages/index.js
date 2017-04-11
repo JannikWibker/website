@@ -14,6 +14,7 @@ import { Keyframes, Frame } from 'react-keyframes'
 import marked from 'marked'
 import Script from '../components/Script.js'
 import AddBlog from '../components/AddBlog.js'
+import NextCodeFrames from '../components/Custom/NextCodeFrames.js'
 
 export default class IndexPage extends React.Component {
 
@@ -50,13 +51,8 @@ export default class IndexPage extends React.Component {
         <Header theme={dark_theme} />
         <Content theme={dark_theme}>
           <Block theme={dark_theme} >
-            <Terminal width="450" height="260" title="zsh" safe={false}>
-            <Keyframes loop={true}>
-              <Frame duration={500}>{''}</Frame>
-              <Frame duration={500}><HTML>{marked(this.language.Terminal_frames[0])}</HTML></Frame>
-              <Frame duration={500}><HTML>{marked(this.language.Terminal_frames[1])}</HTML></Frame>
-              <Frame duration={500}><HTML>{marked(this.language.Terminal_frames[2])}</HTML></Frame>
-            </Keyframes>
+            <Terminal width="450" height="300" title="vim" safe={false}>
+              <NextCodeFrames theme={dark_theme} />
             </Terminal>
           </Block>
         </Content>
