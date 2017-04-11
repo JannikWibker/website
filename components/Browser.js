@@ -7,7 +7,6 @@ import Class from './Class.js'
 export default class Browser extends Class {
   constructor(props) {
     super(props)
-    // this.language = languages[getLanguage()].Terminal
 
     this.theme_event()
     this.update_css()
@@ -51,9 +50,10 @@ export default class Browser extends Class {
       "display": "block",
       "width": `calc(${this.props.width || '450px'} - 32px)`,
       "height": (this.props.height || 260) - 36 + 'px',
-      "margin": "36px 16px 0 16px",
+      "margin": "36px 12px 0 12px",
       "textAlign": "left",
-      "fontSize": "12px"
+      "fontSize": "12px",
+      "fontFamily": "Menlo"
     })
 
     this.css__title = css({

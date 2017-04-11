@@ -10,7 +10,7 @@ import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
 import Terminal from './Terminal.js'
 import Script from './Script.js'
-import Lambda from './Some_Language.js'
+import Lambda from './Custom/Some_Language.js'
 import replace_all from '../util/replace_all.js'
 
 export default class Blog extends Class {
