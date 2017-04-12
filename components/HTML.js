@@ -1,15 +1,9 @@
 import React from 'react'
+
+import StringToHTML from '../util/StringToHTML.js'
+
 export default props => props.StringToHTML
-  ? <div dangerouslySetInnerHTML={{__html: props.children
-          .replace(/\n/g, '<br />')
-          .replace(/\^/g, '&nbsp;')
-          .replace(/≤1/g, '<span style="color: #2aa198">') // variables
-          .replace(/≤2/g, '<span style="color: #b58900">') // strings
-          .replace(/≤3/g, '<span style="color: #dc322f">') // object keys
-          .replace(/≤4/g, '<span style="color: #d33682">') // methods / functions
-          .replace(/≤5/g, '<span style="color: #cb4b16">') // jsx html tags
-          .replace(/≥/g, '</span>')
-         }} />
+  ? <div dangerouslySetInnerHTML={{__html: StringToHTML(props.children) }} />
   : <div dangerouslySetInnerHTML={{__html: props.children }} />
 /*
 component which turns children to InnerHTML
@@ -25,4 +19,5 @@ every newline is replaced by a <br />,
 every ^ (caret) is replaced by a &nbsp; (because replacing whitespace directly is annoying),
 every ≤[1-5] is replaced by <span style="color: #[colors 1-5]">,
 every ≥ is replaced by </span>
+(this is done via the StringToHTML function from 'util/StringToHTML.js')
 */
