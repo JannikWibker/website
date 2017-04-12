@@ -32,6 +32,7 @@ export default class Terminal extends Class {
       "boxSizing": "inherit",
       "display": "block",
       "position": "relative",
+      "backgroundColor": this.theme.backgroundColor,
       "border": `1px solid ${this.theme.accentColor}`,
       "borderRadius": "5px",
       "width": this.props.width || 450,
@@ -57,7 +58,8 @@ export default class Terminal extends Class {
       "margin": "36px 12px 0 12px",
       "textAlign": "left",
       "fontSize": "11px",
-      "fontFamily": "Menlo"
+      "fontFamily": "Menlo",
+      "color": this.theme.color
     })
 
     this.css__button_obj = {

@@ -39,7 +39,7 @@ export default class AboutPage extends React.Component {
         <Header />
         <Content theme={light_theme}>
           <Block>
-            <NextDemo terminal_theme={dark_theme} browser_theme={light_theme} />
+            <NextDemo terminal_theme={dark_theme} browser_theme={light_theme} loop={true} />
           </Block>
         </Content>
         <Footer />

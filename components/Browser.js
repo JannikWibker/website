@@ -29,6 +29,7 @@ export default class Browser extends Class {
       "boxSizing": "inherit",
       "display": "block",
       "position": "relative",
+      "backgroundColor": this.theme.backgroundColor,
       "border": `1px solid ${this.theme.accentColor}`,
       "borderRadius": "5px",
       "width": this.props.width || 450,
@@ -56,7 +57,8 @@ export default class Browser extends Class {
       "margin": "36px 12px 0 12px",
       "textAlign": "left",
       "fontSize": "12px",
-      "fontFamily": "Menlo"
+      "fontFamily": "Menlo",
+      "color": this.theme.color
     })
 
     this.css__title = css({

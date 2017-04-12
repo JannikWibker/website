@@ -52,15 +52,12 @@ export default class NextDemo extends Class {
   render() {
     return (
       <div className={this.css__container}>
-        <Terminal className={this.css__terminal} width={this.ind_width} height={this.ind_height} title="vim" safe={false}>
-
-          <NextCodeFrames theme={this.props.terminal_theme} />
-
+        <Terminal className={this.css__terminal} width={this.ind_width} height={this.ind_height} title="vim" safe={false} theme={this.props.terminal_theme}>
+          <NextCodeFrames loop={this.props.loop} />
         </Terminal>
+
         <Browser className={this.css__browser} width={this.ind_width} height={this.ind_height} title="localhost:3000" theme={this.props.browser_theme}>
-
-          <NextBrowserFrames />
-
+          <NextBrowserFrames loop={this.props.loop} />
         </Browser>
       </div>
     )

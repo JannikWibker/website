@@ -141,8 +141,8 @@ const arrCodeFrames = [
   `.replace('\n', '')),
 ]
 
-export default props => (
-  <Keyframes loop={true}>
+export default ({ loop = true }) => (
+  <Keyframes loop={loop}>
     {/* FRAME 0 */}
     <Frame duration={250}><span><HTML>{arrCodeFrames[0]}</HTML></span></Frame>
     {/* FRAME 1 */}
