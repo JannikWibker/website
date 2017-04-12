@@ -1,13 +1,12 @@
 import React from 'react'
 import css from 'next/css'
-import { Keyframes, Frame } from 'react-keyframes'
 import HTML from '../HTML.js'
 import Class from '../Class.js'
 
 import Browser from '../Browser.js'
 import Terminal from '../Terminal.js'
 import NextCodeFrames from './NextCodeFrames.js'
-import ErrorComponent from './ErrorComponent.js'
+import NextBrowserFrames from './NextBrowserFrames.js'
 
 export default class NextDemo extends Class {
   constructor(props) {
@@ -60,16 +59,7 @@ export default class NextDemo extends Class {
         </Terminal>
         <Browser className={this.css__browser} width={this.ind_width} height={this.ind_height} title="localhost:3000" theme={this.props.browser_theme}>
 
-          <Keyframes loop={true}>
-
-            <Frame duration={3750}>
-              <ErrorComponent id={404} text={'This page could not be found'} />
-            </Frame>
-
-            <Frame duration={1250}>
-            server
-            </Frame>
-          </Keyframes>
+          <NextBrowserFrames />
 
         </Browser>
       </div>
