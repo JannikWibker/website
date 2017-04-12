@@ -61,10 +61,12 @@ export default class NextDemo extends Class {
         <Browser className={this.css__browser} width={this.ind_width} height={this.ind_height} title="localhost:3000" theme={this.props.browser_theme}>
 
           <Keyframes loop={true}>
-            <Frame duration={3875}>
+
+            <Frame duration={3750}>
               <ErrorComponent id={404} text={'This page could not be found'} />
             </Frame>
-            <Frame duration={875}>
+
+            <Frame duration={1250}>
             server
             </Frame>
           </Keyframes>
