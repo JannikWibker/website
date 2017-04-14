@@ -11,6 +11,8 @@ import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 import About from '../components/About.js'
 
+import { version, author, name } from '../package.json'
+
 const isClient = () => typeof(window) !== 'undefined' && window
 
 import Terminal from '../components/Terminal.js'
@@ -29,10 +31,11 @@ export default class AboutPage extends React.Component {
 
   constructor(props){
     super(props)
+    //console.log(`this is version ${version}🎉`)
     this.lang_pref = isClient() ? window.localStorage.lang : ''
     this.lang_code = setLanguage(getLanguageFromCode(this.lang_pref || getLanguageFromCode(this.props.lang)))
-
     this.language = languages[this.lang_code].AboutPage
+    
     event_loader(['theme', 'account'])
     // loading events (see /util/event_loader.js for additional information)
   }

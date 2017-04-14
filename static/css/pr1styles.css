@@ -2,6 +2,15 @@
   font-family: Menlo;
   src: url(/static/font/Menlo-Regular.ttf)
 }
+@font-face {
+  font-family: SFNS Display;
+  src: url(/static/font/SFNS-Display-Regular.ttf)
+}
+@font-face {
+  font-family: SFNS Display;
+  src: url(/static/font/SFNS-Display-Thin.ttf);
+  font-weight: 200;
+}
 
 /* Header component */
 

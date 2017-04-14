@@ -6,6 +6,7 @@ export default ({ name = 'Jannik', color = '#454545', i_am = 'im' }) => {
   const css__container = css({
     WebkitFontSmoothing: 'antialiased',
     textAlign: 'center',
+    fontFamily: "SFNS Display",
     color: color,
   })
 

@@ -94,7 +94,7 @@ const eng = {
     name: 'name',
     email: 'email',
     languages: 'languages',
-    programming_languages: 'programming_languages',
+    programming_languages: 'programming languages',
     age: 'age'
   },
   general: {
@@ -312,7 +312,7 @@ const fr = {
     name: 'name',
     email: 'email',
     languages: 'languages',
-    programming_languages: 'programming_languages',
+    programming_languages: 'programming languages',
     age: 'age'
   },
   general: {

@@ -8,6 +8,8 @@ import event from '../util/event.js'
 import Class from './Class.js'
 import AccountName from './AccountName.js'
 
+import { repository } from '../package.json'
+
 
 export default class Header extends Class {
 
@@ -16,7 +18,7 @@ export default class Header extends Class {
     this.language = languages[getLanguage()].Header
 
     this.json__header = {
-      left: [{name: this.language.home, url: '/'}, {name: this.language.about, url: '/about'}, {name: this.language.blog, url: '/blog'}, {name: this.language.statistics, url: '/statistics'}],
+      left: [{name: this.language.home, url: '/'}, {name: this.language.about, url: '/about'}, {name: this.language.blog, url: '/blog'}, {name: '(src)', url: repository.url.split('+')[1].split('').slice(0,-4).join('')}],
       right: [{name: 'account name goes here', url: () => event.get('account').payload.username ? '/dashboard' : '/login', comp: <AccountName /> }]
     }
 
