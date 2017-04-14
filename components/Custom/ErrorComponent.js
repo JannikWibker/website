@@ -1,4 +1,4 @@
-export default ({id = 404, text = 'This page could not be found'}) => (
+export default ({id = 404, text = 'This page could not be found', color = 'rgba(0, 0, 0,.3)'}) => (
   <div style={{
     textAlign: 'center',
     paddingTop: '20%',
@@ -9,7 +9,7 @@ export default ({id = 404, text = 'This page could not be found'}) => (
       padding: '10px 23px',
       fontWeight: 500,
       fontSize: '24px',
-      borderRight: '1px solid rgba(0, 0, 0,.3)'
+      borderRight: '1px solid ' + color
     }}>{id}</h1>
     <div style={{
       display: 'inline-block',

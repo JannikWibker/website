@@ -57,7 +57,9 @@ export default class NextDemo extends Class {
         </Terminal>
 
         <Browser className={this.css__browser} width={this.ind_width} height={this.ind_height} title="localhost:3000" theme={this.props.browser_theme}>
-          <NextBrowserFrames loop={this.props.loop} />
+          <NextBrowserFrames loop={this.props.loop} color={this.theme.name === 'dark_theme'
+                                                              ? 'rgba(255, 255, 255, 0.7)'
+                                                              : 'rgba(0, 0, 0, 0.3)'}/>
         </Browser>
       </div>
     )
