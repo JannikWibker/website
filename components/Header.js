@@ -13,7 +13,6 @@ export default class Header extends Class {
 
   constructor(){
     super()
-
     this.language = languages[getLanguage()].Header
 
     this.json__header = {

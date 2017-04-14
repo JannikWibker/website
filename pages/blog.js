@@ -7,7 +7,7 @@ import BlogList from '../components/BlogList.js'
 import Blog from '../components/Blog.js'
 import Footer from '../components/Footer.js'
 import { dark_theme, light_theme, purple_theme, blue_theme } from '../config/themes.js'
-import { languages, getLanguage, getLanguageFromCode } from '../config/language.js'
+import { languages, getLanguage, setLanguage, getLanguageFromCode } from '../config/language.js'
 import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 
@@ -16,7 +16,7 @@ export default class BlogPage extends React.Component {
     return {
       lang: obj.req
         ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0]
-        : window.navigator.language,
+        : window.localStorage.lang || window.navigator.language,
       pathname: obj.pathname,
       query: obj.query,
     }
@@ -24,8 +24,8 @@ export default class BlogPage extends React.Component {
 
   constructor(props) {
     super(props)
-    this.lang_code = getLanguageFromCode(this.props.lang)
-    if(typeof(window) !== 'undefined' && window) localStorage.lang_code = this.lang_code
+    this.lang_code = setLanguage(getLanguageFromCode(this.props.lang))
+    if(typeof(window) !== 'undefined' && window) window.localStorage.lang = this.lang_code
 
     this.language = languages[this.lang_code].BlogPage
 

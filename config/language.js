@@ -61,7 +61,7 @@ const eng = {
 
   },
   AboutPage: {
-    
+
   },
   BlogPage: {
 
@@ -331,6 +331,8 @@ const languages = {
   fr: fr
 }
 
+let lang = 'eng'
+
 let getLanguageFromCode = (code) => {
   code = code.toLowerCase().substring(0,2)
   switch(code) {
@@ -343,7 +345,12 @@ let getLanguageFromCode = (code) => {
 }
 
 let getLanguage = () => {
-  return 'eng'
+  return lang
 }
 
-export { languages, getLanguage, getLanguageFromCode }
+let setLanguage = code => {
+  lang = code
+  return lang
+}
+
+export { languages, getLanguage, setLanguage, getLanguageFromCode }

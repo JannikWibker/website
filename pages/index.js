@@ -7,7 +7,7 @@ import Footer from '../components/Footer.js'
 import Terminal from '../components/Terminal.js'
 import HTML from '../components/HTML.js'
 import { dark_theme, light_theme } from '../config/themes.js'
-import { languages, getLanguage, getLanguageFromCode } from '../config/language.js'
+import { languages, getLanguage, setLanguage, getLanguageFromCode } from '../config/language.js'
 import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 import { Keyframes, Frame } from 'react-keyframes'
@@ -21,7 +21,7 @@ export default class IndexPage extends React.Component {
     return {
       lang: obj.req
         ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0]
-        : window.navigator.language,
+        : window.localStorage.lang || window.navigator.language,
       pathname: obj.pathname,
       query: obj.query,
     }
@@ -30,8 +30,8 @@ export default class IndexPage extends React.Component {
   constructor(props){
     super(props)
 
-    this.lang_code = getLanguageFromCode(this.props.lang)
-    if(typeof(window) !== 'undefined' && window) localStorage.lang_code = this.lang_code
+    this.lang_code = setLanguage(getLanguageFromCode(this.props.lang))
+    if(typeof(window) !== 'undefined' && window) window.localStorage.lang = this.lang_code
 
     this.language = languages[this.lang_code].IndexPage
 
@@ -50,7 +50,7 @@ export default class IndexPage extends React.Component {
         <Globals url={this.props.url.pathname} />
         <Header theme={dark_theme} />
         <Content theme={dark_theme}>
-          <Block theme={dark_theme} >
+          <Block theme={dark_theme}>
             <NextDemo terminal_theme={dark_theme} browser_theme={dark_theme} loop={true} />
           </Block>
         </Content>
