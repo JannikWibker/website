@@ -90,7 +90,7 @@ const eng = {
 
   },
   About: {
-
+    i_am: 'im'
   },
 }
 
@@ -186,13 +186,110 @@ const ger = {
 
   },
   About: {
+    i_am: 'ich bin'
+  },
+}
 
+const fr = {
+  AccountName: {
+    no_name: 'login'
+  },
+  AddBlog: {
+    title: 'title',
+    markdown: 'markdown',
+    plain: 'plaintext'
+  },
+  Block: {
+
+  },
+  Blog: {
+    owner: 'owner'
+  },
+  BlogList: {
+
+  },
+  Button: {
+
+  },
+  Content: {
+
+  },
+  DelBlog: {
+
+  },
+  Footer: {
+
+  },
+  Header: {
+    home: 'home',
+    about: 'about',
+    blog: 'blog',
+    statistics: 'statistics'
+  },
+  InputField: {
+
+  },
+  Login: {
+    is_empty: ' is empty',
+    username: 'username',
+    email: 'email',
+    password: 'password',
+    password_initial: 'your p4ssw0rd',
+    no_account_question: 'don\'t have an account? Register'
+  },
+  Register: {
+    is_empty: ' is empty',
+    username_taken: 'username is already taken',
+    username: 'username',
+    full_name: 'full name',
+    age: 'age',
+    email: 'email',
+    password: 'password',
+    password_initial: 'your p4ssw0rd',
+    password_repeat: 'repeat p4ssw0rd',
+    already_account_question: 'already have an account? Login'
+  },
+  Terminal: {
+
+  },
+  AboutPage: {
+
+  },
+  BlogPage: {
+
+  },
+  DashboardPage: {
+    headline: 'Dashboard - Account stuff goes here',
+    add_blog_question: 'add a blog post? ',
+    del_blog_question: 'delete a blog post?',
+    show: '[show]',
+    hide: '[hide]',
+    login_required_1: 'The Dashboard requires you to be logged in,',
+    login_required_2: 'you can login below or create a new account if necessary'
+  },
+  IndexPage: {
+    Terminal_frames: [
+      'This', 'This is', 'This is _**animated**_.'
+    ]
+  },
+  LoginPage: {
+
+  },
+  RegisterPage: {
+
+  },
+  StatisticsPage: {
+
+  },
+  About: {
+    i_am: 'je suis'
   },
 }
 
 const languages = {
   eng: eng,
-  ger: ger
+  ger: ger,
+  fr: fr
 }
 
 let getLanguage = () => {
