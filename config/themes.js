@@ -7,6 +7,7 @@ const dark_theme =  {
   invertColor: '#000',
   accentColor: '#666',
   accentColor2: 'rgba(24, 24, 32, 1)',
+  accentColor3: 'rgba(186, 186, 186, 1)',
   linkColor: 'rgba(248,28,229,0.75)'
 }
 const light_theme = {
@@ -17,6 +18,7 @@ const light_theme = {
   invertColor: '#fff',
   accentColor: '#aaa',
   accentColor2: 'rgba(247, 247, 247, 1)',
+  accentColor3: 'rgba(69, 69, 69, 1)',
   linkColor: 'rgba(248,28,229,0.75)'
 }
 const purple_theme = {
