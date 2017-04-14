@@ -16,7 +16,7 @@ export default class RegisterPage extends React.Component {
     return {
       lang: obj.req
         ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0]
-        : window.localStorage.lang || window.navigator.language,
+        : window.localStorage.lang || window.navigator.languages[0] || window.navigator.language,
       pathname: obj.pathname,
       query: obj.query,
     }
