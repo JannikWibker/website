@@ -61,7 +61,7 @@ const eng = {
 
   },
   AboutPage: {
-
+    
   },
   BlogPage: {
 
@@ -90,8 +90,21 @@ const eng = {
 
   },
   About: {
-    i_am: 'im'
+    i_am: 'im',
+    name: 'name',
+    email: 'email',
+    languages: 'languages',
+    programming_languages: 'programming_languages',
+    age: 'age'
   },
+  general: {
+    german: 'german',
+    German: 'German',
+    english: 'english',
+    English: 'English',
+    french: 'french',
+    French: 'French',
+  }
 }
 
 const ger = {
@@ -186,8 +199,21 @@ const ger = {
 
   },
   About: {
-    i_am: 'ich bin'
+    i_am: 'ich bin',
+    name: 'Name',
+    email: 'Email',
+    languages: 'Sprachen',
+    programming_languages: 'Programmiersprachen',
+    age: 'Alter'
   },
+  general: {
+    german: 'deutsch',
+    German: 'Deutsch',
+    english: 'englisch',
+    English: 'Englisch',
+    french: 'französisch',
+    French: 'Französisch',
+  }
 }
 
 const fr = {
@@ -282,8 +308,21 @@ const fr = {
 
   },
   About: {
-    i_am: 'je suis'
+    i_am: 'je suis',
+    name: 'name',
+    email: 'email',
+    languages: 'languages',
+    programming_languages: 'programming_languages',
+    age: 'age'
   },
+  general: {
+    german: 'german',
+    German: 'German',
+    english: 'english',
+    English: 'English',
+    french: 'french',
+    French: 'French',
+  }
 }
 
 const languages = {
@@ -292,8 +331,19 @@ const languages = {
   fr: fr
 }
 
+let getLanguageFromCode = (code) => {
+  code = code.toLowerCase().substring(0,2)
+  switch(code) {
+    case 'en': return 'eng'
+    case 'de': return 'ger'
+    case 'ge': return 'ger'
+    case 'fr': return 'fr'
+    default: return getLanguage()
+  }
+}
+
 let getLanguage = () => {
   return 'eng'
 }
 
-export { languages, getLanguage }
+export { languages, getLanguage, getLanguageFromCode }

@@ -5,7 +5,7 @@ import Content from '../components/Content.js'
 import Block from '../components/Block.js'
 import Footer from '../components/Footer.js'
 import { dark_theme, light_theme } from '../config/themes.js'
-import { languages, getLanguage } from '../config/language.js'
+import { languages, getLanguage, getLanguageFromCode } from '../config/language.js'
 import { Keyframes, Frame } from 'react-keyframes'
 import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
@@ -15,12 +15,19 @@ import Terminal from '../components/Terminal.js'
 import NextCodeFrames from '../components/Custom/NextCodeFrames.js'
 
 export default class AboutPage extends React.Component {
+  static getInitialProps(obj) {
+
+    return {
+      lang: obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0],
+      pathname: obj.pathname,
+      query: obj.query,
+    }
+  }
 
   constructor(props){
     super(props)
-
-    this.language = languages[getLanguage()].AboutPage
-
+    this.lang_code = getLanguageFromCode(typeof(window) !== null && window ? window.navigator.language : this.props.lang)
+    this.language = languages[this.lang_code].AboutPage
     event_loader(['theme', 'account'])
     // loading events (see /util/event_loader.js for additional information)
   }
