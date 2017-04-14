@@ -8,12 +8,15 @@ import Login from '../components/Login.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage, setLanguage, getLanguageFromCode } from '../config/language.js'
 import event_loader from '../util/event_loader.js'
+
+const isClient = () => typeof(window) !== 'undefined' && window
+
 export default class LoginPage extends React.Component {
   static getInitialProps(obj) {
     return {
       lang: obj.req
         ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0]
-        : window.localStorage.lang || window.navigator.language,
+        : window.localStorage.lang || window.navigator.languages[0] || window.navigator.language,
       pathname: obj.pathname,
       query: obj.query,
     }
@@ -22,8 +25,8 @@ export default class LoginPage extends React.Component {
   constructor(props){
     super(props)
 
-    this.lang_code = setLanguage(getLanguageFromCode(this.props.lang))
-    if(typeof(window) !== 'undefined' && window) window.localStorage.lang = this.lang_code
+    this.lang_pref = isClient() ? window.localStorage.lang : ''
+    this.lang_code = setLanguage(getLanguageFromCode(this.lang_pref || getLanguageFromCode(this.props.lang)))
 
     this.language = languages[this.lang_code].LoginPage
 
