@@ -20,6 +20,7 @@ export default class Terminal extends Class {
   css() {
     this.css__container = css({
       "boxSizing": "border-box",
+      "borderRadius": "6px",
       "width": this.props.width || 450,
       "height": this.props.height || 260,
       "backgroundColor": this.theme.backgroundColor,
