@@ -89,6 +89,9 @@ const eng = {
   StatisticsPage: {
 
   },
+  About: {
+
+  },
 }
 
 const ger = {
@@ -182,6 +185,9 @@ const ger = {
   StatisticsPage: {
 
   },
+  About: {
+
+  },
 }
 
 const languages = {
@@ -190,7 +196,7 @@ const languages = {
 }
 
 let getLanguage = () => {
-  return 'ger'
+  return 'eng'
 }
 
 export { languages, getLanguage }

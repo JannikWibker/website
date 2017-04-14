@@ -9,15 +9,15 @@ import { languages, getLanguage } from '../config/language.js'
 import { Keyframes, Frame } from 'react-keyframes'
 import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
+import About from '../components/About.js'
 
-import NextDemo from '../components/Custom/NextDemo.js'
+import Terminal from '../components/Terminal.js'
+import NextCodeFrames from '../components/Custom/NextCodeFrames.js'
 
 export default class AboutPage extends React.Component {
 
   constructor(props){
     super(props)
-    keyboard.init()
-    // initializing the keyboard shortcuts (see /config/keyboard.js)
 
     this.language = languages[getLanguage()].AboutPage
 
@@ -39,7 +39,7 @@ export default class AboutPage extends React.Component {
         <Header />
         <Content theme={light_theme}>
           <Block>
-            <NextDemo terminal_theme={dark_theme} browser_theme={light_theme} loop={true} />
+            <About />
           </Block>
         </Content>
         <Footer />

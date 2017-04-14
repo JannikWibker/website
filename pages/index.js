@@ -14,24 +14,12 @@ import { Keyframes, Frame } from 'react-keyframes'
 import marked from 'marked'
 import Script from '../components/Script.js'
 import AddBlog from '../components/AddBlog.js'
-import NextCodeFrames from '../components/Custom/NextCodeFrames.js'
+import NextDemo from '../components/Custom/NextDemo.js'
 
 export default class IndexPage extends React.Component {
 
   constructor(props){
     super(props)
-    keyboard.add('command+p', (e) => {
-      console.log(e)
-      e.preventDefault()
-    })
-    keyboard.add('left', (e) => {
-      console.log(e)
-      this.props.url.back()
-    })
-    keyboard.add('right', (e) => {
-    })
-    keyboard.init()
-    // initializing the keyboard shortcuts (see /config/keyboard.js)
 
     this.language = languages[getLanguage()].IndexPage
 
@@ -51,9 +39,7 @@ export default class IndexPage extends React.Component {
         <Header theme={dark_theme} />
         <Content theme={dark_theme}>
           <Block theme={dark_theme} >
-            <Terminal width="450" height="300" title="vim" safe={false}>
-              <NextCodeFrames theme={dark_theme} />
-            </Terminal>
+            <NextDemo terminal_theme={dark_theme} browser_theme={dark_theme} loop={true} />
           </Block>
         </Content>
         <Footer theme={dark_theme} />
