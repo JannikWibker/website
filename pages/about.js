@@ -16,9 +16,10 @@ import NextCodeFrames from '../components/Custom/NextCodeFrames.js'
 
 export default class AboutPage extends React.Component {
   static getInitialProps(obj) {
-
     return {
-      lang: obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0],
+      lang: obj.req
+        ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0]
+        : window.navigator.language,
       pathname: obj.pathname,
       query: obj.query,
     }
@@ -26,7 +27,8 @@ export default class AboutPage extends React.Component {
 
   constructor(props){
     super(props)
-    this.lang_code = getLanguageFromCode(typeof(window) !== null && window ? window.navigator.language : this.props.lang)
+    this.lang_code = getLanguageFromCode(this.props.lang)
+    if(typeof(window) !== 'undefined' && window) localStorage.lang_code = this.lang_code
     this.language = languages[this.lang_code].AboutPage
     event_loader(['theme', 'account'])
     // loading events (see /util/event_loader.js for additional information)
