@@ -39,7 +39,7 @@ export default (props) => {
     <style jsx>{`
       span.title {
         display: inline-block;
-        width: 84px;
+        width: 100px;
         margin-top: 4px;
         font-size: 13px;
         text-align: left;

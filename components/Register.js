@@ -54,7 +54,7 @@ export default class Register extends Class {
       .register_button {
         width: 96px;
         height: 24px;
-        margin: 0 26 0 110px;
+        margin: 0 26 0 126px;
         cursor: "pointer";
         color: ${this.theme.color}
       }
@@ -64,7 +64,7 @@ export default class Register extends Class {
 
       a.login_btn {
         font-size: 0.9em;
-        margin-left: 62px;
+        margin-right: -100px;
         color: ${this.theme.linkColor}!important;
       }
     `}</style>

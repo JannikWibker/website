@@ -47,6 +47,26 @@ export default class NextDemo extends Class {
       "margin": "10px"
     }
     this.css__browser = css(this._css__browser)
+
+
+  /*
+  <style jsx>{`
+    @media(min-width: ${this.total_width}px) {
+      .container {
+        text-align: left;
+        position: relative;
+        width: ${this.ind_width};
+        height: ${this.ind_height};
+      }
+      .terminal, .browser {
+        transform: translateX(${(this.ind_width / 2) + 10}px);
+        position: absolute;
+        display: block;
+        margin: 10px;
+      }
+    }
+  `}</style>
+  */
   }
 
   render() {
