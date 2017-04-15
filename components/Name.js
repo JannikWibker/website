@@ -48,6 +48,54 @@ export default ({ name = 'Jannik', color = '#454545', i_am = 'im' }) => {
       lineHeight: '0',
     }
   })
+    /*
+    style jsx>{`
+      .container {
+        --webkit-font-smoothing: antialiased;
+        text-align: center;
+        font-family: 'SFNS Display';
+        color: ${color};
+      }
+
+      h2 {
+        display: inline-block;
+        font-weight: 200;
+        margin: 0px 12px 0px 8px;
+        font-size: 30px;
+        line-height: 64px;
+        vertical-align: text-top;
+        word-spacing: 6px;
+      }
+
+      h1 {
+        display: inline-block;
+        font-weight: 200;
+        margin: 0px 0px 0px 0px;
+        font-size: 56px;
+        line-height: 64px;
+        vertical-align: text-top;
+      }
+
+      h1::after, h1::before {
+        content: "„"
+        height: 20px;
+        font-weight: 300;
+        margin: 0px 8px;
+        position: relative;
+        font-size: 28px;
+        line-height: 0px
+      }
+
+      h1::after: {
+        top: -54px;
+      }
+
+      h1::before {
+        top: 10px;
+      }
+
+    `}</style>
+    */
 
   return (
     <div className={css__container}>

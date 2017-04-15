@@ -85,6 +85,75 @@ export default class BlogList extends Class {
     this.style__blog_author = css({
       "color": this.theme.accentColor
     })
+
+    /*
+    style jsx>{`
+      .blog_list {
+        color: ${this.theme.color};
+        background-color: ${this.theme.backgroundColor};
+      }
+
+      .blog_container {
+        text-align: initial;
+      }
+
+      .blog_name {
+        color: ${this.theme.color};
+        background-color: ${this.theme.backgroundColor};
+        font-size: 1.7em;
+        text-decoration: none;
+        font-weight: 400;
+      }
+
+      .blog_name:hover {
+        text-decoration: underline;
+        color: this.theme.color
+      }
+
+      .blog_preview {
+        color: ${this.theme.color};
+        background-color: ${this.theme.backgroundColor};
+        font-family: Menlo, DejaVu Sans Mono, Lucida Console, monospace, sans-serif;
+        font-size: 0.8em;
+        max-height: 48px;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .blog_post_container {
+        color: ${this.theme.color};
+        background-color: ${this.theme.backgroundColor};
+      }
+
+      .blog_seperator {
+        color: ${this.theme.accentColor};
+        text-align: center;
+        padding-top: 19px;
+        padding-bottom: 13px;
+      }
+
+      .blog_date {
+        display: inline-block;
+        color: ${this.theme.accentColor};
+        font-size: 0.8em;
+        text-align: right;
+        height: 114px;
+        margin-top: 11px;
+      }
+
+      .blog_author {
+        color: this.theme.accentColor;
+      }
+
+      @media(max-width: 400px) {
+        .blog_date {
+          height: 12px;
+          text-align: left;
+          margin-top: 0px;
+        }
+      }
+    `}</style>
+    */
   }
 
   get() {

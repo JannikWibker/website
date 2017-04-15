@@ -52,7 +52,7 @@ export default class Login extends Class {
     div.login_btn {
       width: 96px;
       height: 24px;
-      margin: 0 26px 0 110px;
+      margin: 0 26px 0 126px;
       cursor: pointer;
       color: ${this.theme.color};
     }
@@ -63,7 +63,7 @@ export default class Login extends Class {
 
     a.register_btn {
       font-size: 0.9em;
-      margin-left: 62px;
+      margin-right: -100px;
       color: ${this.theme.linkColor}!important;
     }
 

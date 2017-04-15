@@ -32,15 +32,30 @@ export default class About extends Class {
       width: '100vw',
       padding: '20px',
     })
+
+    /*
+    <style jsx>{`
+      .Name_container {
+        width: 100vw;
+        height: 30vh;
+        line-height: 15vh;
+      }
+      .Table_container {
+        box-sizing: border-box;
+        width: 100vw;
+        padding: 20px;
+      }
+    `}</style>
+    */
   }
 
   render() {
     return (
       <div>
-        <div className={this.css__Name_container}>
+        <div className={this.css__Name_container + ' Name_container'}>
           <Name name={'Jannik'} color={this.theme.accentColor3} i_am={this.language.i_am} />
         </div>
-        <div className={this.css__Table_container}>
+        <div className={this.css__Table_container + ' Table_container'}>
           <Table layout={true} style={{table: {display: 'inline-block'}}} fill={true} data={[
             { name: this.language.name, cells: ['Jannik Wibker'] },
             { name: this.language.email, cells: ['jannikwibker@gmail.com'] },

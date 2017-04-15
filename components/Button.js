@@ -28,6 +28,22 @@ export default class Button extends Class {
         "color": "#fff"
       }
     })
+
+    /*
+    <style jsx>{`
+      span {
+        text-decoration: none;
+        color: ${this.theme.color};
+        background-color: ${this.theme.backgroundColor};
+        cursor: pointer;
+      }
+
+      span:hover {
+        background-color: ${this.theme.linkColor};
+        color: #fff;
+      }
+    `}</style>
+    */
   }
 
   render() {

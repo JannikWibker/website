@@ -47,6 +47,34 @@ export default class AddBlog extends Class {
       "backgroundColor": this.theme.backgroundColor + "!important",
       "borderRadius": "0!important"
     })
+
+    /*
+      <style jsx>{`
+        .select {
+          color;
+          background-color;
+          padding: 0px 10px 5px 10px!important;
+          margin: 0px; // why???
+          margin: 0px 8px 0px 8px!important;
+          font-size: 12px;
+          width: 150px;
+          border: none!important;
+          border-radius: 0px!important;
+          --webkit-appearance: none;
+          border-bottom: 2px solid ${this.theme.accentColor}!important;
+        }
+
+        .textarea {
+          margin-top: 16px;
+          height: 400px;
+          width: ${this.props.felx ? '80vw : '80%};
+          max-height: 50vh;
+          border-radius: 0!important;
+          background-color: ${this.theme.backgroundColor}!important;
+          color: ${this.theme.color}!important;
+        }
+      `}</style>
+    */
   }
 
   postBlog() {
