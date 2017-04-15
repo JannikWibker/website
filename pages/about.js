@@ -22,7 +22,7 @@ export default class AboutPage extends React.Component {
   static getInitialProps(obj) {
     return {
       lang: obj.req
-        ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0]
+        ? (obj.req.headers['accept-language'] ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0] : 'eng')
         : window.localStorage.lang || window.navigator.languages[0] || window.navigator.language,
       pathname: obj.pathname,
       query: obj.query,
@@ -35,7 +35,7 @@ export default class AboutPage extends React.Component {
     this.lang_pref = isClient() ? window.localStorage.lang : ''
     this.lang_code = setLanguage(getLanguageFromCode(this.lang_pref || getLanguageFromCode(this.props.lang)))
     this.language = languages[this.lang_code].AboutPage
-    
+
     event_loader(['theme', 'account'])
     // loading events (see /util/event_loader.js for additional information)
   }

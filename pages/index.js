@@ -22,7 +22,7 @@ export default class IndexPage extends React.Component {
   static getInitialProps(obj) {
     return {
       lang: obj.req
-        ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0]
+        ? (obj.req.headers['accept-language'] ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0] : 'eng')
         : window.localStorage.lang || window.navigator.languages[0] || window.navigator.language,
       pathname: obj.pathname,
       query: obj.query,
