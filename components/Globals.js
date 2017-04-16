@@ -25,7 +25,7 @@ export default class Globals extends React.Component {
           <link rel="stylesheet" href="static/css/gfm.css" />
           <style>{`
           body {
-            font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto, Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, sans-serif;
             text-rendering: geometricPrecision;
           }
           .link > a:hover, .link > a:hover > div > span {
