@@ -40,32 +40,38 @@ export default class Footer extends Class {
         <div className={`${this.style__bg} ${this.style__color} container`}>
           <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
             <Link href="https://twitter.com/JannikWibker">
-              <div>
-                <img alt="Twitter" src={`/static/images/Twitter-64px-${this.theme.name}.png`} />
-                <span>
-                  @JannikWibker
-                </span>
-              </div>
+              <a>
+                <div>
+                  <img alt="Twitter" src={`/static/images/Twitter-64px-${this.theme.name}.png`} />
+                  <span>
+                    @JannikWibker
+                  </span>
+                </div>
+              </a>
             </Link>
           </div>
           <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
             <Link href="https://github.com/JannikWibker">
-            <div>
-              <img alt="GitHub" src={`/static/images/GitHub-Mark-64px-${this.theme.name}.png`} />
-              <span>
-                JannikWibker
-              </span>
-            </div>
+              <a>
+                <div>
+                  <img alt="GitHub" src={`/static/images/GitHub-Mark-64px-${this.theme.name}.png`} />
+                  <span>
+                    JannikWibker
+                  </span>
+                </div>
+              </a>
             </Link>
           </div>
           <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
             <Link href="mailto:jannikwibker@gmail.com">
-              <div>
-                <img alt="E-Mail" src={`/static/images/email-24dp-${this.theme.name}.png`} />
-                <span>
-                  jannikwibker@gmail.com
-                </span>
-              </div>
+              <a>
+                <div>
+                  <img alt="E-Mail" src={`/static/images/email-24dp-${this.theme.name}.png`} />
+                  <span>
+                    jannikwibker@gmail.com
+                  </span>
+                </div>
+              </a>
             </Link>
           </div>
         </div>
