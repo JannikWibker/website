@@ -19,13 +19,18 @@ if (isClient()) {
 }
 
 export default class BlogPage extends React.Component {
-  static getInitialProps(obj) {
+  static async getInitialProps(obj) {
+    let data = await fetch(`http://${isClient() ? location.hostname : 'localhost'}:3001/blog/get/${obj.query.id ? obj.query.id : ''}`)
+    let json = await data.json()
     return {
       lang: obj.req
         ? (obj.req.headers['accept-language'] ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0] : 'eng')
         : window.localStorage.lang || window.navigator.languages[0] || window.navigator.language,
+      hostname: obj.req ? obj.req.url : location.hostname,
       pathname: obj.pathname,
       query: obj.query,
+      json: json,
+
     }
   }
 
@@ -52,9 +57,10 @@ export default class BlogPage extends React.Component {
         <Header theme={light_theme}/>
         <Content>
           <Block theme={light_theme}>
-            {this.props.url.query.id ?
-              <Blog id={this.props.url.query.id} /> :
-              <BlogList />}
+            {this.props.url.query.id
+              ? <Blog id={this.props.url.query.id} json={this.props.json} hostname={this.props.hostname} />
+              : <BlogList json={this.props.json} />
+            }
           </Block>
         </Content>
         <Footer theme={light_theme}/>

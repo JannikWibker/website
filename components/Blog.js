@@ -13,13 +13,21 @@ import Script from './Script.js'
 import Lambda from './Custom/Some_Language.js'
 import replace_all from '../util/replace_all.js'
 
+const format = date => `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
+
 export default class Blog extends Class {
 
   constructor(props) {
     super(props)
 
-    this.get(this.props.id)
-    this.post = {}
+    this.post = this.props.json
+    if(this.post.theme && this.psot.theme !== 'light_theme' && this.theme.name === 'ligth_theme') {
+      event.trigger('theme', this.theme)
+    }
+    if(this.post.createdAt) {
+      this.post.date = format(new Date(this.post.createdAt))
+      this.post.ago = date(this.post.createdAt)
+    }
 
     this.language = languages[getLanguage()].Blog
 
@@ -47,7 +55,7 @@ export default class Blog extends Class {
     if(type === '') {
       return ''
     } else if(type === 'markdown') {
-      return MTRC(replace_all(input, ['%theme%', '%address%'], [this.theme.altName, location.hostname])).tree
+      return MTRC(replace_all(input, ['%theme%', '%address%'], [this.theme.altName, this.props.hostname])).tree
     } else if(type === 'plain') {
       return input
     } else {
@@ -134,32 +142,6 @@ export default class Blog extends Class {
     `}</style>
     */
   }
-
-  get(post) {
-    if(typeof window === 'undefined') {
-      return {}
-    }
-    fetch(`http://${location.hostname}:3001/blog/get/${post}`)
-      .then((data) => data.json())
-      .then((json) => {
-        this.post = json
-        if(this.post.theme && this.post.theme !== 'light_theme' && this.theme.name === 'light_theme') {
-          event.trigger('theme', this.theme)
-        }
-        if(this.post.createdAt) {
-          this.post.date = replace_all(new Date(this.post.createdAt).toLocaleDateString(), ['/'], ['.'])
-          this.post.ago = date(this.post.createdAt)
-        }
-        if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
-      })
-  }
-
-  /*
-  fetches the post if this code is run on the
-  client (because the server can't really fetch
-  this data). It then uses moment.js to do some
-  formating with the date object in the response
-  */
 
   render() {
     return (

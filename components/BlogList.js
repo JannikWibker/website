@@ -1,22 +1,23 @@
 import React from 'react'
 import { style as css } from 'glamor'
 import Link from 'next/link'
+import fetch from 'isomorphic-fetch'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
 import remove_md from '../util/remove_markdown.js'
-import fetch from 'isomorphic-fetch'
 import Class from './Class.js'
 import replace_all from '../util/replace_all.js'
 
+const format = date => `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
 
 export default class BlogList extends Class {
 
   constructor(props) {
     super(props)
-    this.get()
-    this.posts = []
-
+    this.posts = Object.keys(this.props.json)
+      .map(key => this.props.json[key])
+      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     this.language = languages[getLanguage()].BlogList
 
     this.theme_event()
@@ -156,29 +157,6 @@ export default class BlogList extends Class {
     */
   }
 
-  get() {
-    if(typeof window === 'undefined') {
-      return {}
-    }
-    fetch(`http://${location.hostname}:3001/blog/get`)
-      .then((data) => {
-        return data.json()
-      })
-      .then((json) => {
-        this.posts = Object.keys(json).map(key => json[key])
-        this.posts.sort((a, b) => {
-          return new Date(b.createdAt) - new Date(a.createdAt)
-        })
-        if(this._mounted && typeof window !== 'undefined') this.forceUpdate()
-      })
-  }
-  /*
-  get method:
-  if this code is run on the server then {} is returned
-  if this code runs in the browser all blog posts get
-  fetched and sorted by date. Then forceUpdate() is called
-  */
-
   render() {
     return (
       <div className={`${this.style__blog_container} container __bloglist`}>
@@ -187,8 +165,11 @@ export default class BlogList extends Class {
           let l_post = post
           return (
             <div key={i} className={this.style__blog_post_container} id={l_post.name}>
-              <span className={`${this.style__blog_date} two columns`}>{l_post.createdAt ? replace_all(new Date(l_post.createdAt).toLocaleDateString(), ['/'], ['.']) : ''}</span>
-
+              <span className={`${this.style__blog_date} two columns`}>
+                {l_post.createdAt
+                  ? format(new Date(l_post.createdAt))
+                  : ''}
+              </span>
               <div className={'ten columns ' + css({"float": "right"})}>
               <a className={`${this.style__blog_name}`} href={`/blog?id=${l_post.id}`}>
                 {l_post.name}

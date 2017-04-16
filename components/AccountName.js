@@ -1,5 +1,4 @@
 import React from 'react'
-import fetch from 'isomorphic-fetch'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
