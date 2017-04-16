@@ -43,18 +43,18 @@ export default class Header extends Class {
         <div className={this.style__bg + ' header_out __header'}>
           <header className={this.style__bg + ' header'}>
             <div className={'header_icon'}>
-              <Link href="">
+              <span style={{cursor: "pointer"}}>
                 <svg width="40" height="40" role="button" onClick={event.trigger.bind(this, 'theme', this.theme)}>
                   <circle cx="20" cy="20" r="20" fill={this.theme.color}/>
                 </svg>
-              </Link>
+              </span>
             </div>
             <div className={this.style__bg + ' header_container_nav'}>
               <div className={`header_container header_container_left`}>
                 {this.json__header.left.map((item, i) => {
                   return (
                     <span role="button"className={`${this.style__header_item} header_item link`} key={i}>
-                      <Link href={item.url}>{item.name}</Link>
+                      <Link href={item.url}><a>{item.name}</a></Link>
                     </span>
                   )})}
               </div>
@@ -63,9 +63,15 @@ export default class Header extends Class {
                   return (
                     <span role="button" className={`${this.style__header_item} header_item link`} key={i}>
                       {item.fn ? (
-                        <a href={item.url === '' || !item.url ? null : item.url } style={{cursor:"pointer"}} onClick={item.fn.bind(this)}>{item.comp ? item.comp : item.name}</a>
+                        <Link href={item.url === '' || !item.url ? null : item.url}>
+                          <a onClick={item.fn.bind(this)}>
+                          {item.comp ? item.comp : item.name}
+                          </a>
+                        </Link>
                       ) : (
-                        <Link href={typeof item.url === 'function' ? item.url() : item.url}>{item.comp ? item.comp : item.name}</Link>
+                        <Link href={typeof(item.url) === 'function' ? item.url() : item.url}>
+                          <a>{item.comp ? item.comp : item.name}</a>
+                        </Link>
                       )}
                     </span>
                   )})}
