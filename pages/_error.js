@@ -1,5 +1,11 @@
 import React from 'react'
-import { style } from 'glamor'
+import { style, rehydrate } from 'glamor'
+
+const isClient = () => typeof(window) !== 'undefined' && window
+
+if (isClient()) {
+  rehydrate(window.__NEXT_DATA__.ids)
+}
 
 export default class Error extends React.Component {
   static getInitialProps ({ res, xhr, req }) {
@@ -21,53 +27,6 @@ export default class Error extends React.Component {
           <h4 className={styles.h4}>{JSON.stringify(this.props.url)}</h4>
         </div>
       </div>
-      <style>{`
-        .error {
-          color: #000;
-          background-color: #fff;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          position: absolute;
-          font-family: -apple-system, SF UI Text, Helvetica Neue, Lucida Grande, sans-serif;
-          text-align: center;
-          padding-top: 20%;
-        }
-
-        .desc {
-          display: inline-block;
-          text-align: left;
-          line-height: 49px;
-          height: 49px;
-          vertical-align: middle;
-        }
-
-        h1 {
-          display: inline-block;
-          border-right: 1px solid rgba(0, 0, 0, .3);
-          margin: 0px;
-          margin-right: 20px;
-          padding: 10px 23px;
-          font-size: 24px;
-          font-weight: 500;
-          vertical-align: top;
-        }
-
-        h2 {
-          font-size: 14px;
-          font-weight: normal;
-          margin: 0px;
-          padding: 0px;
-        }
-
-        h4 {
-          font-size: 10px;
-          font-weight: normal;
-          margin: 0px;
-          padding: 0px;
-        }
-      `}</style>
     </div>
   )
   }

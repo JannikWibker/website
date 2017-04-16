@@ -1,4 +1,5 @@
 import React from 'react'
+import { rehydrate } from 'glamor'
 import Globals from '../components/Globals.js'
 import Header from '../components/Header.js'
 import Content from '../components/Content.js'
@@ -12,6 +13,10 @@ import event_loader from '../util/event_loader.js'
 import keyboard from '../config/keyboard.js'
 
 const isClient = () => typeof(window) !== 'undefined' && window
+
+if (isClient()) {
+  rehydrate(window.__NEXT_DATA__.ids)
+}
 
 export default class BlogPage extends React.Component {
   static getInitialProps(obj) {

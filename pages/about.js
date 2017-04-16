@@ -1,4 +1,5 @@
 import React from 'react'
+import { rehydrate } from 'glamor'
 import Globals from '../components/Globals.js'
 import Header from '../components/Header.js'
 import Content from '../components/Content.js'
@@ -14,6 +15,10 @@ import About from '../components/About.js'
 import { version, author, name } from '../package.json'
 
 const isClient = () => typeof(window) !== 'undefined' && window
+
+if (isClient()) {
+  rehydrate(window.__NEXT_DATA__.ids)
+}
 
 import Terminal from '../components/Terminal.js'
 import NextCodeFrames from '../components/Custom/NextCodeFrames.js'

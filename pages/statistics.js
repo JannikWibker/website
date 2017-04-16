@@ -1,5 +1,5 @@
 import React from 'react'
-import { style as css } from 'glamor'
+import { style as css, rehydrate } from 'glamor'
 import marked from 'marked'
 import Globals from '../components/Globals.js'
 import Header from '../components/Header.js'
@@ -15,6 +15,10 @@ import { languages, getLanguage, setLanguage, getLanguageFromCode } from '../con
 import event_loader from '../util/event_loader.js'
 
 const isClient = () => typeof(window) !== 'undefined' && window
+
+if (isClient()) {
+  rehydrate(window.__NEXT_DATA__.ids)
+}
 
 export default class StatisticsPage extends React.Component {
   static getInitialProps(obj) {

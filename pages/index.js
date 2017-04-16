@@ -1,4 +1,5 @@
 import React from 'react'
+import { rehydrate } from 'glamor'
 import Globals from '../components/Globals.js'
 import Header from '../components/Header.js'
 import Content from '../components/Content.js'
@@ -17,6 +18,10 @@ import AddBlog from '../components/AddBlog.js'
 import NextDemo from '../components/Custom/NextDemo.js'
 
 const isClient = () => typeof(window) !== 'undefined' && window
+
+if (isClient()) {
+  rehydrate(window.__NEXT_DATA__.ids)
+}
 
 export default class IndexPage extends React.Component {
   static getInitialProps(obj) {
