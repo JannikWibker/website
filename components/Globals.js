@@ -1,7 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import css from 'next/css'
-import { insertRule } from 'next/css'
 
 
 export default class Globals extends React.Component {
@@ -13,23 +11,7 @@ export default class Globals extends React.Component {
   }
 
   css() {
-    insertRule(`
-    body {
-      font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto, Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", sans-serif;
-      text-rendering: geometricPrecision;
-    }
-    .link > a:hover, .link > a:hover > div > span {
-      color: #fff;
-      background-color: rgba(248,28,229,0.75);
-    }
-    .link_big > a:hover, .link_big:hover {
-      text-decoration: underline;
-    }
-    ::selection {
-      background-color: rgba(248,28,229,0.75);
-      color: white
-    }
-    `.replace(/\s/g, ''))
+
   }
 
   render() {
@@ -41,6 +23,23 @@ export default class Globals extends React.Component {
           <link rel="stylesheet" href="static/vendor/normalize.css" />
           <link rel="stylesheet" href="static/vendor/skeleton.css" />
           <link rel="stylesheet" href="static/css/gfm.css" />
+          <style>{`
+          body {
+            font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto, Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", sans-serif;
+            text-rendering: geometricPrecision;
+          }
+          .link > a:hover, .link > a:hover > div > span {
+            color: #fff;
+            background-color: rgba(248,28,229,0.75);
+          }
+          .link_big > a:hover, .link_big:hover {
+            text-decoration: underline;
+          }
+          ::selection {
+            background-color: rgba(248,28,229,0.75);
+            color: white
+          }
+          `.replace(/\s/g, '')}</style>
           <title>{this.props.url.substring(1, this.props.url.length) || 'home'}</title>
         </Head>
     )

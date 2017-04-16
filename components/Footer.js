@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { style as css } from 'glamor'
-import { merge, $ } from 'next/css'
+import { style } from 'glamor'
 import { dark_theme, light_theme } from '../config/themes'
 import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
@@ -19,26 +18,19 @@ export default class Footer extends Class {
 
   css() {
 
-    this.style__bg = css({
-      "backgroundColor": this.theme.backgroundColor
-    })
-
-    this.style__color = css({
-      "color": this.theme.color
-    })
-
-    this.style__footer_item = $(' a', {
-      "textDecoration": "none",
-      "color": this.theme.color
-    })
+    this.style = {
+      bg: style({ backgroundColor: this.theme.backgroundColor }),
+      color: style({ color: this.theme.color }),
+      footer_item: style({' a': { "color": this.theme.color }}),
+    }
 
   }
 
   render() {
     return (
-      <div className={`${this.style__bg} footer_container __footer`}>
-        <div className={`${this.style__bg} ${this.style__color} container`}>
-          <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
+      <div className={`${this.style.bg} footer_container __footer`}>
+        <div className={`${this.style.bg} ${this.style.color} container`}>
+          <div className={`${this.style.footer_item} ${this.style.color} footer_item four columns link`}>
             <Link href="https://twitter.com/JannikWibker">
               <a>
                 <div>
@@ -50,7 +42,7 @@ export default class Footer extends Class {
               </a>
             </Link>
           </div>
-          <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
+          <div className={`${this.style.footer_item} ${this.style.color} footer_item four columns link`}>
             <Link href="https://github.com/JannikWibker">
               <a>
                 <div>
@@ -62,7 +54,7 @@ export default class Footer extends Class {
               </a>
             </Link>
           </div>
-          <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
+          <div className={`${this.style.footer_item} ${this.style.color} footer_item four columns link`}>
             <Link href="mailto:jannikwibker@gmail.com">
               <a>
                 <div>
