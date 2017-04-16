@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
 import post from '../util/post.js'
@@ -122,7 +122,7 @@ export default class Login extends Class {
 
   render() {
     return (
-      <div>
+      <div className="__login">
         <InputField type='text' placeholder={this.language.username} title={this.language.username} error={this.error.username} theme={this.theme} cb={(input) => {this.username = input}}/>
         <InputField type='email' placeholder={this.language.email} title={this.language.email} error={this.error.email} theme={this.theme} cb={(input) => {this.email = input}}/>
         <InputField type='password' placeholder={this.language.password_initial} title={this.language.password} error={this.error.password} theme={this.theme} cb={(input) => {this.password = input}}/>

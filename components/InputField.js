@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 
 export default (props) => {
 
@@ -80,7 +80,7 @@ export default (props) => {
   }
 
   return (
-    <div style={l_style}>
+    <div style={l_style} className="__inputfield">
       {props.title ? <span className={style.span}>
         {props.title}
       </span> : null}

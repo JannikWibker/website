@@ -1,7 +1,7 @@
 import React from 'react'
 import MTRC from 'markdown-to-react-components'
 import { renderCustomComponents } from 'react-in-markdown';
-import css from 'next/css'
+import { style as css } from 'glamor'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
@@ -163,7 +163,7 @@ export default class Blog extends Class {
 
   render() {
     return (
-      <div className={`${this.style__blog_container} container`}>
+      <div className={`${this.style__blog_container} container __blog`}>
         <div className={`${this.style__blog} ten columns offset-by-two`}>
           <div className={`${this.style__blog_date_author}`}>{this.post.date} ({this.post.ago})</div>
           <div className={`${this.style__blog_name} link_big`}>{this.post.name}</div>

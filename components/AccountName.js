@@ -16,7 +16,7 @@ export default class AccountName extends Class {
     this.account_event()
 
     this.language = languages[getLanguage()].AccountName
-    
+
   }
 
   componentWillMount() {
@@ -64,7 +64,7 @@ export default class AccountName extends Class {
 
   render() {
     return (
-      <span>{this.account.username ? this.account.username : this.language.no_name}</span>
+      <span className="__accountname">{this.account.username ? this.account.username : this.language.no_name}</span>
     )
   }
 }

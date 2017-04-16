@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
 import post from '../util/post.js'
@@ -133,7 +133,7 @@ export default class Register extends Class {
   render() {
     console.log(this)
     return (
-      <div>
+      <div className="__register">
       <InputField type='text' placeholder={this.language.username} title={this.language.username} error={this.error.username} theme={this.theme} cb={(input) => {this.username = input}}/>
       <InputField type='text' placeholder={this.language.full_name} title={this.language.full_name} error={this.error.fullname} theme={this.theme} cb={(input) => {this.fullname = input}}/>
       <InputField type='number' placeholder={this.language.age} title={this.language.age} error={this.error.age} theme={this.theme} cb={(input) => {this.age = input}}/>

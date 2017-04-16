@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
@@ -39,7 +39,7 @@ export default class Content extends Class {
 
   render() {
     return (
-      <div className={this.style__content + ' content'}>
+      <div className={this.style__content + ' content __content'}>
         {this.props.children}
       </div>
     )

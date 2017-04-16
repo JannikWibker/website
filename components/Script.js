@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import HTML from './HTML.js'
 import Class from './Class.js'
 import event from '../util/event.js'
@@ -162,7 +162,7 @@ export default class Script extends Class {
 
   render() {
     return (
-      <span className={this.css__div_to_span}>
+      <span className={this.css__div_to_span + ' __script'}>
         <span className={"iframe_container " + this.css__div_to_span} ref={(input) => {this.iframe = input}}>
           <iframe style={{border: 0}} sandbox="allow-scripts allow-same-origin">
             Your browser does not seem to support iframes

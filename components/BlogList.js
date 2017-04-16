@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import Link from 'next/link'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
@@ -181,7 +181,7 @@ export default class BlogList extends Class {
 
   render() {
     return (
-      <div className={`${this.style__blog_container} container`}>
+      <div className={`${this.style__blog_container} container __bloglist`}>
         <div className={`${this.style__blog_list}`}>
         {this.posts.map((post, i, a) => {
           let l_post = post

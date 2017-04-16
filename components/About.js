@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import Class from './Class.js'
 import { languages, getLanguage } from '../config/language.js'
 import Name from './Name.js'
@@ -51,7 +51,7 @@ export default class About extends Class {
 
   render() {
     return (
-      <div>
+      <div className="__about">
         <div className={this.css__Name_container + ' Name_container'}>
           <Name name={'Jannik'} color={this.theme.accentColor3} i_am={this.language.i_am} />
         </div>

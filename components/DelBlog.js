@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import post from '../util/post.js'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
@@ -41,7 +41,7 @@ export default class DelBlog extends Class {
 
   render() {
     return (
-      <div style={this.props.style}>
+      <div style={this.props.style} className="__delblog">
         <ul style={{textAlign: 'left'}}>
         {this.posts.map((x, i) => (
           <li key={i}>

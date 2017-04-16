@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
@@ -25,7 +25,7 @@ export default class Block extends Class {
 
   render() {
     return (
-      <div className={this.style__block + ' block'}>
+      <div className={this.style__block + ' block __block'}>
         {typeof this.props.children !== 'string' &&
          typeof this.props.children.type !== 'string' &&
          typeof this.props.children.props.theme === 'undefined'?

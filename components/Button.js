@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
 import event from '../util/event.js'
@@ -48,7 +48,7 @@ export default class Button extends Class {
 
   render() {
     return (
-      <span onClick={this.props.click} className={this.style__span}>{this.props.children}</span>
+      <span onClick={this.props.click} className={this.style__span + ' __button'}>{this.props.children}</span>
     )
   }
 }

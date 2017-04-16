@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import HTML from '../HTML.js'
 import Class from '../Class.js'
 

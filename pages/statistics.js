@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import marked from 'marked'
 import Globals from '../components/Globals.js'
 import Header from '../components/Header.js'

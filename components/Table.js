@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 
 export default ({data = [], layout = true, fill = false, style = {}}) => {
 
@@ -50,7 +50,7 @@ export default ({data = [], layout = true, fill = false, style = {}}) => {
   )
 
   return (
-    <table className={css(style.table)}>
+    <table className={css(style.table) + ' __table'}>
         {layout ? rows(data) : columns(data)}
     </table>
   )

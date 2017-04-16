@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 
 export default ({ name = 'Jannik', color = '#454545', i_am = 'im' }) => {
 
@@ -98,7 +98,7 @@ export default ({ name = 'Jannik', color = '#454545', i_am = 'im' }) => {
     */
 
   return (
-    <div className={css__container}>
+    <div className={css__container + ' __name'}>
       <h2 className={css__h2}>{i_am}</h2>
       <h1 className={css__h1}>{name}</h1>
     </div>

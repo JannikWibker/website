@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import { merge, $ } from 'next/css'
 import { dark_theme, light_theme } from '../config/themes'
 import { languages, getLanguage } from '../config/language.js'
@@ -36,7 +36,7 @@ export default class Footer extends Class {
 
   render() {
     return (
-      <div className={`${this.style__bg} footer_container`}>
+      <div className={`${this.style__bg} footer_container __footer`}>
         <div className={`${this.style__bg} ${this.style__color} container`}>
           <div className={`${this.style__footer_item} ${this.style__color} footer_item four columns link`}>
             <Link href="https://twitter.com/JannikWibker">

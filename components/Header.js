@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import { merge, $ } from 'next/css'
 import { dark_theme, light_theme } from '../config/themes.js'
 import { languages, getLanguage } from '../config/language.js'
@@ -40,7 +40,7 @@ export default class Header extends Class {
 
   render() {
     return (
-        <div className={this.style__bg + ' header_out'}>
+        <div className={this.style__bg + ' header_out __header'}>
           <header className={this.style__bg + ' header'}>
             <div className={'header_icon'}>
               <Link href="">

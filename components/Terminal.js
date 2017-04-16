@@ -1,5 +1,5 @@
 import React from 'react'
-import css from 'next/css'
+import { style as css } from 'glamor'
 import HTML from './HTML.js'
 import event from '../util/event.js'
 import { languages, getLanguage } from '../config/language.js'
@@ -179,7 +179,7 @@ export default class Terminal extends Class {
 
   render() {
     return (
-      <span className={`${this.css__container} ${this.props.className || ''}`}>
+      <span className={`${this.css__container} ${this.props.className || ''} __terminal`}>
         <span className={this.css__border}>
           <span className={this.css__header}>
             <span className={this.css__button__close}></span>

@@ -22,7 +22,7 @@
   "homepage": "https://github.com/JannikWibker/website#readme",
   "dependencies": {
     "chart.js": "^2.4.0",
-    "glamor": "^2.20.19",
+    "glamor": "^2.20.24",
     "isomorphic-fetch": "^2.2.1",
     "keyboardjs": "^2.3.3",
     "level-js": "^2.2.4",
@@ -30,12 +30,13 @@
     "markdown-to-react-components": "^0.2.2",
     "marked": "^0.3.6",
     "moment": "^2.16.0",
-    "next": "^1.0.2",
+    "next": "^1.2.3",
     "react-chartjs": "^0.8.0",
     "react-chartjs-2": "^1.5.1",
     "react-components-in-markdown": "^0.1.5",
     "react-in-markdown": "0.0.2",
     "react-keyframes": "^0.2.2",
-    "skeleton-css": "^2.0.4"
+    "skeleton-css": "^2.0.4",
+    "styled-jsx": "^0.5.7"
   }
 }
