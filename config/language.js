@@ -344,6 +344,15 @@ let getLanguageFromCode = (code) => {
   }
 }
 
+let getLocaleCodeFromCode = (code) => {
+  switch(code || getLanguage()) {
+    case 'en': return 'en-GB'
+    case 'ger': return 'de-DE'
+    case 'fr': return 'fr-FR'
+    defualt: return 'en-GB'
+  }
+}
+
 let getLanguage = () => {
   return lang
 }
@@ -353,4 +362,4 @@ let setLanguage = code => {
   return lang
 }
 
-export { languages, getLanguage, setLanguage, getLanguageFromCode }
+export { languages, getLanguage, setLanguage, getLanguageFromCode, getLocaleCodeFromCode }
