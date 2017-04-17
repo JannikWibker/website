@@ -94,7 +94,10 @@ const eng = {
     name: 'name',
     email: 'email',
     languages: 'languages',
-    programming_languages: 'programming languages',
+    programming_languages: 'programing languages',
+    programming_experiences: 'programing experiences',
+    projects: 'projects',
+    location: 'location',
     age: 'age'
   },
   general: {
@@ -104,6 +107,7 @@ const eng = {
     English: 'English',
     french: 'french',
     French: 'French',
+    North_Rhine_Westphalia: 'North Rhine-Westphalia'
   }
 }
 
@@ -204,6 +208,9 @@ const ger = {
     email: 'Email',
     languages: 'Sprachen',
     programming_languages: 'Programmiersprachen',
+    programming_experiences: 'Programmiererfahrungen',
+    projects: 'Projekte',
+    location: 'Wohnort',
     age: 'Alter'
   },
   general: {
@@ -213,6 +220,7 @@ const ger = {
     English: 'Englisch',
     french: 'französisch',
     French: 'Französisch',
+    North_Rhine_Westphalia: 'Nordrhein-Westfalen'
   }
 }
 
@@ -312,7 +320,10 @@ const fr = {
     name: 'name',
     email: 'email',
     languages: 'languages',
-    programming_languages: 'programming languages',
+    programming_languages: 'programing languages',
+    programming_experiences: 'programing experiences',
+    projects: 'projects',
+    location: 'location',
     age: 'age'
   },
   general: {
@@ -322,6 +333,7 @@ const fr = {
     English: 'English',
     french: 'french',
     French: 'French',
+    North_Rhine_Westphalia: 'North Rhine-Westphalia'
   }
 }
 

@@ -19,7 +19,6 @@ export default class Blog extends Class {
 
   constructor(props) {
     super(props)
-
     this.post = this.props.json
     if(this.post.theme && this.psot.theme !== 'light_theme' && this.theme.name === 'ligth_theme') {
       event.trigger('theme', this.theme)

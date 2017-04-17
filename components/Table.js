@@ -1,5 +1,6 @@
 import React from 'react'
 import { style as css } from 'glamor'
+import List from './List.js'
 
 export default ({data = [], layout = true, fill = false, style = {}}) => {
 
@@ -28,9 +29,13 @@ export default ({data = [], layout = true, fill = false, style = {}}) => {
           {d.name !== '' ? name(d.name, j) : ''}
           {fill
             ? range_from_data([...data]).map(k =>
-                cell(d.cells[k] || '', j, k))
+                (d.list
+                ? cell(d.cells[k] ? <List items={d.cells[k]} /> : '', j, k)
+                : cell(d.cells[k] || '', j, k)))
             : d.cells.map((c, k) =>
-                cell(d.cells[k], j, k))
+                (d.list
+                ? cell(<List items={d.cells[k]} />, j, k)
+                : cell(d.cells[k], j, k)))
           }
         </tr>
       ))}

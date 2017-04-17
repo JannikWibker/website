@@ -26,7 +26,7 @@ export default class BlogPage extends React.Component {
       lang: obj.req
         ? (obj.req.headers['accept-language'] ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0] : 'eng')
         : window.localStorage.lang || window.navigator.languages[0] || window.navigator.language,
-      hostname: obj.req ? obj.req.url : location.hostname,
+      hostname: obj.req ? obj.req.headers.host.split(':')[0] : location.hostname,
       pathname: obj.pathname,
       query: obj.query,
       json: json,

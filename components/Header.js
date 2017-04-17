@@ -48,7 +48,7 @@ export default class Header extends Class {
                 {this.json__header.left.map((item, i) => {
                   return (
                     <span role="button"className={`${this.style.header_item} header_item link`} key={i}>
-                      <Link href={item.url}><a>{item.name}</a></Link>
+                      <Link prefetch href={item.url}><a>{item.name}</a></Link>
                     </span>
                   )})}
               </div>

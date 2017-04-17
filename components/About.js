@@ -56,11 +56,32 @@ export default class About extends Class {
           <Name name={'Jannik'} color={this.theme.accentColor3} i_am={this.language.i_am} />
         </div>
         <div className={this.css__Table_container + ' Table_container'}>
-          <Table layout={true} style={{table: {display: 'inline-block'}}} fill={true} data={[
+          <Table layout={true} style={{
+              table: {display: 'inline-block'},
+              name: {fontWeight: 'bold', verticalAlign: 'top'}
+            }} fill={true} data={[
             { name: this.language.name, cells: ['Jannik Wibker'] },
             { name: this.language.email, cells: ['jannikwibker@gmail.com'] },
+            { name: this.language.age, cells: ['17'] },
+            { name: this.language.location, cells: [this.general.North_Rhine_Westphalia] },
             { name: this.language.languages, cells: [`${this.general['German']}, ${this.general['English']}`] },
             { name: this.language.programming_languages, cells: ['Javascript, Java, Python, Lua, C, ...'] },
+            { name: this.language.programming_experiences, list: true, cells: [[
+              'client side frameworks (react / ember / angular1 / ...)',
+              'server side frameworks  / library (express / hapi.js / micro / ...)',
+              'isomorphic frameworks (next.js / server- and client-side React / meteor)',
+              'compiler design (/interpreter)',
+              'game development',
+              'web design',
+              'webapps in general',
+              'REST APIs and databases (levelDB, mongoDB)',
+              'build tools, transpilers / compilers / generators / CLIs in general',
+              'linux (servers)',
+              'raspberry PIs (server / service hosting)',
+              'version control (git)',
+              'operating systems (mac OS X, Windows, Linux)',
+              'networking',
+            ]] }
           ]}/>
         </div>
       </div>
