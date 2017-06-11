@@ -20,14 +20,14 @@ export default class Error extends React.Component {
 
     return (
       <div className={styles.error + ' error'}>
-      <div className={styles.text + ' text'}>
-        <h1 className={styles.h1}>{statusCode}</h1>
-        <div className={styles.desc + ' desc'}>
-          <h2 className={styles.h2}>{title}.</h2>
-          <h4 className={styles.h4}>{JSON.stringify(this.props.url)}</h4>
+        <div className={styles.text + ' text'}>
+          <h1 className={styles.h1}>{statusCode}</h1>
+          <div className={styles.desc + ' desc'}>
+            <h2 className={styles.h2}>{title}.</h2>
+            <h4 className={styles.h4}>{JSON.stringify(this.props.url)}</h4>
+          </div>
         </div>
       </div>
-    </div>
   )
   }
 }
