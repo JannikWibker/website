@@ -343,7 +343,8 @@ const languages = {
   fr: fr
 }
 
-let lang = 'eng'
+let default_lang = 'eng'
+let lang = default_lang
 
 let getLanguageFromCode = (code) => {
   code = code.toLowerCase().substring(0,2)
@@ -374,4 +375,4 @@ let setLanguage = code => {
   return lang
 }
 
-export { languages, getLanguage, setLanguage, getLanguageFromCode, getLocaleCodeFromCode }
+export { languages, getLanguage, setLanguage, getLanguageFromCode, getLocaleCodeFromCode, default_lang }

@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 
+import { getLanguage } from '../config/language.js'
+
 
 export default class Globals extends React.Component {
 
@@ -18,6 +20,7 @@ export default class Globals extends React.Component {
     return (
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta http-equiv="content-language" content={getLanguage()} />
           <link rel='shortcut icon' type='image/x-icon' href='static/favicon.ico' />
           <link rel="stylesheet" href="static/css/pr1styles.css" />
           <link rel="stylesheet" href="static/vendor/normalize.css" />
