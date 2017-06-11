@@ -42,7 +42,16 @@ export default class AboutPage extends React.Component {
   constructor(props){
     super(props)
     //console.log(`this is version ${version}🎉`)
-    this.lang_pref = isClient() ? window.localStorage.lang : ''
+    if(isClient() && window.__NEXT_DATA__.lang) {
+      console.log('has __NEXT_DATA__.lang: ' + window.__NEXT_DATA__.lang)
+      this.lang_pref = window.__NEXT_DATA__.lang
+      if(this.lang_pref === 'reset') {
+        window.localStorage.removeItem('lang')
+      } else {
+        window.localStorage.lang = this.lang_pref
+      }
+    }
+    this.lang_pref = this.lang_pref || isClient() ? window.localStorage.lang : ''
     this.lang_code = setLanguage(getLanguageFromCode(this.lang_pref || getLanguageFromCode(this.props.lang)))
     this.language = languages[this.lang_code].AboutPage
 
