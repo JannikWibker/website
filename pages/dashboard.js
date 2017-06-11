@@ -39,6 +39,7 @@ export default class DashboardPage extends React.Component {
 
   constructor(props) {
     super(props)
+    
     if(isClient() && window.__NEXT_DATA__.lang) {
       console.log('has __NEXT_DATA__.lang: ' + window.__NEXT_DATA__.lang)
       this.lang_pref = window.__NEXT_DATA__.lang
