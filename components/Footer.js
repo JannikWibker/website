@@ -21,7 +21,7 @@ export default class Footer extends Class {
     this.style = {
       bg: style({ backgroundColor: this.theme.backgroundColor }),
       color: style({ color: this.theme.color }),
-      footer_item: style({' a': { "color": this.theme.color }}),
+      footer_item: style({' a': { "color": this.theme.color, 'textDecoration': 'none' }}),
     }
 
   }
