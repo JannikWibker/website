@@ -3,7 +3,6 @@ import Head from 'next/head'
 
 import { getLanguage } from '../config/language.js'
 
-
 export default class Globals extends React.Component {
 
   constructor(props){
