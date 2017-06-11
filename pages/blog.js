@@ -33,12 +33,13 @@ export default class BlogPage extends React.Component {
       hostname: obj.req ? obj.req.headers.host.split(':')[0] : location.hostname,
       pathname: obj.pathname,
       query: obj.query,
+      json: json,
     }
   }
 
   constructor(props) {
     super(props)
-    
+
     if(isClient() && window.__NEXT_DATA__.lang) {
       console.log('has __NEXT_DATA__.lang: ' + window.__NEXT_DATA__.lang)
       this.lang_pref = window.__NEXT_DATA__.lang
