@@ -27,9 +27,13 @@ export default class AboutPage extends React.Component {
   static getInitialProps(obj) {
     return {
       lang: obj.req
-        ? (obj.req.headers['accept-language'] ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0] : 'eng')
+        ? obj.query.lang && obj.query.lang !== 'reset'
+          ? obj.query.lang
+          : obj.req.headers['accept-language']
+            ? obj.req.headers['accept-language'].match(/[a-zA-z\-]{2,10}/g)[0]
+            : 'eng'
         : window.localStorage.lang || window.navigator.languages[0] || window.navigator.language,
-      hostname: obj.req ? obj.req.url : location.hostname,
+      hostname: obj.req ? obj.req.headers.host.split(':')[0] : location.hostname,
       pathname: obj.pathname,
       query: obj.query,
     }
